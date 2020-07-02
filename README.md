@@ -20,15 +20,16 @@
 働く人がよりお互いを思い合って働けるサービスを提供したいと考えたからです。<br>
 
 ### ターゲットユーザ
-導入先企業で働く社員（とその顧客など）<br>
-※対外的な働きをしている社員に対して外部（顧客など）からも感謝を投稿できるようにしたいと考えています。
+導入先企業で働く社員
 
 ### 主な利用シーン
 感謝を表現したい時
 
 ## 設計書
-[管理者ワイヤーフレーム](https://app.diagrams.net/#G1DngPQFpcCuxU0NKNSVKbqf2ePR2u7JUf)<br>
-[ユーザーワイヤーフレーム](https://app.diagrams.net/#G1l9102QeSPrv3IIQ05bdY7Kd7d7ZPfYgL)<br>
+[Adminワイヤーフレーム](https://app.diagrams.net/#G1DngPQFpcCuxU0NKNSVKbqf2ePR2u7JUf)<br>
+[Userワイヤーフレーム](https://app.diagrams.net/#G1l9102QeSPrv3IIQ05bdY7Kd7d7ZPfYgL)<br>
+[UI_Flows_Admin](https://app.diagrams.net/#G1H1tlf6qJ0abrRmux3LF5yeQ_bc0u8AgT)<br>
+[UI_Flows_User](https://app.diagrams.net/#G1QCwq7zIU2CqByudgxAFem2cCAnIZu9Wo)<br>
 [ER図](https://app.diagrams.net/#G1G6fu3wetSF8ObgSZb6vQUfn9jT4QXe3Z)<br>
 
 ### 機能一覧
