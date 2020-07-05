@@ -67,7 +67,7 @@ gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
