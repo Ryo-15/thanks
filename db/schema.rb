@@ -46,7 +46,8 @@ ActiveRecord::Schema.define(version: 2020_07_05_054138) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
     t.text "post", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_07_05_054138) do
     t.string "last_name_kana", default: "", null: false
     t.string "first_name_kana", default: "", null: false
     t.string "profile_image_id"
-    t.string "department_id"
+    t.integer "department_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

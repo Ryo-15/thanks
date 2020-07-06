@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only:[:show, :edit, :update]
 
   namespace :admins do
-    # get "top" => "homes#top", as: "top"
+    get "top" => "homes#top", as: "top"
     resources :users, only:[:index, :new, :create, :show, :edit, :update, :destroy]
     resources :departments, only:[:index, :create, :edit, :update, :destroy]
   end

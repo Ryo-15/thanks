@@ -37,7 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name_kana,  null: false, default: ""
       t.string :first_name_kana, null: false, default: ""
       t.string :profile_image_id
-      t.string :department_id
+      t.integer :department_id,  null: false, default: ""
       t.timestamps null: false
     end
 

@@ -1,24 +1,36 @@
 <header>
-  <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "Thanks!", root_path, class: 'navbar-brand' %>
-    <div id="Navber">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
-        <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        <% end %>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <%= link_to "Thanks!", root_path, class: 'navbar-brand js-scroll-trigger' %>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item user_name"><h5>ようこそ、<%= current_user.last_name + current_user.first_name %>さん！</h5></li>
+                <li class="nav-item"><%= link_to 'Timeline', posts_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'Thanks', new_post_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'Rank', posts_rank_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item"><%= link_to 'Top（仮）', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to '投稿一覧（仮）', posts_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'ユーザー新規追加', new_user_registration_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to '部署一覧/作成', admins_departments_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'マイページ', edit_admin_registration_path(current_admin), class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
+              <% else %>
+                <li class="nav-item"><%= link_to "Top", root_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to "About", about_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to "Login", new_user_session_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to "Countast Us", contact_path, class: 'nav-link js-scroll-trigger' %></li>
+              <% end %>
+            </ul>
+        </div>
     </div>
   </nav>
 </header>

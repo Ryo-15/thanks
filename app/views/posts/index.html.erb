@@ -1,0 +1,40 @@
+<%# 投稿内容 %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-sm-offset-2">
+      <div class="masonry-wrapper-cols">
+        <div class="masonry-gutter"></div>
+          <%# コントローラから渡されたpost_images変数内から1つずつ取り出して、post_image変数へ格納 %>
+          <% @posts.each do |post| %>
+          <div class="masonry-block">
+            <div class="block block-image v1">
+              <div class="block-image">
+                <div class="view view-first">
+                <%# 画像にリンクを埋め込む %>
+                <%= link_to post_path(post.id) do %>
+                  <%# attachment_image_tagは、refile側が用意したヘルパーで、<img>タグを作成 %>
+                  <%# post_image変数のimage_idに保存された画像の<img>タグを生成 %>
+                  <%= attachment_image_tag post_image, :image %>
+                <% end %>
+                </div>
+              </div>
+              <div class="block-content">
+                <%# プロフィール画像 %>
+                <%# attachment_image_tag 保存先インスタンス名, :保存先カラム名, :サイズ（横幅,高さ）, 画像拡張子, 代替画像 %>
+                <%= attachment_image_tag post.user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "40x40", class: "img-circle pull-left profile-thumb" %>
+                    <%# post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示 %>
+                    <%= post.user.name %>
+                  <li>
+                    <%# コメント件数を表示する記述 %>
+                    <%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <%= paginate @posts, class: "paginate" %>
+      </div>
+    </div>
+  </div>
+</div>

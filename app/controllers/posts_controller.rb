@@ -44,6 +44,10 @@ class PostsController < ApplicationController
     # redirect_to user_path(), notice: "Book was successfully destroyed"
   end
 
+  def rank
+    
+  end
+
   # #画面遷移防止のため、定義
   # def correct_user
   #   # bookについているidを呼び出し

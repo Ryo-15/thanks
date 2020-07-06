@@ -1,0 +1,18 @@
+<table class="admin_customer_index has_border">
+	<thead>
+		<th>ユーザーID</th>
+		<th>名前</th>
+		<th>フリガナ</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= user.full_name %></td>
+				<td><%= user.full_name_kana %></td>
+				<td><%= link_to "詳細", admins_user_path(user), class: "btn btn-primary" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
