@@ -7,14 +7,14 @@ Rails.application.routes.draw do
     devise_for :users
   end
 
-  get '/' => 'homes#top', as: 'root'
-  get '/about' => 'homes#about'
-  get '/contact' => 'homes#contact'
+  get "/" => "homes#top", as: "root"
+  get "/about" => "homes#about"
+  get "/contact" => "homes#contact"
 
   resources :users, only:[:show, :edit, :update]
 
   namespace :admins do
-    get 'top' => 'homes#top', as: 'top'
+    # get "top" => "homes#top", as: "top"
     resources :users, only:[:index, :new, :create, :show, :edit, :update, :destroy]
     resources :departments, only:[:index, :create, :edit, :update, :destroy]
   end
@@ -25,6 +25,5 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create, :destroy]
     resource :post_comments, only:[:create, :edit, :update, :destroy]
   end
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

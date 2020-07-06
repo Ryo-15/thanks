@@ -1,2 +1,2 @@
-module PostcommentsHelper
+module PostCommentsHelper
 end
