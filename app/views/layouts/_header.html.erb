@@ -19,9 +19,9 @@
                 <li class="nav-item"><%= link_to 'Top（仮）', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
                 <li class="nav-item"><%= link_to '投稿一覧（仮）', posts_path, class: 'nav-link js-scroll-trigger' %></li>
                 <li class="nav-item"><%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %></li>
-                <li class="nav-item"><%= link_to 'ユーザー新規追加', new_user_registration_path, class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to 'ユーザー新規登録', new_user_registration_path, class: 'nav-link js-scroll-trigger' %></li>
                 <li class="nav-item"><%= link_to '部署一覧/作成', admins_departments_path, class: 'nav-link js-scroll-trigger' %></li>
-                <li class="nav-item"><%= link_to 'マイページ', edit_admin_registration_path(current_admin), class: 'nav-link js-scroll-trigger' %></li>
+                <li class="nav-item"><%= link_to '管理者情報変更', edit_admin_registration_path(current_admin), class: 'nav-link js-scroll-trigger' %></li>
                 <li class="nav-item"><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
               <% else %>
                 <li class="nav-item"><%= link_to "Top", root_path, class: 'nav-link js-scroll-trigger' %></li>

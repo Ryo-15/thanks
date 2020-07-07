@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>ユーザー新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -36,7 +36,8 @@
   <div class="field">
     <div class="row">
       <div class="col-xs-2  space">
-        <%= f.label :所属部署 %>
+        <%= f.label :department_id, "所属部署名" %>
+        <%# 要確認 %>
         <%= f.collection_select :department_id, Department.all, :id, :name, include_blank: '選択してください' %>
       </div>
     </div>
@@ -61,7 +62,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 

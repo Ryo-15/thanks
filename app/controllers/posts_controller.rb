@@ -1,21 +1,27 @@
 class PostsController < ApplicationController
+  #before_action :search, only: [:index, :new, :create, :show, :edit, :update, :destory]
   def index
     @posts = Post.page(params[:page]).per(10).reverse_order
   end
 
   def new
     @post = Post.new
+    @search = User.ransack(params[:q])
+    @users = @search.result(distinct: true)
   end
 
   def create
     @user = User.find(current_user.id)
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.sender_id = current_user.id
+    @post = current_user.posts.build(post_params)
+    @post.receiver_id = @user.id
     if @post.save
-      # redirect_to ("/books/#{@book.id}"),notice:'You have creatad book successfully.'
+      flash[:success] = 'ありがとうを投稿しました。'
+      redirect_back(fallback_location: posts_path)
     else
-      @posts = Post.page(params[:page]).per(10).reverse_order
-      render :index
+      flash[:danger] = 'ありがとうを投稿できませんでした。'
+      redirect_back(fallback_location: posts_path)
     end
   end
 
@@ -32,7 +38,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      # redirect_to book_path(@book), notice:'You have updated book successfully.'
+      flash[:success] = '投稿を更新しました。'
+      redirect_back(fallback_location: posts_path)
     else
       render :edit
     end
@@ -41,11 +48,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    # redirect_to user_path(), notice: "Book was successfully destroyed"
+    flash[:success] = '投稿を削除しました。'
+    redirect_back(fallback_location: posts_path)
   end
 
   def rank
-    
+
   end
 
   # #画面遷移防止のため、定義
@@ -60,6 +68,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :user_id, :post)
+    params.require(:post).permit(:sender_id, :receiver_id, :post)
   end
 end

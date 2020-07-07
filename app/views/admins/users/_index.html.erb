@@ -3,14 +3,16 @@
 		<th>ユーザーID</th>
 		<th>名前</th>
 		<th>フリガナ</th>
-		<th></th>
+		<th>所属部署名</th>
 	</thead>
 	<tbody>
 		<% users.each do |user| %>
 			<tr>
 				<td><%= user.id %></td>
+				<td><%= attachment_image_tag user, :profile_image_id, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "40x40" %></td>
 				<td><%= user.full_name %></td>
 				<td><%= user.full_name_kana %></td>
+				<td><%= user.department.name %></td>
 				<td><%= link_to "詳細", admins_user_path(user), class: "btn btn-primary" %></td>
 			</tr>
 		<% end %>

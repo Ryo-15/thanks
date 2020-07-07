@@ -1,0 +1,44 @@
+<section class="inner">
+	<h2 class="section-ttl"><%= @user.full_name %>さんのページ</h2>
+	<table class="customer_info">
+		<thead>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>会員ID</td>
+				<td colspan="2"><%= @user.id %></td>
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td>(姓) <%= @user.last_name %></td>
+				<td>(名) <%= @user.first_name %></td>
+			</tr>
+			<tr>
+				<td>フリガナ</td>
+				<td>(セイ) <%= @user.last_name_kana %></td>
+				<td>(メイ) <%= @user.first_name_kana %></td>
+			</tr>
+      <tr>
+				<td>所属部署名</td>
+				<td colspan="2"><%= @user.department.name %></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td colspan="2"><%= @user.email %></td>
+			</tr>
+      <tr>
+				<td>パスワード</td>
+        <%# 要確認 %>
+				<td colspan="2"><%= @user.password %></td>
+			</tr>
+			<tr>
+      <%# 要確認 %>
+				<td><%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-success" %></td>
+			</tr>
+		</tbody>
+	</table>
+</section>

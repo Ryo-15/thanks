@@ -34,7 +34,8 @@ User.create!(
       first_name_kana: "トモヒサ",
       department_id: 1,
       email: "0@0",
-      password: "000000"
+      password: "000000",
+      profile_image_id: File.open("./app/assets/images/man.jpeg", ?r)
     },
     {
       last_name: "西野",
@@ -43,7 +44,8 @@ User.create!(
       first_name_kana: "ナナセ",
       department_id: 2,
       email: "1@1",
-      password: "111111"
+      password: "111111",
+      profile_image_id: File.open("./app/assets/images/woman.jpeg", ?r)
     }
   ]
   )
