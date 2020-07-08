@@ -14,7 +14,7 @@ class Admins::UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 		@user.update(user_params)
-		# redirect_to admins_user_path(@user.id)
+		redirect_to admins_user_path(@user.id)
   end
 
   private

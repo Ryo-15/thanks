@@ -1,5 +1,5 @@
 <section class="inner">
-	<h2 class="section-ttl"><%= @user.full_name %> さんの会員情報編集</h2>
+	<h2 class="section-ttl"><%= @user.full_name %> さんの個人情報編集</h2>
 	<%= form_for(@user, url: admins_user_path(@user)) do |f| %>
 		<%# <%= render 'layouts/error_messages', resource: @user %> %>
 		<table class="customer_info customer_form">
@@ -11,6 +11,10 @@
 				<th></th>
 			</thead>
 			<tbody>
+				<tr>
+					<td><%= f.label :profile_image %></td>
+					<td colspan="2"><%= f.attachment_field :profile_image, class: "user_image" %></td>
+				</tr>
 				<tr>
 					<td>名前</td>
           <td><%= f.label :last_name, "(姓)", class: "user_name" %> <%= f.text_field :last_name, :placeholder =>"#{@user.last_name}" %></td>

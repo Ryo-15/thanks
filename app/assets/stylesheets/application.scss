@@ -19,6 +19,19 @@
   box-sizing: border-box;
 }
 
+.yield {
+  margin-top: 70px;
+}
+
+.profile-img {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width: 100px;  /* 縦横を同じ値にする */
+    height: 100px;  /* 縦横を同じ値にする */
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 20px 0 10px;
+    object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+}
+
 // html {
 //   font-family: sans-serif;
 //   line-height: 1.15;

@@ -1,7 +1,8 @@
 <table class="admin_customer_index has_border">
 	<thead>
-		<th>ユーザーID</th>
-		<th>名前</th>
+		<th>社員ID</th>
+		<th>プロフィール画像</th>
+		<th>氏名</th>
 		<th>フリガナ</th>
 		<th>所属部署名</th>
 	</thead>
@@ -9,7 +10,7 @@
 		<% users.each do |user| %>
 			<tr>
 				<td><%= user.id %></td>
-				<td><%= attachment_image_tag user, :profile_image_id, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "40x40" %></td>
+				<td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "40x40" %></td>
 				<td><%= user.full_name %></td>
 				<td><%= user.full_name_kana %></td>
 				<td><%= user.department.name %></td>

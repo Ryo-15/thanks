@@ -1,44 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 post_image_form">
-          <div class="section-title-wrapper style-1 v1">
-            <h3 class="section-title section-title-sm left">
-              <span>ありがとうを送ろう</span>
-            </h3>
-          </div>
-          <%# ユーザー検索できているかをまず確認 %>
-          <%# 場合によっては検索結果と投稿を切り分ける %>
-          <%# newのパスを指定する %>
-          <%= search_form_for @search, url:posts/new do |f| %>
-            <%= f.label :name, "ユーザー名" %>
-            <%= f.search_field :full_name_or_full_name_kana_cont, autofocus: true, placeholder: "検索キーワード" %>
-            <%= f.submit "検索" %>
-          <% end %>
-          <% @users.each do |user| %>
-            <%= user.full_name %>
-          <% end %>
-
-          <%# 新規投稿フォーム %>
-          <%= form_with(url: posts_path, local: true) do |f| %>
-            <% if @post.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= @post.errors.count %>件のエラーが発生しました。</h2>
-                <ul>
-                <% @post.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
-            <%# <%= render 'search', search: @search %>
-            <%# 検索結果ユーザーをhiddenfieldで持っていく、receiver_idで保存 %>
-            <%= f.text_area :post, class:"form-control", rows:"3", placeholder:"ありがとうの気持ちをここに" %>
-            <%= f.submit "送信", class:"btn btn-lg btn-block btn btn-primary" %>
-          <% end %>
-        </div>
+    <div class="col-md-6 col-md-offset-3 post_image_form">
+      <div class="section-title-wrapper style-1 v1">
+        <h3 class="section-title section-title-sm left">
+          <span>ありがとうを送ろう</span>
+        </h3>
       </div>
+      <%# 検索フォーム %>
+      <%= render 'search', search: @search %>
+      <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
+        <% if @post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= @post.errors.count %>件のエラーが発生しました。</h2>
+            <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%# 非同期で自動選択を実装する %>
+        <%= f.collection_select(:receiver_id, @users, :id, :full_name, include_blank: '送る相手を検索しましょう' ) %><br>
+        <%= f.hidden_field :sender_id, :value => current_user.id %>
+        <%= f.text_area :post, class:"form-control", rows:"3", placeholder:"ありがとうの気持ちをここに" %>
+        <%= f.submit "送信", class:"btn btn-lg btn-block btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

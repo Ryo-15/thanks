@@ -8,9 +8,8 @@ class PostCommentsController < ApplicationController
     # @book_comment.book_id = params[:book_id].to_i
     @post_comment.save
     @post_comments = Post.find(params[:post_id]).post_comments
-    # ↓直線の画面に戻るリダイレクト（＋できなかった場合のパス）
-    # redirect_back(fallback_location: books_path)
-    # 非同期通信にするためコメントアウトした
+    redirect_back(fallback_location: post_path(post.id))
+    # 非同期通信にするため後でコメントアウトする
   end
 
   def edit
@@ -25,9 +24,8 @@ class PostCommentsController < ApplicationController
     @post_comment = PostComment.find(params[:post_id])
     @post_comment.destroy
     @post_comments = Post.find(@post_comment.post_id).post_comments
-    # ↓直線の画面に戻るリダイレクト（＋できなかった場合のパス）
-    # redirect_back(fallback_location: books_path)
-    # 非同期通信にするためコメントアウトした
+    redirect_back(fallback_location: post_path(post.id))
+    # 非同期通信にするため後でコメントアウトする
   end
 
   private

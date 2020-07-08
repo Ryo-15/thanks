@@ -7,17 +7,16 @@
   </thead>
   <tbody>
     <tr>
-      <%# <td><%= attachment_image_tag @user, :profile_image_id, class: "profile-img", fallback: "no_image.jpg", size:"320x180" %></td> %>
+      <%# 画像表示がうまくいかない %>
+      <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
     </tr>
     <tr>
       <td>氏名</td>
-      <td><%= @user.last_name %></td>
-      <td><%= @user.first_name %></td>
+      <td><%= @user.full_name %></td>
     </tr>
     <tr>
       <td>フリガナ</td>
-      <td><%= @user.last_name_kana %></td>
-      <td><%= @user.first_name_kana %></td>
+      <td><%= @user.full_name_kana %></td>
     </tr>
     <tr>
       <td>所属部署</td>

@@ -6,8 +6,8 @@
           <div class="post-content">
               <ul class="meta-info-cells v4 float-wrapper">
                 <li>
-                <%= attachment_image_tag @post.sender_profile_image, :image %>
-                  <%= @post.sender.name %></a>
+                <%= attachment_image_tag @post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "80x80" %>
+                <%= @post.sender.full_name %>
                 </li>
                 <li>
                   <i class="fa fa-calendar"></i><%= @post.created_at.strftime('%Y/%m/%d') %>
@@ -34,10 +34,10 @@
                   <a href="#comments"><%= @post.post_comments.count %></a>
                 </li>
                 <li>
-                  <%# もし画像投稿ユーザーとログインユーザーが一致したら %>
+                  <%# もし投稿ユーザーとログインユーザーが一致したら %>
                   <% if @post.sender == current_user %>
-                    <%# 削除ボタン %>
-                    <%= link_to "削除", post_path(@post), method: :delete %>
+                    <%= link_to '編集する', edit_post_path(@post), class: "btn-lg btn-primary" %>
+                    <%= link_to "削除", post_path(@post), method: :delete, class: "btn-lg btn-danger" %>
                   <% end %>
                 </li>
               </ul>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="comment-text">
                       <div class="comment-author clearfix">
-                        <a href="#"><%= post_comment.user.name %></a>
+                        <a href="#"><%= post_comment.user.full_name %></a>
                         <span class="comment-meta">
                           <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
                         </span>
@@ -73,16 +73,12 @@
               <% end %>
             </ol>
           </div>
-          <hr>
-
-          <!-- Add comment section -->
           <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
             <h3 class="section-title left">
               <span>コメント</span>
             </h3>
           </div>
-          <%# <form class="mt-20"> %>
-          <%# コメントは、post_imageに結びついたpost_commentにあるため、2つ用意する %>
+          <%# コメントは、postに結びついたpost_commentにあるため、2つ用意する %>
           <%= form_for [@post, @post_comment] do |f| %>
             <div class="row">
               <div class="col-sm-12">
@@ -91,7 +87,6 @@
             </div>
             <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
           <% end %>
-          <%# </form> %>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get "posts/finish" => "posts#finish"
   get "posts/rank" => "posts#rank"
-  get "posts/search" => "posts#search"
+  # get "posts/search" => "posts#search"
   resources :posts, only:[:index, :new, :create, :show, :edit, :update, :destroy]do
     resource :favorites, only:[:create, :destroy]
     resource :post_comments, only:[:create, :edit, :update, :destroy]

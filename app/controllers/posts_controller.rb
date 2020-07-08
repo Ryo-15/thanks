@@ -5,20 +5,17 @@ class PostsController < ApplicationController
   end
 
   def new
+    @user = User.find(current_user.id)
     @post = Post.new
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true)
   end
 
   def create
-    @user = User.find(current_user.id)
     @post = Post.new(post_params)
-    @post.sender_id = current_user.id
-    @post = current_user.posts.build(post_params)
-    @post.receiver_id = @user.id
     if @post.save
       flash[:success] = 'ありがとうを投稿しました。'
-      redirect_back(fallback_location: posts_path)
+      redirect_to posts_finish_path
     else
       flash[:danger] = 'ありがとうを投稿できませんでした。'
       redirect_back(fallback_location: posts_path)
@@ -27,7 +24,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = User.find(@post.user_id)
     @post_comment = PostComment.new
   end
 
@@ -49,7 +45,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = '投稿を削除しました。'
-    redirect_back(fallback_location: posts_path)
+    redirect_to posts_path
   end
 
   def rank
