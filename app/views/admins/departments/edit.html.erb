@@ -1,4 +1,10 @@
-<section class="inner">
-	<h2 class="section-ttl">部署名編集</h2>
-  <%= render 'form', department: @department, url: admins_department_path(@department), submit: '更新' %>
-</section>
+<div class="container yield">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <section class="inner">
+        <h2 class="section-ttl">部署名編集</h2>
+        <%= render 'form', department: @department, url: admins_department_path(@department), submit: '更新' %>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,50 +1,15 @@
 <section class="sct-color-1 slice">
-  <div class="container">
+  <div class="container-fluid yield">
     <div class="row">
-      <div class="col-md-12 post_images_container">
+      <div class="col-12">
         <div class="post-item">
           <div class="post-content">
               <ul class="meta-info-cells v4 float-wrapper">
-                <li>
-                <%= attachment_image_tag @post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "80x80" %>
-                <%= @post.sender.full_name %>
-                </li>
-                <li>
-                  <i class="fa fa-calendar"></i><%= @post.created_at.strftime('%Y/%m/%d') %>
-                </li>
-                <%# 投稿画像に付けられた「いいね」に自分（ログインユーザ）が含まれているかをfavorited_by?メソッドで判定 %>
-                <% if @post.favorited_by?(current_user) %>
-                <li>
-                  <%= link_to post_favorites_path(@post), method: :delete do %>
-                  <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-                  <%= @post.favorites.count %>いいね
-                  <% end %>
-                </li>
-                <% else %>
-                <li>
-                  <%= link_to post_favorites_path(@post), method: :post do %>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i>
-                  <%= @post.favorites.count %>いいね
-                  <% end %>
-                </li>
-                <% end %>
-                <li>
-                  <%# コメント件数を記述 %>
-                  <i class="fa fa-comment"></i>
-                  <a href="#comments"><%= @post.post_comments.count %></a>
-                </li>
-                <li>
-                  <%# もし投稿ユーザーとログインユーザーが一致したら %>
-                  <% if @post.sender == current_user %>
-                    <%= link_to '編集する', edit_post_path(@post), class: "btn-lg btn-primary" %>
-                    <%= link_to "削除", post_path(@post), method: :delete, class: "btn-lg btn-danger" %>
-                  <% end %>
-                </li>
-              </ul>
-          </div>
-
+                <%# 投稿詳細部分テンプレート %>
+                <div class="post_<%= @post.id %>">
+                  <%= render 'detail', post: @post %>
+                </div>
           <div class="comment-list bt style-2" id="comments">
-            <%# コメント件数を記述 %>
             <div class="float-wrapper">
               <h2 class="comment-count"><%= @post.post_comments.count %>件コメント</h2>
             </div>
@@ -54,9 +19,7 @@
                   <div class="comment-body bb">
                     <div class="comment-avatar">
                       <div class="avatar">
-                        <!-- <img src="images/sample-author1.jpg"> -->
-                        <%# プロフィール画像 %>
-                        <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+                        <%= attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %>
                       </div>
                     </div>
                     <div class="comment-text">
@@ -78,14 +41,13 @@
               <span>コメント</span>
             </h3>
           </div>
-          <%# コメントは、postに結びついたpost_commentにあるため、2つ用意する %>
           <%= form_for [@post, @post_comment] do |f| %>
             <div class="row">
               <div class="col-sm-12">
                 <%= f.text_area :comment, rows:'5', class: "form-control", placeholder: "コメントをここに" %>
               </div>
             </div>
-            <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+            <%= f.submit "送信する", class: "btn btn-lg btn-block btn btn-primary" %>
           <% end %>
         </div>
       </div>

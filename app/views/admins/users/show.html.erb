@@ -1,46 +1,51 @@
-<section class="inner">
-	<h2 class="section-ttl"><%= @user.full_name %>さんのページ</h2>
-	<table class="customer_info">
-		<thead>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</thead>
-		<tbody>
-			<tr>
-				<td>社員ID</td>
-				<td colspan="2"><%= @user.id %></td>
-			</tr>
-			<tr>
-				<td>プロフィール画像</td>
-				<td colspan="2"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "40x40" %></td>
-			</tr>
-			<tr>
-				<td>氏名</td>
-				<td><%= @user.full_name %></td>
-			</tr>
-			<tr>
-				<td>フリガナ</td>
-				<td><%= @user.full_name_kana %></td>
-			</tr>
-      <tr>
-				<td>所属部署名</td>
-				<td colspan="2"><%= @user.department.name %></td>
-			</tr>
-			<tr>
-				<td>メールアドレス</td>
-				<td colspan="2"><%= @user.email %></td>
-			</tr>
-      <tr>
-				<td>パスワード</td>
-        <%# 要確認 %>
-				<td colspan="2"><%= @user.password %></td>
-			</tr>
-			<tr>
-      <%# 要確認 %>
-				<td><%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-success" %></td>
-			</tr>
-		</tbody>
-	</table>
-</section>
+<div class="container yield">
+  <div class="row">
+    <div class="col-10 offset-1">
+			<section class="inner">
+				<h2 class="section-ttl"><%= @user.full_name %>さんのページ</h2>
+				<table class="customer_info">
+					<thead>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>社員ID</td>
+							<td colspan="2"><%= @user.id %></td>
+						</tr>
+						<tr>
+							<td>プロフィール画像</td>
+							<td colspan="2"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %></td>
+						</tr>
+						<tr>
+							<td>氏名</td>
+							<td><%= @user.full_name %></td>
+						</tr>
+						<tr>
+							<td>フリガナ</td>
+							<td><%= @user.full_name_kana %></td>
+						</tr>
+						<tr>
+							<td>所属部署名</td>
+							<td colspan="2"><%= @user.department.name %></td>
+						</tr>
+						<tr>
+							<td>メールアドレス</td>
+							<td colspan="2"><%= @user.email %></td>
+						</tr>
+						<tr>
+							<td>パスワード</td>
+							<%# 要確認 %>
+							<td colspan="2"><%= @user.password %></td>
+						</tr>
+						<tr>
+							<td><%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-success" %></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</div>
+</div>

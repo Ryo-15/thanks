@@ -1,28 +1,34 @@
-<section class="inner">
-	<h3 class="section-ttl">所属部署管理</h3>
-	<div class="mb3">
-		<h4>所属部署新規登録</h4>
-    <%= render 'form', department: @department, url: admins_departments_path, submit: '登録' %>
+<div class="container yield">
+	<div class="row">
+		<div class="col-10 offset-1">
+			<section class="inner">
+				<h3 class="section-ttl">所属部署管理</h3>
+				<div class="mb3">
+					<h4>所属部署新規登録</h4>
+					<%= render 'form', department: @department, url: admins_departments_path, submit: '登録' %>
+				</div>
+				<div class="mb3">
+					<h4>所属部署一覧</h4>
+					<table class="genre_info has_border">
+						<thead>
+							<tr>
+								<th>部署ID</th>
+								<th>部署名</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @departments.each do |department| %>
+								<tr>
+									<td><%= department.id %></td>
+									<td><%= department.name %></td>
+									<td class="text-center"><%= link_to "編集", edit_admins_department_path(department), class: "btn btn-success" %></td>
+									<td class="text-center"><%= link_to "削除", admins_department_path(department), method: :delete, class: "btn btn-danger" %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
 	</div>
-	<div class="mb3">
-		<h4>所属部署一覧</h4>
-		<table class="genre_info has_border">
-			<thead>
-				<tr>
-					<th>部署ID</th>
-					<th>部署名</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @departments.each do |department| %>
-					<tr>
-            <td><%= department.id %></td>
-            <td><%= department.name %></td>
-						<td class="text-center"><%= link_to "編集", edit_admins_department_path(department), class: "btn btn-success" %></td>
-						<td class="text-center"><%= link_to "削除", admins_department_path(department), method: :delete, class: "btn btn-danger" %></td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-</section>
+</div>
