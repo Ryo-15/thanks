@@ -21,7 +21,7 @@
 }
 
 .yield {
-  margin-top: 70px;
+  // margin-top: 70px;
 }
 
 .profile-img {
@@ -38,11 +38,11 @@
 }
 
 // 「ログインしました」などのフラッシュ用スタイル
-.alert-notice {
+.notice {
   @extend .alert-info;
 }
 
-.alert-alert {
+.alert {
   @extend .alert-danger;
 }
 

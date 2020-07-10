@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user.id)
+    # ログインユーザーの投稿された件数、過去の内容を表示したい
+    # @posts = Post.find_by(receiver_id: @user.id)
   end
 
   def edit

@@ -1,11 +1,9 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-10 offset-1">
-      <div class="section-title-wrapper style-1 v1">
-        <h3 class="section-title section-title-sm left">
-          <span>ありがとうを送ろう</span>
-        </h3>
-      </div>
+      <h3 class="section-title section-title-sm left">
+        <span>ありがとうを送ろう</span>
+      </h3>
       <%# 検索フォーム %>
       <%= render 'search', search: @search %>
       <%= form_with(model:@post, url: posts_path, local: true) do |f| %>

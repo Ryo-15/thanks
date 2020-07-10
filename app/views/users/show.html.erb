@@ -35,9 +35,13 @@
         <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-success ml2" %>
         <div>その他個人情報の変更は管理者へご連絡ください</div>
       <% end %>
-      <h3>もらったThanks</h3>
       <div>もらったTanaksの件数</div>
-      <div>もらったTanaksの内容</div>
+      <%# <%= @post.receiver_id.count %> %>
+      <h3>もらったThanks</h3>
+      <%# <%= render 'post/index', posts: @posts %> %>
+      <div class="d-flex justify-content-center">
+        <%# <%= paginate @posts, class: "pagination" %> %>
+      </div>
     </div>
   </div>
 </div>

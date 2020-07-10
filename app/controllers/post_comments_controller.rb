@@ -1,28 +1,32 @@
 class PostCommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @post_comment = current_user.post_comments.new(post_comment_params)
-    @post_comment.post_id = @post.id
-    @post_comment.save
-    redirect_back(fallback_location: post_path(post.id))
-    # 非同期通信にするため後でコメントアウトする
-    @post_comments = Post.find(params[:post_id]).post_comments
+    # @post_comment = current_user.post_comments.new(post_comment_params)
+    # @post_comment.post_id = @post.id
+    @post_comment = @post.post_comments.new(post_comment_params)
+    @post_comment.user_id = current_user.id
+    if @post_comment.save
+      flash[:success] = "Comment was successfully created."
+    else
+      @post_comments = PostComment.where(id: @post)
+    end
   end
 
-  def edit
+  # def edit
     
-  end
+  # end
 
-  def update
+  # def update
     
-  end
+  # end
 
   def destroy
     @post_comment = PostComment.find(params[:post_id])
+    @post = @post_comment.post
+    if @post_comment.user != current_user
+      redirect_to request.referer
+    end
     @post_comment.destroy
-    @post_comments = Post.find(@post_comment.post_id).post_comments
-    redirect_back(fallback_location: post_path(post.id))
-    # 非同期通信にするため後でコメントアウトする
   end
 
   private
