@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   # 検索
-
   def search
     @search = User.ransack(params[:q])
     # @users = @search.result(distinct: true)

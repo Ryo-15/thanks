@@ -50,9 +50,7 @@ class PostsController < ApplicationController
   end
 
   def rank
-    # @post_receive_ranker = Post.group(:receiver_id).order('count_all DESC').limit(5).count.to_a
-    # @post_send_ranker = Post.group(:sender_id).order('count_all DESC').limit(5).count.to_a
-    # @post_favorite_ranker = Post.joins(:favorites).group(:post_id).order('count_all DESC').limit(5).count.to_a
+    # 期間を指定するための記述を追加する
     @receiver_ranks = User.find(Post.group(:receiver_id).order('count(receiver_id) desc').limit(3).pluck(:receiver_id))
     @sender_ranks = User.find(Post.group(:sender_id).order('count(sender_id) desc').limit(3).pluck(:sender_id))
     @post_ranks = Post.find(Favorite.group(:user_id).order('count(user_id) desc').limit(3).pluck(:user_id))

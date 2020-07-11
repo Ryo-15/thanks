@@ -72,10 +72,12 @@ gem 'devise-i18n'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
 
-# レイアウト関連
+# Bootstrap4
 gem 'bootstrap', '~> 4.5.0'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
+
+# ページネーション
 gem 'kaminari','~> 1.2.1'
 
 # デバッグ
@@ -89,3 +91,6 @@ gem 'rubocop-airbnb'
 
 # 環境変数
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
