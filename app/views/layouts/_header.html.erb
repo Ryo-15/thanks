@@ -4,7 +4,7 @@
       <% if user_signed_in? %>
         <%= link_to "Thanks!", posts_path, class: 'navbar-brand js-scroll-trigger' %>
       <% elsif admin_signed_in? %>
-        <%= link_to "Thanks!", admins_path, class: 'navbar-brand js-scroll-trigger' %>
+        <%= link_to "Thanks!", admins_top_path, class: 'navbar-brand js-scroll-trigger' %>
       <% else %>
         <%= link_to "Thanks!", root_path, class: 'navbar-brand js-scroll-trigger' %>
       <% end %>
@@ -15,7 +15,9 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-            <li class="nav-item user_name align-middle"><h5>ようこそ、<%= current_user.full_name %>さん！</h5></li>
+            <li class="nav-item user_name align-middle">
+              <p>ようこそ、<%= attachment_image_tag current_user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"40x40" %><%= current_user.full_name %>さん！</p>
+            </li>
             <li class="nav-item"><%= link_to 'Timeline', posts_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'Thanks', new_post_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'Rank', posts_rank_path, class: 'nav-link js-scroll-trigger' %></li>

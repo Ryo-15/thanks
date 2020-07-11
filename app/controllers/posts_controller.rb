@@ -50,30 +50,12 @@ class PostsController < ApplicationController
   end
 
   def rank
-    # ランキングを月ごとの表示にする
-    if params[:pre_preview].present?
-      @target_month = Date.parse(params[:pre_preview]) << 1
-    elsif params[:next_preview].present?
-      @target_month = Date.parse(params[:next_preview]) >> 1
-    else
-      @target_month = Time.current.to_date << 1
-    end
-    @post_receive_ranker = Post.group(:receiver_id).order('count_all DESC').limit(5).count.to_a
-    @post_send_ranker = Post.group(:sender_id).order('count_all DESC').limit(5).count.to_a
-    @post_favorite_ranker = Post.joins(:favorites).group(:post_id).order('count_all DESC').limit(5).count.to_a
-    # @post_receiver_name = Post.joins(:user).group("users.last_name").order('count_all DESC').limit(5).count.to_a
-    # ユーザーID、1ヶ月分で絞り込み
-    # @ranks = User.joins(:posts)
-    #             .select("posts.user_id
-    #                     ,count(posts.receiver_id) as receiver
-    #                     ,to_char(posts.created_at,'YYYY') as post_year
-    #                     ,to_char(posts.created_at,'MM') as post_month
-    #                     ,round(sum(items.study_hour) + (cast(sum(items.study_minutes) as decimal)  / 60),2) as receive_total
-    #                     ,RANK () OVER (PARTITION BY to_char(posts.created_at,'YYYY'),to_char(posts.created_at,'MM') order by (count(posts.receiver_id) desc) as rank_number")
-    #             .where(post_date: @target_month.all_month)
-    #             .group("to_char(posts.study_date,'YYYY')
-    #                     ,to_char(posts.study_date,'MM')
-    #                     ,posts.user_id")
+    # @post_receive_ranker = Post.group(:receiver_id).order('count_all DESC').limit(5).count.to_a
+    # @post_send_ranker = Post.group(:sender_id).order('count_all DESC').limit(5).count.to_a
+    # @post_favorite_ranker = Post.joins(:favorites).group(:post_id).order('count_all DESC').limit(5).count.to_a
+    @receiver_ranks = User.find(Post.group(:receiver_id).order('count(receiver_id) desc').limit(3).pluck(:receiver_id))
+    @sender_ranks = User.find(Post.group(:sender_id).order('count(sender_id) desc').limit(3).pluck(:sender_id))
+    @post_ranks = Post.find(Favorite.group(:user_id).order('count(user_id) desc').limit(3).pluck(:user_id))
   end
 
   # #画面遷移防止のため、定義

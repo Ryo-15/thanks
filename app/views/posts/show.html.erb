@@ -8,9 +8,6 @@
             <%= render 'detail', post: @post %>
           </div>
           <div class="comment-list bt style-2" id="comments">
-            <div class="float-wrapper">
-              <h2 class="comment-count far fa-comment"><%= @post.post_comments.count %>コメント</h2>
-            </div>
             <ol>
               <%# コメント部分テンプレート %>
               <div class="show-tb comment_<%= @post.id %>">
@@ -18,11 +15,9 @@
               </div>
             </ol>
           </div>
-          <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
-            <h3 class="section-title left">
-              <span calss="far fa-comment">コメント</span>
-            </h3>
-          </div>
+          <h3 class="section-title left">
+            <span calss="far fa-comment">コメント</span>
+          </h3>
           <%# コメント投稿フォーム %>
           <div class="comment-form">
             <%= form_with model:[@post, @post_comment], data: {remote: true} do |f| %>

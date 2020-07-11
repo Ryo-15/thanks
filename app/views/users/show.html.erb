@@ -35,9 +35,11 @@
         <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-success ml2" %>
         <div>その他個人情報の変更は管理者へご連絡ください</div>
       <% end %>
+      <div>ここから対象ユーザーにthanks投稿できるようにする</div>
       <div>もらったTanaksの件数</div>
       <%# <%= @post.receiver_id.count %> %>
-      <h3>もらったThanks</h3>
+      <h3>もらったThanks（自分は全件）</h3>
+      <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
       <%# <%= render 'post/index', posts: @posts %> %>
       <div class="d-flex justify-content-center">
         <%# <%= paginate @posts, class: "pagination" %> %>

@@ -1,6 +1,16 @@
 class Admins::UsersController < ApplicationController
   def index
-		@users = User.page(params[:page]).per(10)
+    @users = User.page(params[:page]).per(10)
+    @departments = Department.all
+    if params[:department_id]
+      @department = @departments.find(params[:department_id])
+      @users = @department.users.page(params[:page]).per(10)
+      all_users = @department.users
+    else
+      @users = User.page(params[:page]).per(10)
+      all_users = User.all
+    end
+    @all_users_count = all_users.count
   end
 
 	def show
@@ -19,6 +29,6 @@ class Admins::UsersController < ApplicationController
 
   private
   def user_params
-  params.require(:user).permit(:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :profile_image_id)
+  params.require(:user).permit(:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :profile_image_id, :department_id)
   end
 end

@@ -1,6 +1,18 @@
-<div class="container yield">
+<div class="container-fluid yield">
   <div class="row">
-    <div class="col-10 offset-1">
+		<div class="sidebar col-2">
+		<h3>部署一覧</h3>
+		<%# リンク先エラーあり %>
+			<% @departments.each do |department| %>
+				<%= link_to department.name, admins_users_path(department_id: department.id) %>
+			<% end %>
+		</div>
+		<% if params[:department_id] %>
+			<h2 class="section-ttl"><%= @department.name %>の社員一覧 (全<%= @all_users_count %>名)</h2>
+		<% else %>
+			<h2 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h2>
+		<% end %>
+    <div class="col-10 offset-3">
 			<section class="inner">
 				<h4 class="section-ttl">社員一覧</h4>
 				<%= render 'index', users: @users %>
