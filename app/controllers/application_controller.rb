@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
   #sign_up時の登録情報追加
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:department_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :department_id, :pofile_image_id])
   end
 
   #sign in後のredirect先変更

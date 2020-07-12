@@ -1,21 +1,25 @@
 <%# 投稿一覧内の投稿 %>
 <div class="block-content">
-  <%= link_to user_path(post.sender.id) do %>
-    <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
-    <%= post.sender.full_name %>
-  <% end %>
-    <%= post.sender.department.name %>
+  <%# <div class="col-3"> %>
+    <%= link_to user_path(post.sender.id) do %>
+      <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
+      <%= post.sender.full_name %>
+    <% end %>
+      <%= post.sender.department.name %>
   <%# <div class="d-flex justify-content-center"> %>
+  <%# <div class="col-6"> %>
     <%= link_to post_path(post.id) do %>
       <%= post.post %>
     <% end %>
   <%# </div> %>
-  <%= link_to user_path(post.receiver.id) do %>
-    <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
-    <%= post.receiver.full_name %>
-  <% end %>
-    <%= post.receiver.department.name %>
-  <%# 日時表示にするかは要検討 %>
+  <%# </div> %>
+  <%# <div class="col-3"> %>
+    <%= link_to user_path(post.receiver.id) do %>
+      <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
+      <%= post.receiver.full_name %>
+    <% end %>
+      <%= post.receiver.department.name %>
+  <%# </div> %>
   <div>
     <span class="comment-date"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></span>
   </div>
@@ -34,8 +38,8 @@
       <% end %>
     </div>
   <% end %>
-    <div>
-      <i class="far fa-comment"></i>
-      <a href="#comments"><%= post.post_comments.count %></a>
-    </div>
+  <div>
+    <i class="far fa-comment"></i>
+    <a href="#comments"><%= post.post_comments.count %></a>
+  </div>
 </div>

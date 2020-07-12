@@ -1,16 +1,17 @@
 <div class="post-content">
-  <div class="meta-info-cells v4 float-wrapper">
-    <div class="col-2">
+  <div class="">
+    <div><%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks</div>
+    <div class="col-3">
       <%= link_to user_path(post.sender.id) do %>
         <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
         <%= post.sender.full_name %>
       <% end %>
       <%= post.sender.department.name %>
     </div>
-    <div class="col-6 offset-3">
+    <div class="col-6">
       <%= post.post %>
     </div>
-    <div class="col-2">
+    <div class="col-3">
     <%= link_to user_path(post.receiver.id) do %>
       <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
       <%= post.receiver.full_name %>
@@ -41,9 +42,8 @@
       <a href="#comments"><%= post.post_comments.count %>コメント</a>
     </div>
     <% if post.sender == current_user %>
-      <%= link_to '編集', edit_post_path(post), class: "btn-lg btn-primary" %>
-      <%= link_to "削除", post_path(post), method: :delete, class: "btn-lg btn-danger fas fa-trash-alt mr-1" %>
-      <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt mr-1"></i>削除</button>
+      <%= link_to '編集', edit_post_path(post), class: "btn btn-outline-primary" %>
+      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1" %>
     <% end %>
   </div>
 </div>

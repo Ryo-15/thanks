@@ -8,8 +8,11 @@
           <% @receiver_ranks.each.with_index(1) do |user, i| %>
             <tr>
               <td><%= i %>位</td>
-              <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
-              <td><%= user.full_name %></td>
+              <%# リンクにならない %>
+              <%= link_to user_path(user.id) do %>
+                <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+                <td><%= user.full_name %></td>
+              <% end %>
               <td><%= user.department.name %></td>
             </tr>
           <% end %>
@@ -21,8 +24,11 @@
           <% @sender_ranks.each.with_index(1) do |user, i| %>
             <tr>
               <td><%= i %>位</td>
-              <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
-              <td><%= user.full_name %></td>
+              <%# リンクにならない %>
+              <%= link_to user_path(user.id) do %>
+                <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+                <td><%= user.full_name %></td>
+              <% end %>
               <td><%= user.department.name %></td>
             </tr>
           <% end %>

@@ -1,23 +1,30 @@
 <div class="container-fluid yield">
-  <div class="row">
+  <div class="d-flex flex-row">
 		<div class="sidebar col-2">
-		<h3>部署一覧</h3>
-		<%# リンク先エラーあり %>
-			<% @departments.each do |department| %>
-				<%= link_to department.name, admins_users_path(department_id: department.id) %>
-			<% end %>
+			<h3>部署一覧</h3>
+			<table class="table">
+					<tbody>
+						<% @departments.each do |department| %>
+							<tr>
+								<td><%= link_to department.name, admins_users_path(department_id: department.id) %></td>
+							</tr>
+						<% end %>
+					</tbody>
+			</table>
 		</div>
-		<% if params[:department_id] %>
-			<h2 class="section-ttl"><%= @department.name %>の社員一覧 (全<%= @all_users_count %>名)</h2>
-		<% else %>
-			<h2 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h2>
-		<% end %>
-    <div class="col-10 offset-3">
-			<section class="inner">
-				<h4 class="section-ttl">社員一覧</h4>
-				<%= render 'index', users: @users %>
-				<%= paginate @users, class: "pagination" %>
-			</section>
+		<div class="col-10">
+			<% if params[:department_id] %>
+				<h2 class="section-ttl"><%= @department.name %>の社員一覧 (全<%= @all_users_count %>名)</h2>
+			<% else %>
+				<h2 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h2>
+			<% end %>
+			<div class="col-10 offset-3">
+				<section class="inner">
+					<h4 class="section-ttl">社員一覧</h4>
+					<%= render 'index', users: @users %>
+					<%= paginate @users, class: "pagination" %>
+				</section>
+			</div>
 		</div>
 	</div>
 </div>
