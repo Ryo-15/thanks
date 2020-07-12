@@ -10,7 +10,6 @@
         </thead>
         <tbody>
           <tr>
-            <%# 画像表示がうまくいかない %>
             <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
           </tr>
           <tr>
@@ -36,11 +35,14 @@
         <div>その他個人情報の変更は管理者へご連絡ください</div>
       <% end %>
       <div>ここから対象ユーザーにthanks投稿できるようにする</div>
-      <div>もらったTanaksの件数</div>
-      <%# <%= @post.receiver_id.count %> %>
-      <h3>もらったThanks（自分は全件）</h3>
-      <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
-      <%# <%= render 'post/index', posts: @posts %> %>
+      <% if @user == current_user %>
+        <h3>もらったThanks（自分は全件）</h3>
+      <% elsif @user =! current_user %>
+        <div>もらったTanaksの件数</div>
+        <%# <%= @post.receiver_id.count %> %>
+        <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
+        <%# <%= render 'post/index', posts: @posts %> %>
+      <% end %>
       <div class="d-flex justify-content-center">
         <%# <%= paginate @posts, class: "pagination" %> %>
       </div>

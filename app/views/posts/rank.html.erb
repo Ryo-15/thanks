@@ -1,28 +1,40 @@
-  <div class="container-fluid yield">
-    <div class="row">
-      <div class="col-10 offset-1">
-        <h3>今月のBest Thanks!</h3>
-        <h3>たくさんThanks!を受け取った人</h3>
-        <% @receiver_ranks.each.with_index(1) do |user, i| %>
-          <%= i %>位
-          <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %>
-          <%= user.full_name %>
-          <%= user.department.name %>
-        <% end %>
-        <h3>たくさんThanks!を送った人</h3>
-        <% @sender_ranks.each.with_index(1) do |user, i| %>
-          <%= i %>位
-          <%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %>
-          <%= user.full_name %>
-          <%= user.department.name %>
-        <% end %>
-        <h3>最もいいねされたThanks!</h3>
-        <% @post_ranks.each.with_index(1) do |post, i| %>
-          <%= i %>位
-          <%= post.sender.personal_info %>
-          <%= post.post %>
-          <%= post.receiver.personal_info %>
-        <% end %>
+<div class="container-fluid yield">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h3>今月のBest Thanks!</h3>
+      <h3>たくさんThanks!を受け取った人</h3>
+      <table class="table">
+        <tbody>
+          <% @receiver_ranks.each.with_index(1) do |user, i| %>
+            <tr>
+              <td><%= i %>位</td>
+              <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+              <td><%= user.full_name %></td>
+              <td><%= user.department.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h3>たくさんThanks!を送った人</h3>
+      <table class="table">
+        <tbody>
+          <% @sender_ranks.each.with_index(1) do |user, i| %>
+            <tr>
+              <td><%= i %>位</td>
+              <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+              <td><%= user.full_name %></td>
+              <td><%= user.department.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <h3>最もいいねされたThanks!</h3>
+      <% @post_ranks.each.with_index(1) do |post, i| %>
+        <%= i %>位
+        <%= post.sender.personal_info %>
+        <%= post.post %>
+        <%= post.receiver.personal_info %>
+      <% end %>
     </div>
   </div>
 </div>

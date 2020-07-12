@@ -1,7 +1,6 @@
 <div class="post-content">
   <div class="meta-info-cells v4 float-wrapper">
     <div class="col-2">
-      <%# リンク先が自分になってしまう要修正 %>
       <%= link_to user_path(post.sender.id) do %>
         <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
         <%= post.sender.full_name %>
@@ -12,7 +11,6 @@
       <%= post.post %>
     </div>
     <div class="col-2">
-    <%# リンク先が自分になってしまう要修正 %>
     <%= link_to user_path(post.receiver.id) do %>
       <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
       <%= post.receiver.full_name %>

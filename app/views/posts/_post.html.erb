@@ -1,6 +1,5 @@
 <%# 投稿一覧内の投稿 %>
 <div class="block-content">
-  <%# リンク先が自分になってしまう要修正 %>
   <%= link_to user_path(post.sender.id) do %>
     <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
     <%= post.sender.full_name %>
@@ -11,7 +10,6 @@
       <%= post.post %>
     <% end %>
   <%# </div> %>
-  <%# リンク先が自分になってしまう要修正 %>
   <%= link_to user_path(post.receiver.id) do %>
     <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
     <%= post.receiver.full_name %>
