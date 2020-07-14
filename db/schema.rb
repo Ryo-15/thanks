@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(version: 2020_07_13_072503) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "action_id", null: false
-    t.integer "post_sender_id", null: false
-    t.integer "post_receiver_id", null: false
-    t.integer "post_id", null: false
+    t.integer "action_user_id", null: false
+    t.integer "passive_user_id", null: false
+    t.integer "post_id"
     t.integer "post_comment_id"
     t.string "action", null: false
     t.boolean "checked", default: false, null: false

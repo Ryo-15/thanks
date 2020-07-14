@@ -5,11 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :department
-  has_many :posts,         dependent: :destroy
-  has_many :favorites,     dependent: :destroy
-  has_many :post_comments, dependent: :destroy
-  has_many :sender,        class_name: "Post", foreign_key: "sender_id",   dependent: :destroy
-  has_many :receiver,      class_name: "Post", foreign_key: "receiver_id", dependent: :destroy
+  has_many :posts,                  dependent: :destroy
+  has_many :favorites,              dependent: :destroy
+  has_many :post_comments,          dependent: :destroy
+  has_many :sender,                 class_name: "Post",         foreign_key: "sender_id",        dependent: :destroy
+  has_many :receiver,               class_name: "Post",         foreign_key: "receiver_id",      dependent: :destroy
+  has_many :active_notifications,   class_name: "Notification", foreign_key: "action_user_id",   dependent: :destroy
+  has_many :passive_notifications,  class_name: "Notification", foreign_key: "post_sender_id",   dependent: :destroy
+  has_many :passive_notifications,  class_name: "Notification", foreign_key: "post_receiver_id", dependent: :destroy
 
   # プロフィール画像の設定機能
   attachment :profile_image

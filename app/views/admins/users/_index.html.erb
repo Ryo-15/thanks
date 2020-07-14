@@ -5,6 +5,8 @@
 		<th>氏名</th>
 		<th>フリガナ</th>
 		<th>所属部署名</th>
+		<th>もらったThanks!</th>
+		<th>送ったThanks!</th>
 	</thead>
 	<tbody>
 		<% users.each do |user| %>
@@ -14,6 +16,8 @@
 				<td><%= user.full_name %></td>
 				<td><%= user.full_name_kana %></td>
 				<td><%= user.department.name %></td>
+				<td><%= user.receiver.count %></td>
+				<td><%= user.sender.count %></td>
 				<td><%= link_to "詳細", admins_user_path(user), class: "btn btn-primary" %></td>
 			</tr>
 		<% end %>

@@ -39,7 +39,9 @@
     </div>
   <% end %>
   <div>
-    <i class="far fa-comment"></i>
-    <a href="#comments"><%= post.post_comments.count %></a>
+    <%= link_to post_path(post.id) do %>
+      <i class="far fa-comment"></i>
+      <a href="#comments"><%= post.post_comments.count %></a>
+    <% end %>
   </div>
 </div>

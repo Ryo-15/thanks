@@ -18,10 +18,9 @@
           </div>
         <% end %>
         <%# 非同期で自動選択を実装する %>
-        <%# 部署名も表示 %>
         <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を検索しましょう', class:"form-control"  )%><br>
         <%= f.hidden_field :sender_id, :value => current_user.id %>
-        <%= f.text_area :post, class:"form-control", rows:"3", placeholder:"ありがとうの気持ちをここに" %>
+        <%= f.text_area :post, class:"form-control", rows:"20", placeholder:"ありがとうの気持ちをここに" %>
         <%= f.submit "送信", class:"btn btn-lg btn-block btn btn-primary" %>
       <% end %>
     </div>

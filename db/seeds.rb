@@ -76,6 +76,16 @@ User.create!(
       email: "4@4",
       password: "444444",
       profile_image: File.open("./app/assets/images/man.jpeg", ?r)
+    },
+    {
+      last_name: "吉沢",
+      first_name: "亮",
+      last_name_kana: "ヨシザワ",
+      first_name_kana: "リョウ",
+      department_id: 3,
+      email: "5@5",
+      password: "555555",
+      profile_image: File.open("./app/assets/images/man.jpeg", ?r)
     }
   ]
   )

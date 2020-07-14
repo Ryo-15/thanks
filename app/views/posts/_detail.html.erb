@@ -42,7 +42,7 @@
       <a href="#comments"><%= post.post_comments.count %>コメント</a>
     </div>
     <% if post.sender == current_user %>
-      <%= link_to '編集', edit_post_path(post), class: "btn btn-outline-primary" %>
+      <%= link_to '編集', edit_post_path(post), class: "btn btn-outline-primary far fa-edit" %>
       <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1" %>
     <% end %>
   </div>

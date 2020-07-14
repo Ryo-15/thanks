@@ -7,7 +7,9 @@
         <tbody>
           <% @receiver_ranks.each.with_index(1) do |user, i| %>
             <tr>
+              <%# 順位はいらない？ %>
               <td><%= i %>位</td>
+              <td><%= user.receiver.count %>Thanks!</td>
               <%# リンクにならない %>
               <%= link_to user_path(user.id) do %>
                 <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
@@ -23,7 +25,9 @@
         <tbody>
           <% @sender_ranks.each.with_index(1) do |user, i| %>
             <tr>
+              <%# 順位はいらない？ %>
               <td><%= i %>位</td>
+              <td><%= user.sender.count %>Thanks!</td>
               <%# リンクにならない %>
               <%= link_to user_path(user.id) do %>
                 <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
@@ -35,12 +39,23 @@
         </tbody>
       </table>
       <h3>最もいいねされたThanks!</h3>
-      <% @post_ranks.each.with_index(1) do |post, i| %>
-        <%= i %>位
-        <%= post.sender.personal_info %>
-        <%= post.post %>
-        <%= post.receiver.personal_info %>
-      <% end %>
+      <table class="table">
+        <tbody>
+          <% @post_ranks.each.with_index(1) do |post, i| %>
+          <tr>
+            <td><%= i %>位</td>
+            <td><%= post.favorites.count %>いいね</td>
+            <td><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+            <td><%= post.sender.full_name %></td>
+            <td><%= post.sender.department.name %></td>
+            <td><%= post.post %></td>
+            <td><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+            <td><%= post.receiver.full_name %></td>
+            <td><%= post.receiver.department.name %></td>
+          </tr>
+          <% end %>
+        </tbody>
+    </table>
     </div>
   </div>
 </div>

@@ -20,15 +20,19 @@
   background-color: lightblue;
 }
 
+.header {
+  background: rgba(10,10,100,0.2);
+}
+
 .yield {
   // margin-top: 70px;
 }
 
 .profile-img {
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-    box-shadow: 0 2px 6px #c1ced7;
-    margin: 20px 0 10px;
-    object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  box-shadow: 0 2px 6px #c1ced7;
+  margin: 20px 0 10px;
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
 }
 
 .container-login {
@@ -137,6 +141,7 @@
   background-attachment: scroll;
   background-size: cover;
 }
+
 .masthead h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 2.5rem;
@@ -179,4 +184,15 @@
 }
 .about-section p {
   margin-bottom: 5rem;
+}
+
+/* position: fixed; を指定することで、「トップへ戻る」ボタンはつねに同じ位置（ページ右下20pxの位置）に表示 */
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#back img {
+  width: 50px;
 }

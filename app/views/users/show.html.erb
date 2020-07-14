@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h3>登録情報</h3>
-      <table class="customer_info mb3">
+      <table class="table customer_info mb3">
         <thead>
           <th></th>
           <th></th>
@@ -27,6 +27,18 @@
           <tr>
             <td>メールアドレス</td>
             <td><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>もらったThanks!</td>
+            <td><%= @user.receiver.count %>Thanks!</td>
+          </tr>
+          <tr>
+            <td>送ったThanks!</td>
+            <td><%= @user.sender.count %>Thanks!</td>
           </tr>
         </tbody>
       </table>

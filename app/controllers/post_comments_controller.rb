@@ -5,6 +5,7 @@ class PostCommentsController < ApplicationController
     @post_comment.user_id = current_user.id
     if @post_comment.save
       flash[:success] = "Comment was successfully created."
+      @post_comment.create_notification_post_comment!(current_user, @post_comment.id)
     else
       @post_comments = PostComment.where(id: @post)
     end

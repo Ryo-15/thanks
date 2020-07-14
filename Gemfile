@@ -91,6 +91,9 @@ gem 'pry-rails'
 # 検索機能
 gem 'ransack'
 
+# グラフ描画
+gem "chartkick"
+
 # 静的解析ツール
 gem 'rubocop-airbnb'
 

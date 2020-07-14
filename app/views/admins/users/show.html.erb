@@ -41,6 +41,14 @@
 							<td colspan="2"><%= @user.password %></td>
 						</tr>
 						<tr>
+							<td>もらったThanks!</td>
+							<td><%= @user.receiver.count %></td>
+						</tr>
+						<tr>
+							<td>送ったThanks!</td>
+							<td><%= @user.sender.count %></td>
+						</tr>
+						<tr>
 							<td><%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-success" %></td>
 						</tr>
 					</tbody>
