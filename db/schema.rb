@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_072503) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["action_user_id"], name: "index_notifications_on_action_user_id"
+    t.index ["passive_user_id"], name: "index_notifications_on_passive_user_id"
+    t.index ["post_comment_id"], name: "index_notifications_on_post_comment_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -57,8 +61,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_072503) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "receiver_id"
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
     t.text "post", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

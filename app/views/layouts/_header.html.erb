@@ -22,7 +22,7 @@
             <li class="nav-item"><%= link_to 'Thanks', new_post_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'Rank', posts_rank_path, class: 'nav-link js-scroll-trigger' %></li>
             <% if unchecked_notifications.any? %>
-              <i class="fa fa-circle" style="color: gold;"></i>
+              <i class="fa fa-circle notification-circle" style="color: red;"></i>
             <% end %>
             <li class="nav-item"><%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %></li>
             <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>

@@ -3,9 +3,10 @@ class PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comment = @post.post_comments.new(post_comment_params)
     @post_comment.user_id = current_user.id
+    @post_comment_post = @post_comment.post
     if @post_comment.save
-      flash[:success] = "Comment was successfully created."
-      @post_comment.create_notification_post_comment!(current_user, @post_comment.id)
+      flash[:success] = "コメントしました"
+      @post_comment_post.create_notification_post_comment!(current_user, @post_comment.id)
     else
       @post_comments = PostComment.where(id: @post)
     end

@@ -3,9 +3,6 @@ class Admins::HomesController < ApplicationController
     #配列形式でデータを用意する
     # @data = [['2019-06-01', 100], ['2019-06-02', 200], ['2019-06-03', 150]]
     search_date = Date.today
-    @receiver_ranks = User.find(Post.where(created_at: search_date.in_time_zone.all_month).group(:receiver_id).order('count(receiver_id) desc').limit(3).pluck(:receiver_id))
-    @sender_ranks = User.find(Post.where(created_at: search_date.in_time_zone.all_month).group(:sender_id).order('count(sender_id) desc').limit(3).pluck(:sender_id))
-    @post_ranks = Post.find(Favorite.where(created_at: search_date.in_time_zone.all_month).group(:user_id).order('count(user_id) desc').limit(3).pluck(:user_id))
     # 月ごとの投稿数
     @post_ranks = Post.find(Favorite.where(created_at: search_date.in_time_zone.all_month).group(:user_id).order('count(user_id) desc').limit(3).pluck(:user_id))
     # 部署ごとの投稿獲得数

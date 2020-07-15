@@ -2,15 +2,18 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h3 class="text-center">通知</h3>
-        <%= link_to "全て削除", notification_path(id: current_user.id), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1" %>
-        <hr>
-        <% if @notifications.exists? %>
-          <div class="users-index">
-            <%= render "notifications", notification: @notification %>
-          </div>
-        <% else %>
-          <p>通知はありません</p>
-        <% end %>
+      <%= link_to "全て削除", notification_path(id: current_user.id), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1" %>
+      <hr>
+      <% if @notifications.exists? %>
+        <div class="users-index">
+          <%= render @notifications %>
+        </div>
+      <% else %>
+        <p>通知はありません</p>
+      <% end %>
+      <div class="d-flex justify-content-center">
+        <%= paginate @notifications, class: "pagination" %>
+      </div>
     </div>
   </div>
 </div>

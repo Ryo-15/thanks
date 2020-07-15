@@ -4,11 +4,7 @@ class FavoritesController < ApplicationController
     favorite = @post.favorites.new(user_id: current_user.id)
     favorite.save
     #通知の作成
-    @post.create_notification_by(current_user)
-    respond_to do |format|
-      format.html {redirect_to request.referrer}
-      format.js
-    end
+    @post.create_notification_favorite_by(current_user)
   end
 
   def destroy

@@ -3,11 +3,11 @@
     <div class="col-10 offset-1">
       <h3>登録情報</h3>
       <table class="table customer_info mb3">
-        <thead>
+        <%# <thead>
           <th></th>
           <th></th>
           <th></th>
-        </thead>
+        </thead> %>
         <tbody>
           <tr>
             <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
@@ -30,7 +30,7 @@
           </tr>
         </tbody>
       </table>
-      <table class="table">
+      <table class="table customer_info mb3">
         <tbody>
           <tr>
             <td>もらったThanks!</td>
@@ -47,13 +47,16 @@
         <div>その他個人情報の変更は管理者へご連絡ください</div>
       <% end %>
       <div>ここから対象ユーザーにthanks投稿できるようにする</div>
+      
       <% if @user == current_user %>
         <h3>もらったThanks（自分は全件）</h3>
+        <%# <%= @post.receiver_id.count %> %>
+        <%# <%= render 'posts/index', posts: @posts %> %>
       <% elsif @user =! current_user %>
         <div>もらったTanaksの件数</div>
         <%# <%= @post.receiver_id.count %> %>
         <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
-        <%# <%= render 'post/index', posts: @posts %> %>
+        <%# <%= render 'posts/index', posts: @posts %> %>
       <% end %>
       <div class="d-flex justify-content-center">
         <%# <%= paginate @posts, class: "pagination" %> %>
