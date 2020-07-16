@@ -1,6 +1,6 @@
-<div class="container yield">
+<div class="container-fluid yield">
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-8 offset-2">
 			<section class="inner">
 				<h2 class="section-ttl"><%= @user.full_name %>さんのページ</h2>
 				<table class="customer_info">
@@ -53,6 +53,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<%= link_to "ユーザー一覧に戻る", admins_users_path %>
 			</section>
 		</div>
 	</div>

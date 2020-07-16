@@ -28,7 +28,7 @@ class Post < ApplicationRecord
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
-      save_notification_psot_comment!(current_user, post_comment_id, temp_id['user_id'])
+      save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
     end
     # まだ誰もコメントしていない場合は、投稿者に通知を送る
     save_notification_post_comment!(current_user, post_comment_id, user_id) if temp_ids.blank?
@@ -43,23 +43,21 @@ class Post < ApplicationRecord
         post_comment_id: post_comment_id,
         action: 'post_comment'
       )
+      # 自分の投稿に対するコメントの場合は、通知済みとする
+      if notification.action_user_id == notification.passive_user_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
     end
-    # 自分の投稿に対するコメントの場合は、通知済みとする（要検討）
-    if notification.action_user_id == notification.passive_user_id
-      notification.checked = true
-    end
-    notification.save if notification.valid?
   end
 
   #投稿時の通知
   def create_notification_post!(current_user)
-    temp = Notification.where(["action_user_id = ? and passive_user_id = ? and action = ? ",current_user.id, receiver_id, 'post'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        passive_user_id: receiver_id,
-        action: 'post'
-      )
-      notification.save if notification.valid?
-    end
+    notification = current_user.active_notifications.new(
+      passive_user_id: receiver_id,
+      post_id: id,
+      action: 'post'
+    )
+    notification.save if notification.valid?
   end
 end

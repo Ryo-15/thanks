@@ -11,6 +11,15 @@ class Admins::UsersController < ApplicationController
       all_users = User.all
     end
     @all_users_count = all_users.count
+    respond_to do |format|
+      format.html do
+        #html用の処理を書く
+      end
+      format.csv do
+        #csv用の処理を書く
+        send_data render_to_string, filename: "user_index.csv", type: :csv
+      end
+    end
   end
 
 	def show

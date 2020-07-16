@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find(current_user.id)
+    @user = current_user
     @post = Post.new
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true)
@@ -13,9 +13,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    # @user = current_user
     if @post.save
       flash[:success] = 'ありがとうを投稿しました。'
-      # @user.create_notification_post!(current_user)
+      @post.create_notification_post!(current_user)
       redirect_to posts_finish_path
     else
       flash[:danger] = 'ありがとうを投稿できませんでした。'

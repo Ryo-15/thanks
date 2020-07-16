@@ -7,12 +7,12 @@ module NotificationsHelper
     #notification.actionがpostかfavoriteかcommentか
     case notification.action
       when "post" then
-        tag.a(notification.action_user.full_name, href:user_path(@action_user), style:"font-weight: bold;")+"があなた宛に投稿しました"
+        tag.a(notification.action_user.full_name, href:user_path(@action_user), style:"font-weight: bold;")+"が"+tag.a('あなた宛に投稿', href:post_path(notification.post_id), style:"font-weight: bold;")+"しました"
       when "favorite" then
         tag.a(notification.action_user.full_name, href:user_path(@action_user), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style:"font-weight: bold;")+"にいいね！しました"
       when "post_comment" then
-        # @post_comment = PostComment.find_by(id: @action_user_post_comment)&.content
-        @post_comment = PostComment.find_by(id:notification.post_comment_id)&.content
+        @post_comment = PostComment.find_by(id: @action_user_post_comment)&.comment
+        # @post_comment = PostComment.find_by(id:notification.post_comment_id)&.content
         tag.a(@action_user.full_name, href:user_path(@action_user), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:post_path(notification.post_id), style:"font-weight: bold;")+"にコメントしました"
     end
   end

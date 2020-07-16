@@ -24,6 +24,7 @@
 					<%= render 'index', users: @users %>
 					<%= paginate @users, class: "pagination" %>
 				</section>
+				<%= link_to "CSV出力", admins_users_path(format: :csv), class: "btn btn-primary" %>
 			</div>
 		</div>
 	</div>
