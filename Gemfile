@@ -94,6 +94,9 @@ gem 'ransack'
 # グラフ描画
 gem "chartkick"
 
+# Excel, CSV, OpenOffice, GoogleSpreadSheetを開くことが可能
+gem 'roo'
+
 # 静的解析ツール
 gem 'rubocop-airbnb'
 

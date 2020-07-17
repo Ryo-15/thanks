@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h3 class="section-title section-title-sm left">
-        <span>ありがとうを送ろう</span>
+        <span>Thanks!を送ろう</span>
       </h3>
       <%# 検索フォーム %>
       <%= render 'search', search: @search %>
@@ -18,7 +18,7 @@
           </div>
         <% end %>
         <%# 非同期で自動選択を実装する %>
-        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を検索しましょう', class:"form-control"  )%><br>
+        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を一覧から探す', class:"form-control")%><br>
         <%= f.hidden_field :sender_id, :value => current_user.id %>
         <%= f.text_area :post, class:"form-control", rows:"20", placeholder:"ありがとうの気持ちをここに" %>
         <%= f.submit "送信", class:"btn btn-lg btn-block btn btn-primary" %>

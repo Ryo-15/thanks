@@ -1,23 +1,23 @@
 <div class="post-content">
   <div class="">
     <div><%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks</div>
-    <div class="col-3">
+    <%# <div class="col-3"> %>
       <%= link_to user_path(post.sender.id) do %>
         <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
         <%= post.sender.full_name %>
       <% end %>
       <%= post.sender.department.name %>
-    </div>
-    <div class="col-6">
+    <%# </div> %>
+    <%# <div class="col-6"> %>
       <%= post.post %>
-    </div>
-    <div class="col-3">
-    <%= link_to user_path(post.receiver.id) do %>
-      <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
-      <%= post.receiver.full_name %>
-    <% end %>
-    <%= post.receiver.department.name %>
-    </div>
+    <%# </div> %>
+    <%# <div class="col-3"> %>
+      <%= link_to user_path(post.receiver.id) do %>
+        <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
+        <%= post.receiver.full_name %>
+      <% end %>
+      <%= post.receiver.department.name %>
+    <%# </div> %>
     <div>
       <i class="fa fa-calendar"></i><%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
     </div>
@@ -37,7 +37,6 @@
       </div>
     <% end %>
     <div>
-      <%# コメント件数を記述 %>
       <i class="fa fa-comment"></i>
       <a href="#comments"><%= post.post_comments.count %>コメント</a>
     </div>

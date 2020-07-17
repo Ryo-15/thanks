@@ -17,15 +17,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: lightsteelblue;
+  background-color: #FEF6F1;
 }
+
+// .container-fluid {
+//   display: flex;
+// }
 
 .header {
   background-color:  rgba(112,112,112,.09);
 }
 
 .yield {
-  // margin-top: 70px;
+  margin-top: 70px;
 }
 
 .profile-img {
@@ -134,8 +138,7 @@
   // height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  // background: url("../assets/thanks.jpg");
-  background: skyblue;
+  // background: url("assets/thanks.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -147,7 +150,7 @@
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: white;
+  background: #45CBF3;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
@@ -156,12 +159,35 @@
   max-width: 20rem;
   font-size: 1rem;
 }
+
+/* position: fixed; を指定することで、「トップへ戻る」ボタンはつねに同じ位置（ページ右下20pxの位置）に表示 */
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#back img {
+  width: 40px;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .masthead h1 {
     font-size: 4rem;
     line-height: 4rem;
   }
 }
+
+// Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .masthead {
     height: 100vh;
@@ -178,21 +204,7 @@
   }
 }
 
-.about-section {
-  padding-top: 10rem;
-  background: pink;
-}
-.about-section p {
-  margin-bottom: 5rem;
-}
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
 
-/* position: fixed; を指定することで、「トップへ戻る」ボタンはつねに同じ位置（ページ右下20pxの位置）に表示 */
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-
-#back img {
-  width: 50px;
 }

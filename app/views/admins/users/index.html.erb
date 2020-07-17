@@ -24,7 +24,11 @@
 					<%= render 'index', users: @users %>
 					<%= paginate @users, class: "pagination" %>
 				</section>
-				<%= link_to "CSV出力", admins_users_path(format: :csv), class: "btn btn-primary" %>
+				<%= link_to "CSVエクスポート", admins_users_path(format: :csv), class: "btn btn-primary" %>
+				<%= form_tag import_admins_users_path, multipart: true do %>
+					<%= file_field_tag :file %>
+					<%= submit_tag "CSVインポート", class: "btn btn-primary" %>
+				<% end %>
 			</div>
 		</div>
 	</div>

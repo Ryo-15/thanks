@@ -18,28 +18,28 @@
             <li class="nav-item user_name align-middle">
               <p>ようこそ、<%= attachment_image_tag current_user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"40x40" %><%= current_user.full_name %>さん！</p>
             </li>
-            <li class="nav-item"><%= link_to 'Timeline', posts_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to 'Thanks', new_post_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to 'Rank', posts_rank_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'Thanks!一覧', posts_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'Thanks!を送る', new_post_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'ランキング', posts_rank_path, class: 'nav-link js-scroll-trigger' %></li>
             <% if unchecked_notifications.any? %>
               <i class="fa fa-circle notification-circle" style="color: red;"></i>
             <% end %>
             <li class="nav-item"><%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %></li>
             <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
           <% elsif admin_signed_in? %>
-            <li class="nav-item"><%= link_to 'Top（仮）', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'チャート', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to '投稿一覧（仮）', posts_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'ユーザー新規登録', new_user_registration_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to '部署一覧/作成', admins_departments_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to '管理者情報変更', edit_admin_registration_path(current_admin), class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
           <% else %>
-            <li class="nav-item"><%= link_to "Top", root_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to "About", about_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to "Login", new_user_session_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to "Countast Us", contact_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "トップ", root_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "Thanks!について", about_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "お問い合わせ", contact_path, class: 'nav-link js-scroll-trigger' %></li>
           <% end %>
         </ul>
       </div>
