@@ -20,9 +20,10 @@ class Admins::UsersController < ApplicationController
         send_data render_to_string, filename: "user_index.csv", type: :csv
       end
     end
+    @search = User.ransack(params[:q])
+    @search_users = @search.result(distinct: true)
   end
 
-  # CSVインポート用
   def import
     # fileはtmpに自動で一時保存される
     User.import(params[:file])

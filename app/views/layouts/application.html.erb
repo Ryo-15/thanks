@@ -20,11 +20,20 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <div>
+      <%= render 'layouts/header' %>
+    </div>
 
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
-    <%= yield %>
+    <%# <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div> %>
+    <div>
+      <%= yield %>
+    </div>
 
     <%= render 'layouts/footer' %>
 

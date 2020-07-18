@@ -7,8 +7,6 @@
         <tbody>
           <% @receiver_ranks.each.with_index(1) do |user, i| %>
             <tr>
-              <%# 順位はいらない？ %>
-              <td><%= i %>位</td>
               <td><%= user.receiver.count %>Thanks!</td>
               <%# リンクにならない %>
               <%= link_to user_path(user.id) do %>
@@ -25,8 +23,6 @@
         <tbody>
           <% @sender_ranks.each.with_index(1) do |user, i| %>
             <tr>
-              <%# 順位はいらない？ %>
-              <td><%= i %>位</td>
               <td><%= user.sender.count %>Thanks!</td>
               <%# リンクにならない %>
               <%= link_to user_path(user.id) do %>
@@ -43,7 +39,6 @@
         <tbody>
           <% @post_ranks.each.with_index(1) do |post, i| %>
           <tr>
-            <td><%= i %>位</td>
             <td><%= post.favorites.count %>いいね</td>
             <td><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
             <td><%= post.sender.full_name %></td>

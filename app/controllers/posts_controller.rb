@@ -13,7 +13,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @user = current_user
     if @post.save
       flash[:success] = 'ありがとうを投稿しました。'
       @post.create_notification_post!(current_user)

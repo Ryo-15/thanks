@@ -10,7 +10,7 @@
         <div class="comment-author clearfix">
           <a href="#"><%= post_comment.user.full_name %></a>
           <span class="comment-meta">
-            <span class="comment-date"><%= post_comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+            <span class="comment-date"><%= post_comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
           </span>
         </div>
         <div class="comment-entry"><%= post_comment.comment %></div>

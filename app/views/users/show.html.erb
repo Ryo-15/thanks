@@ -2,12 +2,7 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h3>登録情報</h3>
-      <table class="table customer_info mb3">
-        <%# <thead>
-          <th></th>
-          <th></th>
-          <th></th>
-        </thead> %>
+      <table class="table customer_info">
         <tbody>
           <tr>
             <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>

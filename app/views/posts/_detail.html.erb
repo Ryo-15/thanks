@@ -1,38 +1,48 @@
-<div class="post-content">
-  <div class="">
-    <div><%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks</div>
-    <%# <div class="col-3"> %>
-      <%= link_to user_path(post.sender.id) do %>
-        <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
-        <%= post.sender.full_name %>
-      <% end %>
-      <%= post.sender.department.name %>
-    <%# </div> %>
-    <%# <div class="col-6"> %>
-      <%= post.post %>
-    <%# </div> %>
-    <%# <div class="col-3"> %>
-      <%= link_to user_path(post.receiver.id) do %>
-        <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
-        <%= post.receiver.full_name %>
-      <% end %>
-      <%= post.receiver.department.name %>
-    <%# </div> %>
+<div class="container-fluid">
+  <div class="card border-info">
+    <div class="card-header">
+      <%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3 text-center">
+          <div class="">
+            <%= link_to user_path(post.sender.id) do %>
+              <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
+              <h5 class="card-title"><%= post.sender.full_name %></h5>
+            <% end %>
+            <h6 class="card-subtitle mb-2 text-muted"><%= post.sender.department.name %></h6>
+          </div>
+        </div>
+        <div class="col-6 text-center d-inline-flex">
+          <div class="w-100 text-primary">
+            <%= post.post %>
+          </div>
+        </div>
+        <div class="col-3 text-center">
+          <%= link_to user_path(post.receiver.id) do %>
+            <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
+            <h5 class="card-title"><%= post.receiver.full_name %></h5>
+          <% end %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.receiver.department.name %></h6>
+        </div>
+      </div>
+    </div>
     <div>
-      <i class="fa fa-calendar"></i><%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+      <i class="fa fa-calendar"></i><%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
     </div>
     <% if post.favorited_by?(current_user) %>
       <div>
         <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-        <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-        <%= post.favorites.count %>いいね
+          <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+          <%= post.favorites.count %>いいね
         <% end %>
       </div>
     <% else %>
       <div>
         <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-        <i class="fas fa-heart" aria-hidden="true"  style="color: gray;"></i>
-        <%= post.favorites.count %>いいね
+          <i class="fas fa-heart" aria-hidden="true"  style="color: gray;"></i>
+          <%= post.favorites.count %>いいね
         <% end %>
       </div>
     <% end %>
@@ -42,7 +52,7 @@
     </div>
     <% if post.sender == current_user %>
       <%= link_to '編集', edit_post_path(post), class: "btn btn-outline-primary far fa-edit" %>
-      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt mr-1" %>
+      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt" %>
     <% end %>
   </div>
 </div>

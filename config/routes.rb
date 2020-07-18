@@ -16,14 +16,15 @@ Rails.application.routes.draw do
   namespace :admins do
     get "top" => "homes#top", as: "top"
     resources :users, only:[:index, :new, :create, :show, :edit, :update, :destroy] do
-      collection { post :import }
+      collection do
+        post :import
+      end
     end
     resources :departments, only:[:index, :create, :edit, :update, :destroy]
   end
 
   get "posts/finish" => "posts#finish"
   get "posts/rank" => "posts#rank"
-  # get "posts/search" => "posts#search"
   resources :posts, only:[:index, :new, :create, :show, :edit, :update, :destroy] do
     resource :favorites, only:[:create, :destroy]
     resources :post_comments, only:[:create, :destroy]

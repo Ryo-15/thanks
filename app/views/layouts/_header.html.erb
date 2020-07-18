@@ -24,7 +24,9 @@
             <% if unchecked_notifications.any? %>
               <i class="fa fa-circle notification-circle" style="color: red;"></i>
             <% end %>
-            <li class="nav-item"><%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %></li>
+            <li class="nav-item">
+              <%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %>
+            </li>
             <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
           <% elsif admin_signed_in? %>
@@ -38,7 +40,8 @@
           <% else %>
             <li class="nav-item"><%= link_to "トップ", root_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to "Thanks!について", about_path, class: 'nav-link js-scroll-trigger' %></li>
-            <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "ユーザーログイン", new_user_session_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item"><%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item"><%= link_to "お問い合わせ", contact_path, class: 'nav-link js-scroll-trigger' %></li>
           <% end %>
         </ul>

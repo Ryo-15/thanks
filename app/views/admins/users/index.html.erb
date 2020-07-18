@@ -18,18 +18,20 @@
 			<% else %>
 				<h2 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h2>
 			<% end %>
-			<div class="col-10 offset-3">
-				<section class="inner">
-					<h4 class="section-ttl">社員一覧</h4>
-					<%= render 'index', users: @users %>
-					<%= paginate @users, class: "pagination" %>
-				</section>
-				<%= link_to "CSVエクスポート", admins_users_path(format: :csv), class: "btn btn-primary" %>
-				<%= form_tag import_admins_users_path, multipart: true do %>
-					<%= file_field_tag :file %>
-					<%= submit_tag "CSVインポート", class: "btn btn-primary" %>
-				<% end %>
-			</div>
+			<%= search_form_for @search, url: admins_users_path do |f| %>
+				<%= f.label :name, "ユーザー名" %>
+				<%= f.search_field :full_name_or_full_name_kana_cont, autofocus: true, placeholder: "検索キーワード", class:"form-control" %>
+				<%= f.submit "検索", class: "btn btn-primary" %>
+			<% end %>
+			<section class="inner">
+				<%= render 'index', users: @users %>
+				<%= paginate @users, class: "pagination" %>
+			</section>
+			<%= link_to "CSVエクスポート", admins_users_path(format: :csv), class: "btn btn-primary" %>
+			<%= form_tag import_admins_users_path, multipart: true do %>
+				<%= file_field_tag :file %>
+				<%= submit_tag "CSVインポート", class: "btn btn-primary" %>
+			<% end %>
 		</div>
 	</div>
 </div>
