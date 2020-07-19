@@ -14,7 +14,7 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= post.sender.department.name %></h6>
           </div>
         </div>
-        <div class="col-6 text-center d-inline-flex">
+        <div class="col-6 d-inline-flex">
           <div class="w-100 text-primary">
             <%= post.post %>
           </div>
@@ -50,9 +50,11 @@
       <i class="fa fa-comment"></i>
       <a href="#comments"><%= post.post_comments.count %>コメント</a>
     </div>
-    <% if post.sender == current_user %>
-      <%= link_to '編集', edit_post_path(post), class: "btn btn-outline-primary far fa-edit" %>
-      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-outline-danger fas fa-trash-alt" %>
+    <div class="">
+      <% if post.sender == current_user %>
+      <%= link_to '編集', edit_post_path(post), class: "btn btn-info far fa-edit" %>
+      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
     <% end %>
+    </div>
   </div>
 </div>

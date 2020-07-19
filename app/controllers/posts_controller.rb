@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  #before_action :search, only: [:index, :new, :create, :show, :edit, :update, :destory]
   def index
     @posts = Post.page(params[:page]).per(10).reverse_order
   end

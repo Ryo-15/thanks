@@ -1,15 +1,19 @@
 class Admins::UsersController < ApplicationController
+  before_action :search
+
   def index
-    @users = User.page(params[:page]).per(10)
     @departments = Department.all
-    if params[:department_id]
-      @department = @departments.find(params[:department_id])
-      @users = @department.users.page(params[:page]).per(10)
-      all_users = @department.users
-    else
-      @users = User.page(params[:page]).per(10)
-      all_users = User.all
-    end
+    @users =
+      if params[:department_id]
+        @department = @departments.find(params[:department_id])
+        all_users = @department.users
+        all_users.page(params[:page]).per(10)
+      elsif params[:q]
+        all_users = @search.result.page(params[:page]).per(10)
+      else
+        all_users = User.all
+        User.page(params[:page]).per(10)
+      end
     @all_users_count = all_users.count
     respond_to do |format|
       format.html do
@@ -20,12 +24,9 @@ class Admins::UsersController < ApplicationController
         send_data render_to_string, filename: "user_index.csv", type: :csv
       end
     end
-    @search = User.ransack(params[:q])
-    @search_users = @search.result(distinct: true)
   end
 
   def import
-    # fileはtmpに自動で一時保存される
     User.import(params[:file])
     redirect_to admins_users_path
   end
@@ -46,6 +47,6 @@ class Admins::UsersController < ApplicationController
 
   private
   def user_params
-  params.require(:user).permit(:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :profile_image_id, :department_id)
+  params.require(:user).permit(:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :profile_image, :department_id)
   end
 end

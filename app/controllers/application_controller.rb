@@ -20,9 +20,25 @@ class ApplicationController < ActionController::Base
         posts_path
     end
   end
+
+  #sign up後のredirect先変更
+  def after_sign_up_path_for(resource)
+    logger.debug 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+    logger.debug resource
+    logger.debug resource.inspect
+    logger.debug resource.class
+    logger.debug 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+    case resource
+      when Admin
+        admins_top_path
+      when User
+        admins_users_path
+    end
+  end
+
   #sign out後のredirect先変更
   def after_sign_out_path_for(resource)
-      root_path
+    root_path
   end
 
   # 検索

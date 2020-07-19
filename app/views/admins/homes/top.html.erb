@@ -3,11 +3,13 @@
     <div class="col-10 offset-1">
     <h3>各種グラフ（予定）</h3>
     <div>（仮）デイリチャート（日の投稿数）</div>
-    <%= column_chart @receiver_ranks, width: "800px", height: "500px" %>
+    <%= column_chart @receiver_ranks, width: "100%", height: "500px" %>
     <div>（仮）マンスリーチャート（月の投稿数）</div>
-    <%= column_chart @sender_ranks, width: "800px", height: "500px" %>
+    <%= column_chart @sender_ranks, width: "100%", height: "500px" %>
     <div>（仮）ユーザーチャート（ユーザーごとの投稿数）</div>
-    <%= column_chart @post_ranks, width: "800px", height: "500px" %>
+    <%= column_chart @post_ranks, width: "100%", height: "500px" %>
+    <%= column_chart Post.group(:receiver_id).count%>
+    <%= pie_chart Post.group(:senderer_id).count%>
     </div>
   </div>
 </div>

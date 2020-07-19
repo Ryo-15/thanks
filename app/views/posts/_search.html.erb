@@ -1,5 +1,5 @@
 <%= search_form_for search, url: new_post_path do |f| %>
   <%= f.label :name, "ユーザー名" %>
   <%= f.search_field :full_name_or_full_name_kana_cont, autofocus: true, placeholder: "検索キーワード", class:"form-control" %>
-  <%= f.submit "検索", class: "btn btn-block btn btn-primary" %>
+  <%= f.submit "検索", class:"btn btn-block btn-primary" %>
 <% end %>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :users do
-    devise_for :users
+    devise_for :users, controllers: {
+      registrations: 'users/registrations'
+    }
   end
 
   get "/" => "homes#top", as: "root"

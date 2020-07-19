@@ -1,55 +1,53 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-10 offset-1">
-      <h3>登録情報</h3>
-      <table class="table customer_info">
-        <tbody>
-          <tr>
-            <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
-          </tr>
-          <tr>
-            <td>氏名</td>
-            <td><%= @user.full_name %></td>
-          </tr>
-          <tr>
-            <td>フリガナ</td>
-            <td><%= @user.full_name_kana %></td>
-          </tr>
-          <tr>
-            <td>所属部署</td>
-            <td><%= @user.department.name  %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @user.email %></td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table customer_info mb3">
-        <tbody>
-          <tr>
-            <td>もらったThanks!</td>
-            <td><%= @user.receiver.count %>Thanks!</td>
-          </tr>
-          <tr>
-            <td>送ったThanks!</td>
-            <td><%= @user.sender.count %>Thanks!</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card">
+        <div class="card-header">登録情報</div>
+          <div class="card-body">
+            <table class="table customer_info">
+              <tbody>
+                <tr>
+                  <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
+                </tr>
+                <tr>
+                  <td>氏名</td>
+                  <td><%= @user.full_name %></td>
+                </tr>
+                <tr>
+                  <td>フリガナ</td>
+                  <td><%= @user.full_name_kana %></td>
+                </tr>
+                <tr>
+                  <td>所属部署</td>
+                  <td><%= @user.department.name  %></td>
+                </tr>
+                <tr>
+                  <td>メールアドレス</td>
+                  <td><%= @user.email %></td>
+                </tr>
+                <tr>
+                  <td>もらったThanks!</td>
+                  <td><%= @user.receiver.count %>Thanks!</td>
+                </tr>
+                <tr>
+                  <td>送ったThanks!</td>
+                  <td><%= @user.sender.count %>Thanks!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
       <% if @user == current_user %>
-        <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-success ml2" %>
+        <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-success" %>
         <div>その他個人情報の変更は管理者へご連絡ください</div>
       <% end %>
       <div>ここから対象ユーザーにthanks投稿できるようにする</div>
-      
       <% if @user == current_user %>
         <h3>もらったThanks（自分は全件）</h3>
         <%# <%= @post.receiver_id.count %> %>
         <%# <%= render 'posts/index', posts: @posts %> %>
       <% elsif @user =! current_user %>
-        <div>もらったTanaksの件数</div>
-        <%# <%= @post.receiver_id.count %> %>
         <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
         <%# <%= render 'posts/index', posts: @posts %> %>
       <% end %>

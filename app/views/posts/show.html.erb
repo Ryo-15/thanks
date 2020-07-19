@@ -1,32 +1,26 @@
-<section class="sct-color-1 slice">
-  <div class="container-fluid yield">
-    <div class="d-flex flex-row">
-      <div class="col-12">
-        <div class="post-item">
-          <%# 投稿詳細部分テンプレート %>
-          <div class="post_<%= @post.id %>">
-            <%= render 'detail', post: @post %>
+<div class="container-fluid yield">
+  <div class="d-flex flex-row">
+    <div class="col-10 offset-1">
+      <div class="post-item">
+        <div class="post_<%= @post.id %>">
+          <%= render 'detail', post: @post %>
+        </div>
+        <div class="comment-list" id="comments">
+          <div class="show-tb comment_<%= @post.id %>">
+            <%= render 'comment', post_comments: @post.post_comments %>
           </div>
-          <div class="comment-list bt style-2" id="comments">
-            <ol>
-              <%# コメント部分テンプレート %>
-              <div class="show-tb comment_<%= @post.id %>">
-                <%= render 'comment', post_comments: @post.post_comments %>
-              </div>
-            </ol>
-          </div>
-          <h3 class="section-title left">
-            <span calss="far fa-comment">コメント</span>
-          </h3>
-          <%# コメント投稿フォーム %>
-          <div class="comment-form">
-            <%= form_with model:[@post, @post_comment], data: {remote: true} do |f| %>
-              <%= f.text_area :comment, rows:'5', class: "form-control", placeholder: "コメントをここに" %>
-              <%= f.submit "コメントする", class: "btn btn-lg btn-block btn btn-primary" %>
-            <% end %>
-          </div>
+        </div>
+        <h5 class="section-title left">
+          <span calss="far fa-comment">コメント</span>
+        </h5>
+        <div class="comment-form">
+          <%= form_with model:[@post, @post_comment], data: {remote: true} do |f| %>
+            <%= f.text_area :comment, rows:'5', class: "form-control", placeholder: "コメントをここに" %>
+            <%= f.submit "コメントする", class: "btn btn-block btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+

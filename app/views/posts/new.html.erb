@@ -1,10 +1,9 @@
 <div class="container-fluid yield">
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-8 offset-2">
       <h3 class="section-title section-title-sm left">
-        <span>Thanks!を送ろう</span>
+        <span>Thanks!を送る</span>
       </h3>
-      <%# 検索フォーム %>
       <%= render 'search', search: @search %>
       <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
         <% if @post.errors.any? %>
@@ -21,7 +20,7 @@
         <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を一覧から探す', class:"form-control")%><br>
         <%= f.hidden_field :sender_id, :value => current_user.id %>
         <%= f.text_area :post, class:"form-control", rows:"20", placeholder:"ありがとうの気持ちをここに" %>
-        <%= f.submit "送信", class:"btn btn-lg btn-block btn btn-primary" %>
+        <%= f.submit "送信", class:"btn btn-block btn-primary" %>
       <% end %>
     </div>
   </div>

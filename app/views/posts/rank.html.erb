@@ -2,55 +2,77 @@
   <div class="row">
     <div class="col-10 offset-1">
       <h3>今月のBest Thanks!</h3>
-      <h3>たくさんThanks!を受け取った人</h3>
-      <table class="table">
-        <tbody>
-          <% @receiver_ranks.each.with_index(1) do |user, i| %>
-            <tr>
-              <td><%= user.receiver.count %>Thanks!</td>
-              <%# リンクにならない %>
-              <%= link_to user_path(user.id) do %>
-                <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
-                <td><%= user.full_name %></td>
-              <% end %>
-              <td><%= user.department.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <h3>たくさんThanks!を送った人</h3>
-      <table class="table">
-        <tbody>
-          <% @sender_ranks.each.with_index(1) do |user, i| %>
-            <tr>
-              <td><%= user.sender.count %>Thanks!</td>
-              <%# リンクにならない %>
-              <%= link_to user_path(user.id) do %>
-                <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
-                <td><%= user.full_name %></td>
-              <% end %>
-              <td><%= user.department.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <h3>最もいいねされたThanks!</h3>
-      <table class="table">
-        <tbody>
-          <% @post_ranks.each.with_index(1) do |post, i| %>
-          <tr>
-            <td><%= post.favorites.count %>いいね</td>
-            <td><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
-            <td><%= post.sender.full_name %></td>
-            <td><%= post.sender.department.name %></td>
-            <td><%= post.post %></td>
-            <td><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
-            <td><%= post.receiver.full_name %></td>
-            <td><%= post.receiver.department.name %></td>
-          </tr>
-          <% end %>
-        </tbody>
-    </table>
+      <div class="card">
+        <div class="card-header">たくさんThanks!を受け取った人</div>
+          <div class="card-body">
+            <table class="table">
+              <tbody>
+                <% @receiver_ranks.each.with_index(1) do |user, i| %>
+                  <tr>
+                    <td class="align-middle"><%= user.receiver.count %>Thanks!</td>
+                    <td class="align-middle"><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+                    <td class="align-middle">
+                      <%= link_to user_path(user.id) do %>
+                        <%= user.full_name %>
+                      <% end %>
+                    </td>
+                    <td class="align-middle"><%= user.department.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-header">たくさんThanks!を送った人</div>
+          <div class="card-body">
+            <table class="table">
+              <tbody>
+                <% @sender_ranks.each.with_index(1) do |user, i| %>
+                  <tr>
+                    <td class="align-middle"><%= user.sender.count %>Thanks!</td>
+                    <td class="align-middle"><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+                    <td class="align-middle">
+                      <%= link_to user_path(user.id) do %>
+                        <%= user.full_name %>
+                      <% end %>
+                    </td>
+                    <td class="align-middle"><%= user.department.name %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="card">
+        <div class="card-header">最もいいねされたThanks!</div>
+          <div class="card-body">
+            <table class="table">
+              <tbody>
+                <% @post_ranks.each.with_index(1) do |post, i| %>
+                <tr>
+                  <td class="align-middle"><%= post.favorites.count %>いいね</td>
+                  <td class="align-middle"><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+                  <td class="align-middle">
+                    <%= link_to user_path(post.sender.id) do %>
+                      <%= post.sender.full_name %>
+                    <% end %>
+                  </td>
+                  <td class="align-middle"><%= post.sender.department.name %></td>
+                  <td class="align-middle"><%= post.post %></td>
+                  <td class="align-middle"><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+                  <td class="align-middle">
+                    <%= link_to user_path(post.receiver.id) do %>
+                      <%= post.receiver.full_name %>
+                    <% end %>
+                  </td>
+                  <td class="align-middle"><%= post.receiver.department.name %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      </div>
     </div>
   </div>
 </div>

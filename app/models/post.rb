@@ -25,7 +25,6 @@ class Post < ApplicationRecord
 
   # コメント通知の作成
   def create_notification_post_comment!(current_user, post_comment_id)
-    # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
       save_notification_post_comment!(current_user, post_comment_id, temp_id['user_id'])
@@ -35,7 +34,6 @@ class Post < ApplicationRecord
   end
 
   def save_notification_post_comment!(current_user, post_comment_id, passive_user_id)
-    # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
     [sender, receiver].each do |post_user|
       notification = current_user.active_notifications.new(
         passive_user_id: post_user.id,

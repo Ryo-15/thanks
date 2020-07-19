@@ -1,44 +1,48 @@
 <div class="container yield">
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-8 offset-2">
 			<section class="inner">
 				<h2 class="section-ttl"><%= @user.full_name %> さんの個人情報編集</h2>
 				<%= form_for(@user, url: admins_user_path(@user)) do |f| %>
-					<%# <%= render 'layouts/error_messages', resource: @user %> %>
-					<table class="customer_info customer_form">
-						<thead>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</thead>
+					<%= render 'layouts/error_messages', resource: @user %>
+					<table class="">
 						<tbody>
 							<tr>
 								<td><%= f.label :profile_image, "プロフィール画像" %></td>
-								<td colspan="2"><%= f.attachment_field :profile_image, class: "user_image" %></td>
+								<td><%= f.attachment_field :profile_image, class: "user_image" %></td>
 							</tr>
 							<tr>
 								<td>名前</td>
-								<td><%= f.label :last_name, "(姓)", class: "user_name" %> <%= f.text_field :last_name, :placeholder =>"#{@user.last_name}" %></td>
-								<td><%= f.label :first_name, "(名)", class: "user_name" %> <%= f.text_field :first_name, :placeholder =>"#{@user.first_name}" %></td>
+								<td>
+									<%= f.label :last_name, "(姓)", class: "user_name" %>
+									<%= f.text_field :last_name, :placeholder =>"#{@user.last_name}", class:"form-control" %>
+								</td>
+								<td>
+									<%= f.label :first_name, "(名)", class: "user_name" %>
+									<%= f.text_field :first_name, :placeholder =>"#{@user.first_name}", class:"form-control" %>
+								</td>
 							</tr>
 							<tr>
 								<td>フリガナ</td>
-								<td><%= f.label :last_name_kana, "(セイ)" %> <%= f.text_field :last_name_kana, :placeholder =>"#{@user.last_name_kana}" %></td>
-								<td><%= f.label :first_name_kana, "(メイ)" %> <%= f.text_field :first_name_kana, :placeholder =>"#{@user.first_name_kana}" %></td>
+								<td>
+									<%= f.label :last_name_kana, "(セイ)" %>
+									<%= f.text_field :last_name_kana, :placeholder =>"#{@user.last_name_kana}", class:"form-control" %>
+								</td>
+								<td>
+									<%= f.label :first_name_kana, "(メイ)" %>
+									<%= f.text_field :first_name_kana, :placeholder =>"#{@user.first_name_kana}", class:"form-control" %>
+								</td>
 							</tr>
 							<tr>
 								<td>メールアドレス</td>
-								<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}" %></td>
+								<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}", class:"form-control" %></td>
 							</tr>
 							<tr>
 								<td><%= f.label :department_id, "所属部署名" %></td>
-								<%# 部署名の編集ができない要確認 %>
-								<td colspan="2"><%= f.collection_select :department_id, Department.all, :id, :name, include_blank: '選択してください' %></td>
+								<td><%= f.collection_select :department_id, Department.all, :id, :name, include_blank: '選択してください' %></td>
 							</tr>
 							<tr>
-								<td colspan="3"><%= f.submit "更新", class: "btn btn-primary" %></td>
+								<td><%= f.submit "更新", class: "btn btn-primary" %></td>
 							</tr>
 						</tbody>
 					</table>

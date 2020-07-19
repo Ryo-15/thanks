@@ -17,7 +17,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FEF6F1;
+  // background-image: -moz-linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
+  // background-image: -webkit-linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
+  // background-image: linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
+  // background-color: #FEF6F1;
 }
 
 // .container-fluid {
@@ -25,7 +28,7 @@
 // }
 
 .header {
-  background-color:  rgba(112,112,112,.09);
+  // background-color:  rgba(112,112,112,.09);
 }
 
 .yield {
@@ -52,6 +55,18 @@
 
 .alert {
   @extend .alert-danger;
+}
+
+.card {
+  margin: 20px auto;
+}
+
+.btn {
+  margin: 20px 0;
+}
+
+.nav-item {
+
 }
 
 // html {
@@ -118,10 +133,10 @@
 //   border-style: none;
 // }
 
-// .img-fluid {
-//   max-width: 100%;
-//   height: auto;
-// }
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
 
 // .container {
 //   width: 100%;
