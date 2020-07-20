@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="card border-info">
     <div class="card-header">
-      <%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks
+      <%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks!
     </div>
     <div class="card-body">
       <div class="row">
@@ -28,33 +28,27 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="card-footer">
       <i class="fa fa-calendar"></i><%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
-    </div>
-    <% if post.favorited_by?(current_user) %>
-      <div>
-        <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-          <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-          <%= post.favorites.count %>いいね
+      <% if post.favorited_by?(current_user) %>
+          <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+            <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+            <%= post.favorites.count %>いいね
+          <% end %>
+      <% else %>
+          <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+            <i class="fas fa-heart" aria-hidden="true"  style="color: gray;"></i>
+            <%= post.favorites.count %>いいね
+          <% end %>
+      <% end %>
+        <i class="far fa-comment"></i>
+        <a href="#comments"><%= post.post_comments.count %>コメント</a>
+      <div class="float-right">
+        <% if post.sender == current_user %>
+          <%= link_to '編集', edit_post_path(post), class: "btn btn-info far fa-edit" %>
+          <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
         <% end %>
       </div>
-    <% else %>
-      <div>
-        <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-          <i class="fas fa-heart" aria-hidden="true"  style="color: gray;"></i>
-          <%= post.favorites.count %>いいね
-        <% end %>
-      </div>
-    <% end %>
-    <div>
-      <i class="fa fa-comment"></i>
-      <a href="#comments"><%= post.post_comments.count %>コメント</a>
-    </div>
-    <div class="">
-      <% if post.sender == current_user %>
-      <%= link_to '編集', edit_post_path(post), class: "btn btn-info far fa-edit" %>
-      <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
-    <% end %>
     </div>
   </div>
 </div>

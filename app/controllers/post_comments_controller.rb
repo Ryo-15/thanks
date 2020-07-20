@@ -12,20 +12,12 @@ class PostCommentsController < ApplicationController
     end
   end
 
-  # def edit
-    
-  # end
-
-  # def update
-    
-  # end
-
   def destroy
     @post_comment = PostComment.find(params[:post_id])
     @post = @post_comment.post
-    if @post_comment.user != current_user
-      redirect_to request.referer
-    end
+    # if @post_comment.user != current_user
+    #   redirect_to request.referer
+    # end
     @post_comment.destroy
   end
 

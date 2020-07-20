@@ -36,21 +36,14 @@
               </tbody>
             </table>
           </div>
-        </div>
       </div>
-      <% if @user == current_user %>
-        <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-success" %>
-        <div>その他個人情報の変更は管理者へご連絡ください</div>
-      <% end %>
-      <div>ここから対象ユーザーにthanks投稿できるようにする</div>
-      <% if @user == current_user %>
-        <h3>もらったThanks（自分は全件）</h3>
-        <%# <%= @post.receiver_id.count %> %>
-        <%# <%= render 'posts/index', posts: @posts %> %>
-      <% elsif @user =! current_user %>
-        <h3>もらったThanks（他のユーザーは直近のやつ）</h3>
-        <%# <%= render 'posts/index', posts: @posts %> %>
-      <% end %>
+        <% if @user == current_user %>
+          <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-info" %>
+          <div>その他個人情報の変更は管理者へご連絡ください</div>
+          <div>もらったThanks（自分は全件）</div>
+        <% elsif @user =! current_user %>
+          <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
+        <% end %>
       <div class="d-flex justify-content-center">
         <%# <%= paginate @posts, class: "pagination" %> %>
       </div>

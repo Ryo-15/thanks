@@ -39,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # 静的解析ツール
+  gem 'rubocop-airbnb'
   # デプロイを自動化
   gem 'capistrano'
   gem 'capistrano-rails'
@@ -92,13 +94,10 @@ gem 'pry-rails'
 gem 'ransack'
 
 # グラフ描画
-gem "chartkick"
+gem 'chartkick'
 
 # Excel, CSV, OpenOffice, GoogleSpreadSheetを開くことが可能
 gem 'roo'
-
-# 静的解析ツール
-gem 'rubocop-airbnb'
 
 # 環境変数
 gem 'dotenv-rails'

@@ -1,23 +1,29 @@
 <% post_comments.each do |post_comment| %>
-  <div class="comment-body bb">
-    <div class="comment-avatar">
-      <div class="avatar">
-        <%= attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %>
+  <div class="card">
+    <div class="row no-gutters">
+      <div class="col-md-1">
+        <%= attachment_image_tag post_comment.user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "80x80" %>
       </div>
-    </div>
-    <div class="comment-text">
-      <div class="comment-author clearfix">
-        <a href="#"><%= post_comment.user.full_name %></a>
+      <div class="col-md-11">
+        <div class="card-body">
+          <div class="card-title">
+            <%= link_to user_path(post_comment.user.id) do %>
+              <h6><%= post_comment.user.full_name %></h6>
+            <% end %>
+          </div>
+          <div class="comment-entry">
+            <%= post_comment.comment %>
+          </div>
+          <div class="comment-meta">
+            <small class="text-muted"><%= post_comment.created_at.strftime("%Y/%m/%d %H:%M") %></small>
+            <div class="float-right">
+              <% if post_comment.user == current_user %>
+                <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), class: 'btn-sm btn-danger fas fa-trash-alt', method: :delete, remote: true %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="comment-entry">
-        <%= post_comment.comment %>
-      </div>
-      <span class="comment-meta">
-        <span class="comment-date"><%= post_comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-      </span>
-      <% if post_comment.user == current_user %>
-        <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), class: 'btn-sm btn-danger', method: :delete, remote: true %>
-      <% end %>
     </div>
   </div>
 <% end %>

@@ -2,17 +2,10 @@
   <div class="d-flex flex-row">
     <div class="col-12">
       <h3>みんなのThanks!</h3>
-      <%# 投稿一覧部分は部分テンプレート %>
       <%= render 'index', posts: @posts %>
       <div class="d-flex justify-content-center">
         <%= paginate @posts, class: "pagination" %>
       </div>
     </div>
   </div>
-  <span id="back">
-    <!-- そのページの最上層へ移動するリンク -->
-    <a href="#">
-      <img src="assets/arrow.png" alt="ページトップ">
-    </a>
-  </span>
 </div>

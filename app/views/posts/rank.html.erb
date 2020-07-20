@@ -3,17 +3,17 @@
     <div class="col-10 offset-1">
       <h3>今月のBest Thanks!</h3>
       <div class="card">
-        <div class="card-header">たくさんThanks!を受け取った人</div>
+        <div class="card-header"><h5>たくさんThanks!を受け取った人</h5></div>
           <div class="card-body">
             <table class="table">
               <tbody>
                 <% @receiver_ranks.each.with_index(1) do |user, i| %>
                   <tr>
-                    <td class="align-middle"><%= user.receiver.count %>Thanks!</td>
+                    <td class="align-middle"><h5><%= user.receiver.count %>Thanks!</h5></td>
                     <td class="align-middle"><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
                     <td class="align-middle">
                       <%= link_to user_path(user.id) do %>
-                        <%= user.full_name %>
+                        <h5><%= user.full_name %></h5>
                       <% end %>
                     </td>
                     <td class="align-middle"><%= user.department.name %></td>
@@ -24,17 +24,17 @@
           </div>
       </div>
       <div class="card">
-        <div class="card-header">たくさんThanks!を送った人</div>
+        <div class="card-header"><h5>たくさんThanks!を送った人</h5></div>
           <div class="card-body">
             <table class="table">
               <tbody>
                 <% @sender_ranks.each.with_index(1) do |user, i| %>
                   <tr>
-                    <td class="align-middle"><%= user.sender.count %>Thanks!</td>
+                    <td class="align-middle"><h5><%= user.sender.count %>Thanks!</h5></td>
                     <td class="align-middle"><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
                     <td class="align-middle">
                       <%= link_to user_path(user.id) do %>
-                        <%= user.full_name %>
+                        <h5><%= user.full_name %></h5>
                       <% end %>
                     </td>
                     <td class="align-middle"><%= user.department.name %></td>
@@ -45,28 +45,29 @@
           </div>
       </div>
       <div class="card">
-        <div class="card-header">最もいいねされたThanks!</div>
+        <div class="card-header"><h5>最もいいねされたThanks!</h5></div>
           <div class="card-body">
             <table class="table">
               <tbody>
                 <% @post_ranks.each.with_index(1) do |post, i| %>
                 <tr>
-                  <td class="align-middle"><%= post.favorites.count %>いいね</td>
+                  <td class="align-middle"><h5><%= post.favorites.count %>いいね</h5></td>
                   <td class="align-middle"><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
                   <td class="align-middle">
                     <%= link_to user_path(post.sender.id) do %>
-                      <%= post.sender.full_name %>
+                      <h6 class="card-title"><%= post.sender.full_name %></h6>
                     <% end %>
+                    <small class="card-subtitle mb-2 text-muted">
+                    <%= post.sender.department.name %></small>
                   </td>
-                  <td class="align-middle"><%= post.sender.department.name %></td>
                   <td class="align-middle"><%= post.post %></td>
                   <td class="align-middle"><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
                   <td class="align-middle">
                     <%= link_to user_path(post.receiver.id) do %>
-                      <%= post.receiver.full_name %>
+                      <h6 class="card-title"><%= post.receiver.full_name %></h6>
                     <% end %>
+                  <small class="card-subtitle mb-2 text-muted"><%= post.receiver.department.name %></small>
                   </td>
-                  <td class="align-middle"><%= post.receiver.department.name %></td>
                 </tr>
                 <% end %>
               </tbody>

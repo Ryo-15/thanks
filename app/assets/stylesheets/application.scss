@@ -48,7 +48,6 @@
   padding: 2rem;
 }
 
-// 「ログインしました」などのフラッシュ用スタイル
 .notice {
   @extend .alert-info;
 }
@@ -65,95 +64,50 @@
   margin: 20px 0;
 }
 
-.nav-item {
-
+#mainNav {
+  background-color: skyblue;
 }
 
-// html {
-//   font-family: sans-serif;
-//   line-height: 1.15;
-//   -webkit-text-size-adjust: 100%;
-//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-// }
+#mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
+  outline: none;
+  background-color: transparent;
+}
 
-// #mainNav {
-//   min-height: 3.5rem;
-//   background-color: #000;
-// }
-// #mainNav .navbar-toggler {
-//   font-size: 80%;
-//   padding: 0.75rem;
-//   color: #64a19d;
-//   border: 1px solid #64a19d;
-// }
-// #mainNav .navbar-toggler:focus {
-//   outline: none;
-// }
-// #mainNav .navbar-brand {
-//   color: #000000;
-//   font-weight: 700;
-//   padding: 0.9rem 0;
-// }
-// #mainNav .navbar-nav .nav-item:hover {
-//   color: fade(#fff, 80%);
-//   outline: none;
-//   background-color: transparent;
-// }
-// #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
-//   outline: none;
-//   background-color: transparent;
-// }
-// @media (min-width: 992px) {
-//   #mainNav {
-//     padding-top: 0;
-//     padding-bottom: 0;
-//     border-bottom: none;
-//     background-color: transparent;
-//     transition: background-color 0.3s ease-in-out;
-//   }
-//   #mainNav .navbar-brand {
-//     padding: 0.5rem 0;
-//     color: rgba(255, 255, 255, 0.5);
-//   }
-//   #mainNav .nav-link {
-//     transition: none;
-//     padding: 2rem 1.5rem;
-//     color: rgba(255, 255, 255, 0.5);
-//   }
-//   #mainNav .nav-link:hover {
-//     color: rgba(255, 255, 255, 0.75);
-//   }
-//   #mainNav .nav-link:active {
-//     color: #fff;
-//   }
-// }
-
-// img {
-//   vertical-align: middle;
-//   border-style: none;
-// }
+#mainNav {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+#mainNav .navbar-brand {
+  padding: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+#mainNav .nav-link {
+  transition: none;
+  padding: 2rem 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+#mainNav .nav-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+#mainNav .nav-link:active {
+  color: #fff;
+}
 
 .img-fluid {
   max-width: 100%;
   height: auto;
 }
 
-// .container {
-//   width: 100%;
-//   padding-right: 0.75rem;
-//   padding-left: 0.75rem;
-//   margin-right: auto;
-//   margin-left: auto;
-// }
 .masthead {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  // width: 100%;
-  // height: auto;
+  width: 100%;
+  height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  // background: url("assets/thanks.jpg");
+  background: image-url("..assets/images/thanks.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -173,17 +127,6 @@
 .masthead h2 {
   max-width: 20rem;
   font-size: 1rem;
-}
-
-/* position: fixed; を指定することで、「トップへ戻る」ボタンはつねに同じ位置（ページ右下20pxの位置）に表示 */
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-
-#back img {
-  width: 40px;
 }
 
 // Extra small devices (portrait phones, less than 576px)
