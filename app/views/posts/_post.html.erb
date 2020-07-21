@@ -30,25 +30,17 @@
   <div class="card-footer">
     <span class="comment-date"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
     <% if post.favorited_by?(current_user) %>
-      <div>
-        <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-          <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
-          <%= post.favorites.count %>
-        <% end %>
-      </div>
-    <% else %>
-      <div>
-        <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-          <i class="fas fa-heart" aria-hidden="true" style="color: gray;"></i>
-          <%= post.favorites.count %>
-        <% end %>
-      </div>
-    <% end %>
-    <div>
-      <%= link_to post_path(post.id) do %>
-        <i class="far fa-comment"></i>
-        <a href="#comments"><%= post.post_comments.count %></a>
+      <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
+        <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= post.favorites.count %>
       <% end %>
-    </div>
+    <% else %>
+      <%= link_to post_favorites_path(post), method: :post, remote: true do %>
+        <i class="fas fa-heart" aria-hidden="true" style="color: gray;"></i>
+        <%= post.favorites.count %>
+      <% end %>
+    <% end %>
+      <i class="far fa-comment"></i>
+      <a href="#comments"><%= post.post_comments.count %></a>
   </div>
 </div>

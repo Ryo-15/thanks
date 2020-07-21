@@ -48,6 +48,7 @@
           <%= link_to '編集', edit_post_path(post), class: "btn btn-info far fa-edit" %>
           <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
         <% end %>
+        <small><%= link_to "投稿一覧に戻る", posts_path %></small>
       </div>
     </div>
   </div>

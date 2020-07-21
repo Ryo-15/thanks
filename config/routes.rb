@@ -17,18 +17,24 @@ Rails.application.routes.draw do
 
   namespace :admins do
     get "top" => "homes#top", as: "top"
+    get "rank" => "homes#rank", as: "rank"
+    get "chart" => "homes#chart", as: "chart"
     resources :users, only:[:index, :new, :create, :show, :edit, :update, :destroy] do
       collection do
         post :import
       end
     end
-    resources :departments, only:[:index, :create, :edit, :update, :destroy]
+    resources :departments, only:[:index, :create, :edit, :update, :destroy] do
+      collection do
+        post :import
+      end
+    end
   end
 
   get "posts/finish" => "posts#finish"
   get "posts/rank" => "posts#rank"
   resources :posts, only:[:index, :new, :create, :show, :edit, :update, :destroy] do
-    resource :favorites, only:[:create, :destroy]
+    resource  :favorites,     only:[:create, :destroy]
     resources :post_comments, only:[:create, :destroy]
   end
 

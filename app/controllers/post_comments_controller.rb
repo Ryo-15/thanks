@@ -6,18 +6,15 @@ class PostCommentsController < ApplicationController
     @post_comment_post = @post_comment.post
     if @post_comment.save
       flash[:success] = "コメントしました"
-      @post_comment_post.create_notification_post_comment!(current_user, @post_comment.id)
+      @post_comment_post.create_notification_comment!(current_user, @post_comment.id)
     else
       @post_comments = PostComment.where(id: @post)
     end
   end
 
   def destroy
-    @post_comment = PostComment.find(params[:post_id])
+    @post_comment = PostComment.find(params[:id])
     @post = @post_comment.post
-    # if @post_comment.user != current_user
-    #   redirect_to request.referer
-    # end
     @post_comment.destroy
   end
 

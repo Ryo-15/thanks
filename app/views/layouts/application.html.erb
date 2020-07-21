@@ -23,11 +23,9 @@
 
     <%= render 'layouts/header' %>
 
-    <div >
-      <div class="notice"><%= notice %></div>
-      <div class="alert"><%= alert %></div>
-      <%= yield %>
-    </div>
+    <div class="notice"><%= notice %></div>
+    <div class="alert" role="alert"><%= alert %></div>
+    <%= yield %>
 
     <%= render 'layouts/footer' %>
 

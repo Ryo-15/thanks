@@ -1,7 +1,7 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-8 offset-2">
-      <h1>投稿を編集する</h1>
+      <h3>投稿を編集する</h3>
 
       <%= form_for(@post) do |f| %>
 
@@ -16,7 +16,6 @@
         <% end %>
 
         <div class="field">
-          <h4>投稿内容</h4>
           <%= f.text_area :post, class:"form-control", rows:"10" %>
         </div>
         <div class ="action">

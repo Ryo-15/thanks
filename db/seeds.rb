@@ -86,6 +86,66 @@ User.create!(
       email: "5@5",
       password: "555555",
       profile_image: File.open("./app/assets/images/man.jpeg", ?r)
+    },
+    {
+      last_name: "星野",
+      first_name: "源",
+      last_name_kana: "ホシノ",
+      first_name_kana: "ゲン",
+      department_id: 3,
+      email: "6@6",
+      password: "666666",
+      profile_image: File.open("./app/assets/images/man.jpeg", ?r)
+    },
+    {
+      last_name: "小林",
+      first_name: "由依",
+      last_name_kana: "コバヤシ",
+      first_name_kana: "ユイ",
+      department_id: 1,
+      email: "7@7",
+      password: "777777",
+      profile_image: File.open("./app/assets/images/woman.jpeg", ?r)
+    },
+    {
+      last_name: "佐藤",
+      first_name: "健",
+      last_name_kana: "サトウ",
+      first_name_kana: "タケル",
+      department_id: 1,
+      email: "8@8",
+      password: "888888",
+      profile_image: File.open("./app/assets/images/man.jpeg", ?r)
+    },
+    {
+      last_name: "長澤",
+      first_name: "まさみ",
+      last_name_kana: "ナガサワ",
+      first_name_kana: "マサミ",
+      department_id: 1,
+      email: "9@9",
+      password: "999999",
+      profile_image: File.open("./app/assets/images/woman.jpeg", ?r)
+    },
+    {
+      last_name: "山崎",
+      first_name: "賢人",
+      last_name_kana: "ヤマザキ",
+      first_name_kana: "ケント",
+      department_id: 1,
+      email: "q@q",
+      password: "qqqqqq",
+      profile_image: File.open("./app/assets/images/man.jpeg", ?r)
+    },
+    {
+      last_name: "岡田",
+      first_name: "将生",
+      last_name_kana: "オカダ",
+      first_name_kana: "マサキ",
+      department_id: 3,
+      email: "w@w",
+      password: "wwwwww",
+      profile_image: File.open("./app/assets/images/man.jpeg", ?r)
     }
   ]
   )

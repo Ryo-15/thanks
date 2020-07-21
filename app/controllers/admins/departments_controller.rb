@@ -1,7 +1,22 @@
 class Admins::DepartmentsController < ApplicationController
   def index
     @department = Department.new
-    @departments = Department.all
+    @departments = Department.page(params[:page]).per(10)
+    respond_to do |format|
+      format.html do
+        #html用の処理を書く
+      end
+      format.csv do
+        #csv用の処理を書く
+        @departments = Department.all
+        send_data render_to_string, filename: "department_index.csv", type: :csv
+      end
+    end
+  end
+
+  def import
+    Department.import(params[:file])
+    redirect_to admins_departments_path
   end
 
   def create

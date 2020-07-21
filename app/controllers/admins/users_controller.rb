@@ -21,6 +21,7 @@ class Admins::UsersController < ApplicationController
       end
       format.csv do
         #csv用の処理を書く
+        @users = User.all
         send_data render_to_string, filename: "user_index.csv", type: :csv
       end
     end

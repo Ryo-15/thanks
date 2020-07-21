@@ -1,0 +1,10 @@
+<div class="container-fluid yield">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h3>今月のBest Thanks!</h3>
+      <%= render 'posts/receiver_ranks', receiver_ranks: @receiver_ranks %>
+      <%= render 'posts/sender_ranks', sender_ranks: @sender_ranks %>
+      <%= render 'posts/post_ranks', post_ranks: @post_ranks %>
+    </div>
+  </div>
+</div>

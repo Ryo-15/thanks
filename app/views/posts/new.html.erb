@@ -4,7 +4,9 @@
       <h3 class="section-title section-title-sm left">
         <span>Thanks!を送る</span>
       </h3>
-      <%= render 'search', search: @search %>
+      <div class="col-4">
+        <%= render 'search', search: @search %>
+      </div>
       <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
         <% if @post.errors.any? %>
           <div id="error_explanation">
@@ -17,7 +19,8 @@
           </div>
         <% end %>
         <%# 非同期で自動選択を実装する %>
-        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を一覧から探す', class:"form-control")%><br>
+        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を一覧から探す', class:"form-control")%>
+        <small>*検索後プルダウンからユーザーを選択してください</small><br>
         <%= f.hidden_field :sender_id, :value => current_user.id %>
         <%= f.text_area :post, class:"form-control", rows:"20", placeholder:"ありがとうの気持ちをここに" %>
         <%= f.submit "送信", class:"btn btn-block btn-primary" %>

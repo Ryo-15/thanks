@@ -1,47 +1,49 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-8 offset-2">
-			<section class="inner">
-				<h2 class="section-ttl"><%= @user.full_name %>さんのページ</h2>
-				<table class="table">
-					<tbody>
-						<tr>
-							<td>社員ID</td>
-							<td colspan="2"><%= @user.id %></td>
-						</tr>
-						<tr>
-							<td>プロフィール画像</td>
-							<td colspan="2"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %></td>
-						</tr>
-						<tr>
-							<td>氏名</td>
-							<td><%= @user.full_name %></td>
-						</tr>
-						<tr>
-							<td>フリガナ</td>
-							<td><%= @user.full_name_kana %></td>
-						</tr>
-						<tr>
-							<td>所属部署名</td>
-							<td colspan="2"><%= @user.department.name %></td>
-						</tr>
-						<tr>
-							<td>メールアドレス</td>
-							<td colspan="2"><%= @user.email %></td>
-						</tr>
-						<tr>
-							<td>もらったThanks!</td>
-							<td><%= @user.receiver.count %></td>
-						</tr>
-						<tr>
-							<td>送ったThanks!</td>
-							<td><%= @user.sender.count %></td>
-						</tr>
-					</tbody>
-				</table>
-				<%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-success far fa-edit" %>
-				<%= link_to "ユーザー一覧に戻る", admins_users_path %>
-			</section>
+      <div class="card">
+        <div class="card-header"><%= @user.full_name %>さんの登録情報詳細</div>
+          <div class="card-body">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td class="align-middle">社員ID</td>
+									<td class="align-middle"><%= @user.id %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">プロフィール画像</td>
+									<td class="align-middle"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">氏名</td>
+									<td class="align-middle"><%= @user.full_name %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">フリガナ</td>
+									<td class="align-middle"><%= @user.full_name_kana %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">所属部署名</td>
+									<td class="align-middle"><%= @user.department.name %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">メールアドレス</td>
+									<td class="align-middle"><%= @user.email %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">もらったThanks!</td>
+									<td class="align-middle"><%= @user.receiver.count %></td>
+								</tr>
+								<tr>
+									<td class="align-middle">送ったThanks!</td>
+									<td class="align-middle"><%= @user.sender.count %></td>
+								</tr>
+							</tbody>
+						</table>
+				</div>
+			</div>
+			<%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-info far fa-edit" %>
+			<%= link_to "ユーザー一覧に戻る", admins_users_path %>
 		</div>
 	</div>
 </div>

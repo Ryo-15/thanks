@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header"><h5>たくさんThanks!を送った人</h5></div>
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <% sender_ranks.each.with_index(1) do |user, i| %>
+            <tr>
+              <td class="align-middle"><h5><%= user.sender.count %>Thanks!</h5></td>
+              <td class="align-middle"><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"100x100" %></td>
+              <td class="align-middle">
+                <%= link_to user_path(user.id) do %>
+                  <h5><%= user.full_name %></h5>
+                <% end %>
+              </td>
+              <td class="align-middle"><%= user.department.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>

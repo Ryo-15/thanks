@@ -1,22 +1,20 @@
 <div class="container-fluid yield">
   <div class="d-flex flex-row">
 		<div class="sidebar col-2">
-			<h3>部署一覧</h3>
-			<table class="table">
-					<tbody>
-						<% @departments.each do |department| %>
-							<tr>
-								<td><%= link_to department.name, admins_users_path(department_id: department.id) %></td>
-							</tr>
-						<% end %>
-					</tbody>
-			</table>
+			<h5>部署一覧</h5>
+			<ul class="list-group" style="max-width: 400px;">
+				<% @departments.each do |department| %>
+					<li class="list-group-item">
+						<%= link_to department.name, admins_users_path(department_id: department.id) %>
+					</li>
+				<% end %>
+			</ul>
 		</div>
 		<div class="col-10">
 			<% if params[:department_id] %>
-				<h2 class="section-ttl"><%= @department.name %>の社員一覧 (全<%= @all_users_count %>名)</h2>
+				<h5 class="section-ttl"><%= @department.name %>の社員一覧 (全<%= @all_users_count %>名)</h5>
 			<% else %>
-				<h2 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h2>
+				<h5 class="section-ttl">社員一覧 (全<%= @all_users_count %>名)</h5>
 			<% end %>
 			<div class="col-4">
 				<%= search_form_for @search, url: admins_users_path do |f| %>

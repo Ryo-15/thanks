@@ -1,0 +1,22 @@
+<div class="container-fulid yield">
+  <div class="row">
+    <div class="col-10 offset-1">
+    <h3>各種グラフ（予定）</h3>
+    <div>（仮）デイリチャート（日の投稿数）</div>
+    <%= column_chart @receiver_ranks, width: "100%", height: "500px" %>
+    <div>（仮）マンスリーチャート（月の投稿数）</div>
+    <%= column_chart @sender_ranks, width: "100%", height: "500px" %>
+    <%= bar_chart @sender_ranks, width: "100%", height: "500px" %>
+    <div>（仮）ユーザーチャート（ユーザーごとの投稿数）</div>
+    <%= column_chart @post_ranks, width: "100%", height: "500px" %>
+    <%= bar_chart Post.group(:receiver_id).count %>
+    <%= bar_chart Post.group(:sender_id).count %>
+    <%= bar_chart Post.group(:favorite_id).count %>
+    <%= column_chart Favorite.group(:user_id).count %>
+    <%= column_chart Favorite.group(:post_id).count %>
+    <%# <%= column_chart Post.eager_load(:user).group(:receiver.user.name).count %> %>
+    <%# <%= pie_chart User.find(Post.group(:sender_id).count)%> %>
+    <%# <%= line_chart Post.group_by_day(:created_at).count %> %>
+    </div>
+  </div>
+</div>

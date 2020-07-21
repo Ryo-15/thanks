@@ -13,11 +13,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:success] = 'ありがとうを投稿しました。'
       @post.create_notification_post!(current_user)
-      redirect_to posts_finish_path
+      redirect_to posts_finish_path, notice: 'ありがとうを投稿しました'
     else
-      flash[:danger] = 'ありがとうを投稿できませんでした。'
+      flash.now[:alert] = 'メッセージを入力してください。'
       redirect_back(fallback_location: posts_path)
     end
   end

@@ -15,7 +15,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
           <% if user_signed_in? %>
             <span class="navbar-text nav-item align-middle">
-              <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"40x40" %><%= current_user.full_name %>さん
+              <%= current_user.full_name %>さん
             </span>
           <% end %>
         <ul class="navbar-nav ml-auto">
@@ -32,7 +32,9 @@
             <li class="nav-item align-middle"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
           <% elsif admin_signed_in? %>
-            <li class="nav-item align-middle"><%= link_to 'チャート', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item align-middle"><%= link_to '投稿一覧', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item align-middle"><%= link_to 'チャート', admins_chart_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item align-middle"><%= link_to 'ランキング', admins_rank_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ユーザー新規登録', new_user_registration_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to '部署一覧/作成', admins_departments_path, class: 'nav-link js-scroll-trigger' %></li>

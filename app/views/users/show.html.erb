@@ -1,6 +1,6 @@
 <div class="container-fluid yield">
   <div class="row">
-    <div class="col-10 offset-1">
+    <div class="col-8 offset-2">
       <div class="card">
         <div class="card-header">登録情報</div>
           <div class="card-body">
@@ -41,6 +41,7 @@
           <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-info" %>
           <div>その他個人情報の変更は管理者へご連絡ください</div>
           <div>もらったThanks（自分は全件）</div>
+          <%# <%= render '/posts/index', posts: @posts %> %>
         <% elsif @user =! current_user %>
           <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
         <% end %>
