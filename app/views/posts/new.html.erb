@@ -7,6 +7,12 @@
       <div class="col-4">
         <%= render 'search', search: @search %>
       </div>
+      <div class="card">
+        <h6 class="card-header">Thanks!の送り方</h6>
+        <small>相手の名前が分かる場合には氏名検索（漢字・カナ）</small>
+        <small>検索後プルダウンから相手を選択</small>
+        <small>メッセージを入力して送信！</small>
+      </div>
       <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
         <% if @post.errors.any? %>
           <div id="error_explanation">

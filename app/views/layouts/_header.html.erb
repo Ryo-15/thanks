@@ -1,10 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
       <% if user_signed_in? %>
         <%= link_to "Thanks!", posts_path, class: 'navbar-brand js-scroll-trigger' %>
       <% elsif admin_signed_in? %>
-        <%= link_to "Thanks!", admins_top_path, class: 'navbar-brand js-scroll-trigger' %>
+        <%= link_to "Thanks!", admins_index_path, class: 'navbar-brand js-scroll-trigger' %>
       <% else %>
         <%= link_to "Thanks!", root_path, class: 'navbar-brand js-scroll-trigger' %>
       <% end %>
@@ -32,7 +32,7 @@
             <li class="nav-item align-middle"><%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %></li>
           <% elsif admin_signed_in? %>
-            <li class="nav-item align-middle"><%= link_to '投稿一覧', admins_top_path, class: 'nav-link js-scroll-trigger' %></li>
+            <li class="nav-item align-middle"><%= link_to '投稿一覧', admins_index_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'チャート', admins_chart_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ランキング', admins_rank_path, class: 'nav-link js-scroll-trigger' %></li>
             <li class="nav-item align-middle"><%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %></li>

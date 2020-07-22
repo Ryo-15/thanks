@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
       when Admin
-        admins_top_path
+        admins_index_path
       when User
         posts_path
     end

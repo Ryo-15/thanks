@@ -1,6 +1,16 @@
 class Admins::HomesController < ApplicationController
-  def top
-
+  def index
+    @posts = Post.page(params[:page]).per(10).reverse_order
+    respond_to do |format|
+      format.html do
+        #html用の処理を書く
+      end
+      format.csv do
+        #csv用の処理を書く
+        @posts = Post.all
+        send_data render_to_string, filename: "post_index.csv", type: :csv
+      end
+    end
   end
 
   def rank

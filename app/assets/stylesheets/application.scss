@@ -17,19 +17,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // background-image: -moz-linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
-  // background-image: -webkit-linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
-  // background-image: linear-gradient(135deg, rgba(94, 0, 255, 0.08), rgba(255, 123, 0, 0.35));
-  // background-color: #FEF6F1;
+  background-color: #FEF6F1;
+}
+
+body {
+  background-color: initial;
+  color: initial;
 }
 
 // .container-fluid {
 //   display: flex;
 // }
 
-.header {
-  // background-color:  rgba(112,112,112,.09);
-}
+// .header {
+//   background-color: #FEF6F1;
+// }
 
 .yield {
   // margin-top: auto;
@@ -64,10 +66,6 @@
   margin: 20px 0;
 }
 
-#mainNav {
-  background-color: skyblue;
-}
-
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
   outline: none;
   background-color: transparent;
@@ -77,8 +75,8 @@
   padding-top: 0;
   padding-bottom: 0;
   border-bottom: none;
-  background-color: transparent;
-  transition: background-color 0.3s ease-in-out;
+  // background-color: transparent;
+  // transition: background-color 0.3s ease-in-out;
 }
 #mainNav .navbar-brand {
   padding: 0.5rem 0;
@@ -92,14 +90,14 @@
 #mainNav .nav-link:hover {
   color: rgba(255, 255, 255, 0.75);
 }
-#mainNav .nav-link:active {
-  color: #fff;
-}
+// #mainNav .nav-link:active {
+//   color: #fff;
+// }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
+// .img-fluid {
+//   max-width: 100%;
+//   height: auto;
+// }
 
 .masthead {
   position: relative;
@@ -107,12 +105,18 @@
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: image-url("..assets/images/thanks.png");
+  background-image: image-url("assets/thanks.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
 }
+
+// .jumbotron {
+//   background-image: url("xxx.jpg");
+//   background-size: cover;
+//   background-position: center 60%;
+// }
 
 .masthead h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

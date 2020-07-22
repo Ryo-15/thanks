@@ -1,18 +1,20 @@
 <section class="about-section text-center" id="about">
   <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2 class="text-black-50 mb-4">Thanks!で感謝を伝えよう</h2>
-          <p class="text-black-50">
-              Thanks!はお互いの貢献に対して感謝を伝え合う社内SNSです。<br>
-              みなさんの仕事は必ず誰かのため、役立つことにつながっているはずです。<br>
-              誰かのサポート、がんばりに対して、みんなでありがとうを言いませんか？
-          </p>
-          <a class="btn-lg btn-primary js-scroll-trigger" href="/contact">お問い合わせ</a>
-        </div>
+      <div class="col-8 mx-auto">
+        <h2 class="text-black-50 mb-4">Thanks!で感謝を伝えよう</h2>
+        <p class="text-black-50">
+            Thanks!はお互いの貢献に対して感謝を伝え合う社内SNSです。<br>
+            みなさんの仕事は必ず誰かのため、役立つことにつながっているはずです。<br>
+            お互いのサポート、がんばりに対して、みんなでありがとうを言いませんか？
+        </p>
+        <a class="btn-lg btn-primary" href="/contact">お問い合わせ</a>
+      </div>
     </div>
     <%# 画像パス要確認 %>
-    <img class="img-fluid" src="assets/thanks.png" alt="" />
+    <div style="margin-top: 20px;">
+      <img class="img-fluid" src="assets/thanks_blue.jpeg" alt="thanks_top_image" />
+    </div>
   </div>
 </section>
 <section class="projects-section bg-light" id="projects">
@@ -20,24 +22,27 @@
     <!-- Featured Project Row-->
     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
       <%# 画像パス要確認 %>
-      <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/thanks.png" alt="" /></div>
+      <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/office.jpeg" alt="office" /></div>
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
           <h4>仕事とはどういうものでしょうか</h4>
-          <p class="text-black-50 mb-0">お金のため、生活のため、必要としてくれる人がいるからこそ仕事はあり、そこに経済的価値が生まれます。では経済的価値ではない側面にも目をむけてみましょう。あなたの働きで必要としてくれる人に貢献できていますか？また誰かの働きに対して、ありがとうをきちんと伝えてられていますか？</p>
+          <p class="text-black-50 mb-0">お金のため、生活のため、経済的に必要だから働いている。<br>そんな人が大多数だと思います。<br>では経済的価値ではない側面にも目を向けてみましょう。<br>あなたの内面にある働く喜びや意義が見えてきましたはずです。<br>あなたの働きで必要としてくれる人に貢献できていますか？<br>誰かの働きに対して、ありがとうを伝えられていますか？</p>
         </div>
       </div>
+    </div>
+    <div class="text-center">
+      <h2 class="text-black-50 mb-4">Thanks!がもたらすもの</h2>
     </div>
     <!-- Project One Row-->
     <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
       <%# 画像パス要確認 %>
-      <div class="col-lg-6"><img class="img-fluid" src="assets/thanks.png" alt="" /></div>
+      <div class="col-lg-6"><img class="img-fluid" src="assets/thankyou.jpeg" alt="社員にとって" /></div>
       <div class="col-lg-6">
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
             <div class="project-text w-100 my-auto text-center text-lg-left">
               <h4 class="text-black-50">社員にとって</h4>
-              <p class="mb-0 text-black-50">気軽に感謝を伝えられる。貢献して感謝される、そんな仕事の原理原則とも言える喜びに気づくことができる。日々の実直な働きが感謝や評価としてより目に見える形で反映される。</p>
+              <p class="mb-0 text-black-50">気軽に感謝を伝えることができます。<br>貢献して感謝される、そんな仕事の原理原則とも言える喜びに気づくことができるはずです。<br>日々の実直な働きが感謝や評価としてより目に見える形で反映されることになります。</p>
               <hr class="d-none d-lg-block mb-0 ml-0" />
             </div>
           </div>
@@ -48,15 +53,15 @@
     <div class="row justify-content-center no-gutters">
       <%# 画像パス要確認 %>
       <div class="col-lg-6">
-        <img class="img-fluid" src="assets/thanks.png" alt="" />
+        <img class="img-fluid" src="assets/thanks_red.jpeg" alt="企業にとって" />
         <%# <%= image_tag asset_path("thanks.png", alt: "企業にとって") %> %>
       </div>
       <div class="col-lg-6 order-lg-first">
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
-            <div class="project-text w-100 my-auto text-center text-lg-right">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
               <h4 class="text-black-50">企業にとって</h4>
-              <p class="mb-0 text-black-50">社員同士のコミュニケーションを活性化させることができる。社員がより働きやすい環境を醸成することができる。感謝されるほどの貢献・活躍をしているを正当に評価につなげることができる。埋れがちな現場で活躍している社員をきちんと評価していくことにもつながります。</p>
+              <p class="mb-0 text-black-50">社員同士のポジティブなコミュニケーションを活性化させることができます。<br>社員がより気持ちよく働ける職場にすることができます。<br>感謝されるほどの貢献・活躍をしている社員を正当に評価につなげることができます。</p>
               <hr class="d-none d-lg-block mb-0 mr-0" />
             </div>
           </div>
