@@ -4,12 +4,12 @@ class Admins::DepartmentsController < ApplicationController
     @departments = Department.page(params[:page]).per(10)
     respond_to do |format|
       format.html do
-        #html用の処理を書く
+        # html用の処理を書く
       end
       format.csv do
-        #csv用の処理を書く
+        # csv用の処理を書く
         @departments = Department.all
-        send_data render_to_string, filename: "department_index.csv", type: :csv
+        send_data render_to_string, filename: "department_index-#{Time.zone.now.strftime("%Y%m%d %H%M")}.csv", type: :csv
       end
     end
   end
@@ -49,6 +49,7 @@ class Admins::DepartmentsController < ApplicationController
   end
 
   private
+
 	def department_params
 	params.require(:department).permit(:name)
 	end

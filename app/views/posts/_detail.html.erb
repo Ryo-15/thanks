@@ -13,7 +13,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.sender.department.name %></h6>
         </div>
       </div>
-      <div class="col-6 d-inline-flex w-100">
+      <div class="col-6 w-100">
         <%= post.post %>
       </div>
       <div class="col-3 text-center">
@@ -42,10 +42,10 @@
       <%= post.post_comments.count %>コメント
     <div class="float-right bg-light">
       <% if post.sender == current_user %>
-        <%= link_to '編集', edit_post_path(post), class: "btn btn-info far fa-edit" %>
-        <%= link_to "削除", post_path(post), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
+        <%= link_to '編集', edit_post_path(post), class: "btn-sm btn-info far fa-edit" %>
+        <%= link_to "削除", post_path(post), method: :delete, class: "btn-sm btn-danger fas fa-trash-alt" %>
       <% end %>
-      <small><%= link_to "投稿一覧に戻る", posts_path %></small>
+      <small><%= link_to "投稿一覧に戻る", posts_path, class: "btn-sm btn-secondary fas fa-undo-alt" %></small>
     </div>
   </div>
 </div>

@@ -17,12 +17,12 @@ class Admins::UsersController < ApplicationController
     @all_users_count = all_users.count
     respond_to do |format|
       format.html do
-        #html用の処理を書く
+        # html用の処理を書く
       end
       format.csv do
-        #csv用の処理を書く
+        # csv用の処理を書く
         @users = User.all
-        send_data render_to_string, filename: "user_index.csv", type: :csv
+        send_data render_to_string, filename: "user_index-#{Time.zone.now.strftime("%Y%m%d %H%M")}.csv", type: :csv
       end
     end
   end
@@ -47,6 +47,7 @@ class Admins::UsersController < ApplicationController
   end
 
   private
+
   def user_params
   params.require(:user).permit(:user_id, :last_name, :first_name, :last_name_kana, :first_name_kana, :email, :password, :profile_image, :department_id)
   end

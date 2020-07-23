@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   scope module: :users do
     devise_for :users, controllers: {
-      registrations: 'users/registrations'
+      registrations: 'users/registrations',
     }
   end
 
@@ -34,8 +34,8 @@ Rails.application.routes.draw do
   get "posts/finish" => "posts#finish"
   get "posts/rank" => "posts#rank"
   resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resource  :favorites,     only:[:create, :destroy]
-    resources :post_comments, only:[:create, :destroy]
+    resource  :favorites,     only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
   end
 
   resources :notifications, only: [:index, :destroy]

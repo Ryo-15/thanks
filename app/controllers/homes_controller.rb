@@ -6,11 +6,9 @@ class HomesController < ApplicationController
   end
 
   def contact
-    
   end
 
   # コンタクトフォーム要確認
   def method_name
-    
   end
 end

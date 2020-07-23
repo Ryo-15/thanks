@@ -28,11 +28,11 @@ class User < ApplicationRecord
   end
 
   ransacker :full_name do |parent|
-    Arel::Nodes::InfixOperation.new('||',parent.table[:last_name], parent.table[:first_name])
+    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name], parent.table[:first_name])
   end
 
   ransacker :full_name_kana do |parent|
-    Arel::Nodes::InfixOperation.new('||',parent.table[:last_name_kana], parent.table[:first_name_kana])
+    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name_kana], parent.table[:first_name_kana])
   end
 
   def self.import(file)

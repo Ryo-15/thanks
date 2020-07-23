@@ -1,53 +1,56 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-8 offset-2">
+      <h3 class="text-center">登録情報</h3>
+      <hr>
       <div class="card">
-        <div class="card-header">登録情報</div>
-          <div class="card-body">
-            <table class="table customer_info">
-              <tbody>
-                <tr>
-                  <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
-                </tr>
-                <tr>
-                  <td>氏名</td>
-                  <td><%= @user.full_name %></td>
-                </tr>
-                <tr>
-                  <td>フリガナ</td>
-                  <td><%= @user.full_name_kana %></td>
-                </tr>
-                <tr>
-                  <td>所属部署</td>
-                  <td><%= @user.department.name  %></td>
-                </tr>
-                <tr>
-                  <td>メールアドレス</td>
-                  <td><%= @user.email %></td>
-                </tr>
-                <tr>
-                  <td>もらったThanks!</td>
-                  <td><%= @user.receiver.count %>Thanks!</td>
-                </tr>
-                <tr>
-                  <td>送ったThanks!</td>
-                  <td><%= @user.sender.count %>Thanks!</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="card-body">
+          <table class="table customer_info">
+            <tbody>
+              <tr>
+                <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
+              </tr>
+              <tr>
+                <td>氏名</td>
+                <td><%= @user.full_name %></td>
+              </tr>
+              <tr>
+                <td>フリガナ</td>
+                <td><%= @user.full_name_kana %></td>
+              </tr>
+              <tr>
+                <td>所属部署</td>
+                <td><%= @user.department.name  %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+                <td>もらったThanks!</td>
+                <td><%= @user.receiver.count %>Thanks!</td>
+              </tr>
+              <tr>
+                <td>送ったThanks!</td>
+                <td><%= @user.sender.count %>Thanks!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
         <% if @user == current_user %>
           <%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-info" %>
-          <div>その他個人情報の変更は管理者へご連絡ください</div>
-          <div>もらったThanks（自分は全件）</div>
+          <small>その他個人情報の変更は管理者へご連絡ください</small>
+          <hr>
+          <h3 class="text-center">もらったThanks!</h3>
+          <hr>
           <%= render 'posts/index', posts: @posts %>
+          <div class="d-flex justify-content-center">
+            <%= paginate @posts, class: "pagination" %>
+          </div>
         <% elsif @user =! current_user %>
           <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
         <% end %>
-      <div class="d-flex justify-content-center">
-        <%# <%= paginate @posts, class: "pagination" %> %>
-      </div>
     </div>
   </div>
 </div>

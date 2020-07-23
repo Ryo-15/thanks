@@ -1,13 +1,16 @@
 <div class="container-fluid yield">
 	<div class="row">
 		<div class="col-8 offset-2">
-				<h4 class="section-ttl">所属部署管理</h4>
+			<h3 class="text-center">所属部署管理</h3>
+      <hr>
 				<div class="col-4">
-					<h5>部署新規登録</h5>
+					<h4 class="text-center">部署新規登録</h4>
+					<hr>
 					<%= render 'form', department: @department, url: admins_departments_path, submit: '登録' %>
 				</div>
 				<div class="">
-					<h5>部署一覧</h5>
+					<h4 class="text-center">部署一覧</h4>
+					<hr>
 					<table class="table table-hover">
 						<thead class="thead-light">
 							<tr>

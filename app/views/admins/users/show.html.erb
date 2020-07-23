@@ -1,50 +1,53 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-8 offset-2">
+			<h3 class="text-center"><%= @user.full_name %>さんの登録情報</h3>
+      <hr>
       <div class="card">
-        <div class="card-header"><%= @user.full_name %>さんの登録情報詳細</div>
-          <div class="card-body">
-						<table class="table">
-							<tbody>
-								<tr>
-									<td class="align-middle">社員ID</td>
-									<td class="align-middle"><%= @user.id %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">プロフィール画像</td>
-									<td class="align-middle"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">氏名</td>
-									<td class="align-middle"><%= @user.full_name %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">フリガナ</td>
-									<td class="align-middle"><%= @user.full_name_kana %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">所属部署名</td>
-									<td class="align-middle"><%= @user.department.name %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">メールアドレス</td>
-									<td class="align-middle"><%= @user.email %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">もらったThanks!</td>
-									<td class="align-middle"><%= @user.receiver.count %></td>
-								</tr>
-								<tr>
-									<td class="align-middle">送ったThanks!</td>
-									<td class="align-middle"><%= @user.sender.count %></td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="card-body">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="align-middle">社員ID</td>
+								<td class="align-middle"><%= @user.id %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">プロフィール画像</td>
+								<td class="align-middle"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "100x100" %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">氏名</td>
+								<td class="align-middle"><%= @user.full_name %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">フリガナ</td>
+								<td class="align-middle"><%= @user.full_name_kana %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">所属部署名</td>
+								<td class="align-middle"><%= @user.department.name %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">メールアドレス</td>
+								<td class="align-middle"><%= @user.email %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">もらったThanks!</td>
+								<td class="align-middle"><%= @user.receiver.count %></td>
+							</tr>
+							<tr>
+								<td class="align-middle">送ったThanks!</td>
+								<td class="align-middle"><%= @user.sender.count %></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
-			<%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-info far fa-edit" %>
-			<%= link_to "ユーザー一覧に戻る", admins_users_path %>
-			<%= link_to "投稿一覧に戻る", admins_index_path %>
+			<%= link_to "ユーザー一覧に戻る", admins_users_path, class: "btn btn-secondary" %>
+			<%= link_to "投稿一覧に戻る", admins_index_path, class: "btn btn-secondary" %>
+			<div class="float-right">
+				<%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-info far fa-edit" %>
+			</div>
 		</div>
 	</div>
 </div>

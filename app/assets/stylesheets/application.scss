@@ -17,20 +17,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #FEF6F1;
+  // background-color: #FEF6F1;
 }
 
 body {
-  background-color: initial;
-  color: initial;
+  background-color: #FEF6F1;
+  // background-color: initial;
+  // color: initial;
 }
 
 // .container-fluid {
 //   display: flex;
-// }
-
-// .header {
-//   background-color: #FEF6F1;
 // }
 
 .yield {
@@ -66,9 +63,14 @@ body {
   margin: 20px 0;
 }
 
-#mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
+#mainNav .navbar .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
   outline: none;
-  background-color: transparent;
+  background-color: #FEF6F1;
+  // background-color: transparent;
+}
+
+.navbar {
+  background-color: #FEF6F1;
 }
 
 #mainNav {
@@ -80,15 +82,15 @@ body {
 }
 #mainNav .navbar-brand {
   padding: 0.5rem 0;
-  color: rgba(255, 255, 255, 0.5);
+  // color: rgba(255, 255, 255, 0.5);
 }
 #mainNav .nav-link {
   transition: none;
   padding: 2rem 1.5rem;
-  color: rgba(255, 255, 255, 0.5);
+  // color: rgba(255, 255, 255, 0.5);
 }
 #mainNav .nav-link:hover {
-  color: rgba(255, 255, 255, 0.75);
+  // color: rgba(255, 255, 255, 0.75);
 }
 // #mainNav .nav-link:active {
 //   color: #fff;
@@ -112,11 +114,12 @@ body {
   background-size: cover;
 }
 
-// .jumbotron {
-//   background-image: url("xxx.jpg");
-//   background-size: cover;
-//   background-position: center 60%;
-// }
+.jumbotron {
+  background-image: url("letter3.jpeg");
+  background-size: cover;
+  background-position: center 100%;
+  // background-color: transparent;
+}
 
 .masthead h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

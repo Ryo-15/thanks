@@ -1,34 +1,36 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-12">
-      <table class="table table-hover" style="table-layout:fixed;width:100%;">
+      <h3 class="text-center">みんなのThanks!</h3>
+      <hr>
+      <table class="table table-sm table-hover" style="table-layout:fixed;width:100%;">
         <thead class="thead-light">
-          <th>送信日時</th>
-          <th>送った人</th>
-          <th>所属部署</th>
-          <th>投稿内容</th>
-          <th>受け取った人</th>
-          <th>所属部署</th>
-          <th>いいね数</th>
+          <th class="" style="width:10%">送信日時<%= sort_asc("occurred_date") %><%= sort_desc("occurred_date") %></th>
+          <th class="" style="width:8%">送った人</th>
+          <th class="" style="width:8%">所属部署</th>
+          <th class="" style="width:50%">投稿内容</th>
+          <th class="" style="width:8%">受け取った人</th>
+          <th class="" style="width:8%">所属部署</th>
+          <th class="" style="width:8%">いいね数</th>
         </thead>
         <tbody>
           <% @posts.each do |post| %>
             <tr>
-              <td class="col"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-              <td class="col">
+              <td><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td>
                 <%= link_to admins_user_path(post.sender.id) do %>
                   <%= post.sender.full_name %>
                 <% end %>
               </td>
-              <td class="col"><%= post.sender.department.name %></td>
-              <td class="col-5" style="word-wrap:break-word;"><%= post.post %></td>
-              <td class="col">
+              <td><%= post.sender.department.name %></td>
+              <td  style="word-wrap:break-word;"><%= post.post %></td>
+              <td>
                 <%= link_to user_path(post.receiver.id) do %>
                   <%= post.receiver.full_name %>
                 <% end %>
               </td>
-              <td class="col"><%= post.receiver.department.name %></td>
-              <td class="col-1"><%= post.favorites.count %></td>
+              <td><%= post.receiver.department.name %></td>
+              <td><%= post.favorites.count %></td>
             </tr>
           <% end %>
         </tbody>

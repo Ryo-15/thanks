@@ -1,7 +1,9 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-4 offset-4">
-      <h2>ログイン</h2>
+      <h3 class="text-center">ユーザーログイン</h3>
+      <hr>
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :email %><br />
@@ -9,7 +11,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（初期パスワード：社員番号）" %><br />
+          <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
         </div>
 

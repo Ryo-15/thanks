@@ -1,8 +1,9 @@
 <div class="container-fluid yield">
   <div class="d-flex flex-row">
     <div class="col-12">
-      <h3>みんなのThanks!</h3>
-      <%= render 'index', posts: @posts %>
+      <h3 class="text-center">みんなのThanks!</h3>
+      <hr>
+      <%= render 'posts/index', posts: @posts %>
       <div class="d-flex justify-content-center">
         <%= paginate @posts, class: "pagination" %>
       </div>
