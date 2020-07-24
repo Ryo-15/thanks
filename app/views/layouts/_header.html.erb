@@ -3,15 +3,15 @@
     <div class="container">
       <% if user_signed_in? %>
         <%= link_to posts_path do %>
-          <img alt="logo" src="/assets/logo1.png" style="height: 60px;">
+          <img alt="logo" src="<%= asset_path "logo1.png" %>" style="height: 60px;">
         <% end %>
       <% elsif admin_signed_in? %>
         <%= link_to admins_index_path do %>
-          <img alt="logo" src="/assets/logo1.png" style="height: 60px;">
+          <img alt="logo" src="<%= asset_path "logo1.png" %>" style="height: 60px;">
         <% end %>
       <% else %>
         <%= link_to root_path do %>
-          <img alt="logo" src="/assets/logo1.png" style="height: 60px;">
+          <img alt="logo" src="<%= asset_path "logo1.png" %>" style="height: 60px;">
         <% end %>
       <% end %>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
