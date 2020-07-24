@@ -1,7 +1,8 @@
 <div class="container-fluid yield">
   <div class="row">
     <div class="col-8 offset-2">
-      <h3>投稿を編集する</h3>
+      <h3 class="text-center">投稿を編集する</h3>
+      <hr>
 
       <%= form_for(@post) do |f| %>
 
@@ -19,12 +20,15 @@
           <%= f.text_area :post, class:"form-control", rows:"10" %>
         </div>
         <div class ="action">
-          <%= f.submit '更新する', class: "btn btn-lg btn-block btn btn-primary" %>
+          <%= f.submit '更新する', class: "btn btn-block btn btn-primary" %>
         </div>
       <% end %>
-
-      <%= link_to "投稿詳細に戻る", post_path(@post) %><br>
-      <%= link_to "投稿一覧に戻る", posts_path %>
+      <small>
+        <%= link_to "投稿詳細に戻る", post_path(@post), class: "btn-sm btn-secondary fas fa-undo-alt" %>
+      </small>
+      <small>
+        <%= link_to "投稿一覧に戻る", posts_path, class: "btn-sm btn-secondary fas fa-undo-alt" %>
+      </small>
     </div>
   </div>
 </div>

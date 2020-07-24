@@ -11,19 +11,19 @@ Admin.create!(
   password: "aaaaaa"
   )
 
-  Department.create!(
-    [
-      {
-        name: "営業",
-      },
-      {
-        name: "事務",
-      },
-      {
-        name: "エンジニア",
-      }
-    ]
-    )
+Department.create!(
+  [
+    {
+      name: "営業",
+    },
+    {
+      name: "事務",
+    },
+    {
+      name: "エンジニア",
+    }
+  ]
+  )
 
 User.create!(
   [
@@ -147,5 +147,75 @@ User.create!(
       password: "wwwwww",
       profile_image: File.open("./app/assets/images/man.jpeg", ?r)
     }
+  ]
+  )
+
+Post.create!(
+  [
+    {
+      sender_id: 1,
+      receiver_id: 3,
+      post: "この前は資料作り手伝ってくれてありがとう！おかげ様でお客様からも好評でした！"
+    },
+    {
+      sender_id: 6,
+      receiver_id: 9,
+      post: "この前はプレゼンおつかれさまでした！お客様からも反響の注文をいただきました！ありがとう！"
+    },
+    {
+      sender_id: 5,
+      receiver_id: 12,
+      post: "いつもコード修正ありがとうございます！"
+    },
+    {
+      sender_id: 2,
+      receiver_id: 3,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 7,
+      receiver_id: 1,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 8,
+      receiver_id: 9,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 7,
+      receiver_id: 6,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 5,
+      receiver_id: 4,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 9,
+      receiver_id: 11,
+      post: "ありがとう！"
+    },
+    {
+      sender_id:  10,
+      receiver_id: 12,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 3,
+      receiver_id: 9,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 8,
+      receiver_id: 7,
+      post: "ありがとう！"
+    },
+    {
+      sender_id: 3,
+      receiver_id: 4,
+      post: "ありがとう！"
+    },
   ]
   )

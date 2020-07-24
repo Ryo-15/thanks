@@ -32,11 +32,11 @@
 			</section>
 			<div class="clearfix">
 			<%# format: :csvと書くことで、/index.csv.rubyを読み込む %>
-				<%= link_to "CSVエクスポート", admins_users_path(format: :csv), class: "btn btn-warning float-left" %>
+				<%= link_to "CSVエクスポート", admins_users_path(format: :csv), class: "btn-sm btn-warning float-left fas fa-file-export" %>
 				<div class="float-right">
 					<%= form_tag import_admins_users_path, multipart: true do %>
 						<%= file_field_tag :file %>
-						<%= submit_tag "CSVインポート", class: "btn btn-primary" %>
+						<%= submit_tag "CSVインポート", class: "btn-sm btn-primary" %>
 					<% end %>
 				</div>
 			</div>

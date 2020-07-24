@@ -43,10 +43,10 @@
 					</table>
 				</div>
 			</div>
-			<%= link_to "ユーザー一覧に戻る", admins_users_path, class: "btn btn-secondary" %>
-			<%= link_to "投稿一覧に戻る", admins_index_path, class: "btn btn-secondary" %>
+			<%= link_to "投稿一覧に戻る", admins_index_path, class: "btn-sm btn-secondary fas fa-undo-alt" %>
+			<%= link_to "ユーザー一覧に戻る", admins_users_path, class: "btn-sm btn-secondary fas fa-undo-alt" %>
 			<div class="float-right">
-				<%= link_to "編集", edit_admins_user_path(@user), class: "btn btn-info far fa-edit" %>
+				<%= link_to "編集", edit_admins_user_path(@user), class: "btn-sm btn-info far fa-edit" %>
 			</div>
 		</div>
 	</div>

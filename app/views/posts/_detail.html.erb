@@ -1,24 +1,24 @@
-<div class="card border-info">
+<div class="card border-right">
   <div class="card-header">
     <%= post.sender.full_name %>さんから<%= post.receiver.full_name %>さんへのThanks!
   </div>
   <div class="card-body">
-    <div class="row">
-      <div class="col-3 text-center">
+    <div class="row no-gutters">
+      <div class="col-md-3 text-center">
         <div class="">
           <%= link_to user_path(post.sender.id) do %>
-            <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
+            <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
             <h5 class="card-title"><%= post.sender.full_name %></h5>
           <% end %>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.sender.department.name %></h6>
         </div>
       </div>
-      <div class="col-6 w-100">
+      <div class="col-md-6 w-100">
         <%= post.post %>
       </div>
-      <div class="col-3 text-center">
+      <div class="col-md-3 text-center">
         <%= link_to user_path(post.receiver.id) do %>
-          <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "200x200" %>
+          <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "160x160" %>
           <h5 class="card-title"><%= post.receiver.full_name %></h5>
         <% end %>
         <h6 class="card-subtitle mb-2 text-muted"><%= post.receiver.department.name %></h6>
@@ -26,7 +26,6 @@
     </div>
   </div>
   <div class="card-footer bg-light">
-    <i class="fa fa-calendar bg-light"></i><%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
     <% if post.favorited_by?(current_user) %>
         <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
           <i class="fas fa-heart bg-light" aria-hidden="true" style="color: red;"></i>
@@ -40,6 +39,8 @@
     <% end %>
       <i class="far fa-comment bg-light"></i>
       <%= post.post_comments.count %>コメント
+    <br>
+    <i class="fa fa-calendar bg-light"></i><%= post.created_at.strftime("%Y/%m/%d %H:%M") %>
     <div class="float-right bg-light">
       <% if post.sender == current_user %>
         <%= link_to '編集', edit_post_path(post), class: "btn-sm btn-info far fa-edit" %>

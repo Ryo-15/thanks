@@ -34,6 +34,35 @@ body {
   // margin-top: auto;
 }
 
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  margin:0;
+  padding:0;
+}
+
+.jumbotron-extend {
+  height: 100vh;
+  min-height: 350px;
+  margin-bottom: 60px;
+  background: url(/assets/letter3.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .profile-img {
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
   box-shadow: 0 2px 6px #c1ced7;
@@ -90,16 +119,8 @@ body {
   // color: rgba(255, 255, 255, 0.5);
 }
 #mainNav .nav-link:hover {
-  // color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
-// #mainNav .nav-link:active {
-//   color: #fff;
-// }
-
-// .img-fluid {
-//   max-width: 100%;
-//   height: auto;
-// }
 
 .masthead {
   position: relative;
@@ -107,18 +128,10 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background-image: image-url("assets/thanks.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-}
-
-.jumbotron {
-  background-image: url("letter3.jpeg");
-  background-size: cover;
-  background-position: center 100%;
-  // background-color: transparent;
 }
 
 .masthead h1 {

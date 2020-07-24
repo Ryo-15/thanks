@@ -22,9 +22,4 @@ CSV.generate do |csv|
       post.favorites.count
     ]
   end
-  #@posts.pluck(*csv_column_names).each do |post|
-    # post_attributes = post.attributes
-    # post_attributes["favorite_id"] = post.favorite.count
-  #  csv << post
-  #end
 end
