@@ -13,8 +13,9 @@
       </div>
     </div>
     <div style="margin-top: 20px;">
-      <%= image_tag image_url('thanks_blue.jpeg') %>
-      <%= image_tag asset_path("thanks_blue.jpeg", :alt => "thanks_top_image", :class => "img-fluid") %>
+      <%# <%= image_tag image_url('thanks_blue.jpeg') %> %>
+      <%# <%= image_tag asset_path("thanks_blue.jpeg", :alt => "thanks_top_image", :class => "img-fluid") %> %>
+      <img class="img-fluid" src="<%= asset_path "thanks_blue.jpeg" %>" alt="hanks_top_image" />
     </div>
   </div>
 </section>
