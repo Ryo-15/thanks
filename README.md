@@ -27,6 +27,29 @@
 ユーザー：感謝を表現したいとき<br>
 管理者：貢献している社員を正当に評価したいとき
 
+## 環境一覧
+*使用言語/フレームワーク<br>
+  ruby-2.5.7<br>
+  Rails 5.2.4.2<br>
+
+*開発環境<br>
+  Vagrant 2.2.6<br>
+  VirtualBox<br>
+
+*本番環境/デプロイ<br>
+  DB server<br>
+  RDS(MySQL)<br>
+  Web server<br>
+  Nginx<br>
+  AP server<br>
+  Puma<br>
+
+*デプロイ<br>
+  capistrano<br>
+
+*その他<br>
+  https<br>
+
 ## 設計書
 [Adminワイヤーフレーム](https://app.diagrams.net/#G1DngPQFpcCuxU0NKNSVKbqf2ePR2u7JUf)<br>
 [Userワイヤーフレーム](https://app.diagrams.net/#G1l9102QeSPrv3IIQ05bdY7Kd7d7ZPfYgL)<br>
@@ -34,8 +57,24 @@
 [UI_Flows_User](https://app.diagrams.net/#G1QCwq7zIU2CqByudgxAFem2cCAnIZu9Wo)<br>
 [ER図](https://app.diagrams.net/#G1G6fu3wetSF8ObgSZb6vQUfn9jT4QXe3Z)<br>
 
-### 機能一覧
-[googleスプレッドシート](https://docs.google.com/spreadsheets/d/11ske6SFWajgfFdTrv7dg0c_PyO68K0bY4ohnrQZiVaQ/edit?usp=sharing)
+## 機能一覧
+[googleスプレッドシート](https://docs.google.com/spreadsheets/d/11ske6SFWajgfFdTrv7dg0c_PyO68K0bY4ohnrQZiVaQ/edit?usp=sharing)<br>
 
+*管理者機能<br>
+  投稿一覧テーブル<br>
+  CSV出力・入力<br>
+  チャート機能<br>
+  ユーザー管理<br>
+  部署管理<br>
+  検索（ユーザー名）<br>
+  ランキング<br>
+
+*ユーザー機能<br>
+  タイムライン<br>
+  投稿<br>
+  いいね（Ajax非同期通信）<br>
+  コメント（Ajax非同期通信）<br>
+  ランキング<br>
+  新着通知（投稿・いいね・コメント）<br>
 
 
