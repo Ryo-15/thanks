@@ -13,7 +13,7 @@
       </div>
     </div>
     <div style="margin-top: 20px;">
-      <img class="img-fluid" src="<%= asset_path "thanks_blue.jpeg" %>" alt="thanks_top_image" />
+      <%= image_tag asset_path("thanks_blue.jpeg"), :alt => "thanks_top_image", :class => "img-fluid" %>
     </div>
   </div>
 </section>
@@ -21,7 +21,9 @@
   <div class="container-fluid">
     <!-- Featured Project Row-->
     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-      <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="<%= asset_path "office.jpeg" %>" alt="office" /></div>
+      <div class="col-xl-8 col-lg-7">
+        <img class="img-fluid mb-3 mb-lg-0" src="<%= asset_path "office.jpeg" %>" alt="office" />
+      </div>
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
           <h4 class="text-black-50">仕事とはどういうものでしょうか</h4>
@@ -34,7 +36,9 @@
     </div>
     <!-- Project One Row-->
     <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-      <div class="col-lg-6"><img class="img-fluid" src="<%= asset_path "thankyou.jpeg" %>" alt="社員にとって" /></div>
+      <div class="col-lg-6">
+        <img class="img-fluid" src="<%= asset_path "thankyou.jpeg" %>" alt="社員にとって" />
+      </div>
       <div class="col-lg-6">
         <div class="bg-black text-center h-100 project">
           <div class="d-flex h-100">
@@ -51,7 +55,6 @@
     <div class="row justify-content-center no-gutters">
       <div class="col-lg-6">
         <img class="img-fluid" src="<%= asset_path "thanks_red.jpeg" %>" alt="企業にとって" />
-        <%# <%= image_tag asset_path("thanks.png", alt: "企業にとって") %> %>
       </div>
       <div class="col-lg-6 order-lg-first">
         <div class="bg-black text-center h-100 project">
