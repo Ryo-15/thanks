@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :favorites,     dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  validates :post,         presence: true
+  validates :post,         presence: true, length: {maximum: 300}
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

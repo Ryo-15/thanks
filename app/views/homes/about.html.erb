@@ -13,13 +13,11 @@
       </div>
     </div>
     <div style="margin-top: 20px;">
-      <%# <%= image_tag image_url('thanks_blue.jpeg') %> %>
-      <%# <%= image_tag asset_path("thanks_blue.jpeg", :alt => "thanks_top_image", :class => "img-fluid") %> %>
       <img class="img-fluid" src="<%= asset_path "thanks_blue.jpeg" %>" alt="hanks_top_image" />
     </div>
   </div>
 </section>
-<section class="projects-section bg-light" id="projects">
+<section class="projects-section" id="projects">
   <div class="container-fluid">
     <!-- Featured Project Row-->
     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -29,12 +27,18 @@
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
           <h4 class="text-black-50">仕事とはどういうものでしょうか</h4>
-          <p class="text-black-50 mb-0">仕事を通しての喜びを再発見しよう。<br>あなたの内面には働く喜びや意義がきっとあるはずです。<br>あなたの働きで必要としてくれる人に貢献できていますか？<br>周りの働きに対して、ありがとうを伝えられていますか？</p>
+          <p class="text-black-50 mb-0">
+            仕事を通しての喜びを再発見しよう。<br>
+            あなたは働く喜びや意義を感じられていますか？<br>
+            あなたの働きで必要としてくれる人に貢献できていますか？<br>
+            そして周りの働きに対して、ありがとうを伝えられていますか？<br>
+            他者の評価が全てではありませんが、貢献できたという実感が大きな喜びに繋がるはずです。</p>
         </div>
       </div>
     </div>
-    <div class="text-center">
-      <h2 class="text-black-50 mb-4">Thanks!がもたらすもの</h2>
+    <div class="text-center" style="margin-top: 20px;">
+      <h3 class="text-black-50 mb-4">Thanks!がもたらすもの</h3>
+      <hr>
     </div>
     <!-- Project One Row-->
     <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
@@ -64,6 +68,54 @@
             <div class="project-text w-100 my-auto text-center text-lg-left">
               <h4 class="text-black-50">企業にとって</h4>
               <p class="mb-0 text-black-50">社員同士のポジティブなコミュニケーションを活性化させることができます。<br>社員がより気持ちよく働ける職場にすることができます。<br>感謝されるほどの貢献・活躍をしている社員を正当に評価につなげることができます。</p>
+              <hr class="d-none d-lg-block mb-0 mr-0" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center" style="margin-top: 20px;">
+    <h3 class="text-black-50 mb-4">Thanks!の具体的な機能</h3>
+  </div>
+  <hr>
+  <!-- Project third Row-->
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="<%= asset_path "thanks_r.jpeg" %>" alt="社員にとって" />
+      </div>
+      <div class="col-lg-6">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
+              <h4 class="text-black-50">社員の皆様に使っていただける機能</h4>
+              <p class="mb-0 text-black-50">
+                ①相手を選択して感謝のメッセージ（Thanks!）を投稿できます。<br>
+                ②Thanks!はタイムラインで確認でき、タイムラインは感謝のメッセージでいっぱいになります。<br>
+                ③気になったThanks!にはいいねやコメントができます。<br>
+                ④Thnaks!やいいねの数に応じてランキングされる機能を搭載しています。<br>
+              </p>
+              <hr class="d-none d-lg-block mb-0 ml-0" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Project fourth Row-->
+    <div class="row justify-content-center no-gutters">
+      <div class="col-lg-6">
+        <img class="img-fluid" src="<%= asset_path "thanks_dark.jpeg" %>" alt="企業にとって" />
+      </div>
+      <div class="col-lg-6 order-lg-first">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
+              <h4 class="text-black-50">企業の皆様に使っていただける機能</h4>
+              <p class="mb-0 text-black-50">
+                ①社員・部署・投稿情報を一元管理できます。<br>
+                ②CSV入出力機能で社員や部署追加などの情報管理が簡単です。<br>
+                ③CSV出力機能で投稿内容や投稿者の詳細な分析が可能です。<br>
+                ④詳細なランキング機能により、Thanks!をもらっている社員を簡単に確認することが可能です。<br>
               <hr class="d-none d-lg-block mb-0 mr-0" />
             </div>
           </div>

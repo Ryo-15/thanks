@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :create, :show, :edit]
+  before_action :correct_user, only: [:edit]
+
   def index
     @posts = Post.page(params[:page]).per(10).reverse_order
   end
@@ -73,19 +76,17 @@ class PostsController < ApplicationController
               )
   end
 
-  # #画面遷移防止のため、定義
-  # def correct_user
-  #   # bookについているidを呼び出し
-  #   book = Book.find(params[:id])
-  #   # カレントユーザーとbookのユーザーのidが不一致であればbook_pathへ
-  #   if current_user != book.user
-  #     redirect_to books_path
-  #   end
-  # end
-
   private
 
   def post_params
     params.require(:post).permit(:sender_id, :receiver_id, :post)
+  end
+
+  # 他の人が編集できないようにする、before_acttionに繋がる
+  def correct_user
+    user = User.find(params[:id])
+    if current_user != user
+      redirect_to user_path(current_user.id)
+    end
   end
 end

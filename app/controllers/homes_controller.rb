@@ -8,7 +8,4 @@ class HomesController < ApplicationController
   def contact
   end
 
-  # コンタクトフォーム要確認
-  def method_name
-  end
 end
