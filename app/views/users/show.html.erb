@@ -49,7 +49,7 @@
             <%= paginate @posts, class: "pagination" %>
           </div>
         <% elsif @user =! current_user %>
-          <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
+          <%# <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
         <% end %>
     </div>
   </div>

@@ -1,5 +1,8 @@
 # Thanks!
 
+## リンク
+- [Thanks!](https://thanks-app.work/)
+
 ## サイト概要
 社員同士の感謝を伝え合う社内SNS
 
@@ -86,6 +89,6 @@
   - CRUD処理
   - レイアウト（gem bootstrap 4.5, kaminari）
   - 画像編集（gem refile）
-  - デバッグ（gem pry-rails））
+  - デバッグ（gem pry-rails）
 
 

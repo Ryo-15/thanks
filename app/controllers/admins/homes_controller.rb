@@ -68,6 +68,6 @@ class Admins::HomesController < ApplicationController
     # hoge.each do|h|
     #   @hoge << [User.find(h[0]).name,h[1]]
     # end
-    @posts = Post.left_joins(:favorites).group('posts.id').order('COUNT(favorites.id) DESC')
+    # @posts = Post.left_joins(:favorites).group('posts.id').order('COUNT(favorites.id) DESC')
   end
 end

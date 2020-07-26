@@ -5,8 +5,8 @@
       <hr>
       <div>受け取ったThanks!</div>
       <% p "---------" %>
-      <% p @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] } %>
-      <%= column_chart @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %>
+      <% p @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.count] } %>
+      <%= column_chart @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.count] }, width: "100%" %>
       <div>送ったThanks!</div>
       <%= column_chart @sender_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %>
       <%# <%= column_chart @post_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %> %>
