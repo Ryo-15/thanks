@@ -50,7 +50,7 @@ class Admins::DepartmentsController < ApplicationController
 
   private
 
-	def department_params
-	params.require(:department).permit(:name)
-	end
+  def department_params
+    params.require(:department).permit(:name)
+  end
 end

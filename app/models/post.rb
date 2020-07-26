@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :favorites,     dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  validates :post,         presence: true, length: {maximum: 300}
+  validates :post,         presence: true, length: { maximum: 300 }
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -24,7 +24,10 @@ class Post < ApplicationRecord
 
   def create_notification_comment!(active_user, post_comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
-    post_comments = PostComment.select(:user_id).where(post_id: id).where.not(user_id: active_user.id).distinct
+    post_comments = PostComment.select(:user_id)
+                    .where(post_id: id)
+                    .where.not(user_id: active_user.id)
+                    .distinct
     post_comments.each do |post_comment|
       save_notification_comment!(active_user, post_comment_id)
     end

@@ -4,14 +4,16 @@
       <h3 class="text-center">チャート</h3>
       <hr>
       <div>受け取ったThanks!</div>
+      <% p "---------" %>
+      <% p @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] } %>
       <%= column_chart @receiver_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %>
       <div>送ったThanks!</div>
       <%= column_chart @sender_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %>
       <%# <%= column_chart @post_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%" %> %>
       <%= bar_chart @sender_ranks.group_by {|i| i.full_name}.map {|k, v| [k, v.size] }, width: "100%", height: "500px" %>
       <div>（仮）ユーザーチャート（ユーザーごとの投稿数）</div>
-      <%# <%= bar_chart Post.group(receiver_id: @user.last_name).count %> %>
-      <%= bar_chart Post.group(:sender_id).count %>
+      <%= column_chart Post.group(:receiver_id).count, xtitle: "受け取ったThanks!数", ytitle: "ユーザー名" %>
+      <%= column_chart Post.group(:sender_id).count, xtitle: "送ったThanks!数", ytitle: "ユーザー名" %>
       <%= bar_chart Post.group(:favorite_id).count %>
       <%= column_chart Favorite.group(:user_id).count %>
       <%= column_chart Favorite.group(:post_id).count %>

@@ -7,7 +7,7 @@ module NotificationsHelper
     # notification.actionがpostかfavoriteかcommentか
     case notification.action
       when "post" then
-        tag.a(notification.action_user.full_name, href: user_path(@action_user), style: "font-weight: bold;") + "さんからあなた宛に" + tag.a('Thanks!', href: post_path(notification.post_id), style: "font-weight: bold;")+"が届いています！"
+        tag.a(notification.action_user.full_name, href: user_path(@action_user), style: "font-weight: bold;") + "さんからあなた宛に" + tag.a('Thanks!', href: post_path(notification.post_id), style: "font-weight: bold;") + "が届いています！"
       when "favorite" then
         tag.a(notification.action_user.full_name, href: user_path(@action_user), style: "font-weight: bold;") + "さんが" + tag.a('あなたのThanks!', href: post_path(notification.post_id), style: "font-weight: bold;") + "にいいね！しました"
       when "post_comment" then
