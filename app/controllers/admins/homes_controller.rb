@@ -63,11 +63,11 @@ class Admins::HomesController < ApplicationController
               .limit(20)
               .pluck(:user_id)
     )
-    # hoge = Post.group(:receiver_id).count
-    # @hoge = []
-    # hoge.each do|h|
-    #   @hoge << [User.find(h[0]).name,h[1]]
-    # end
+    # receive = Post.group(:receiver_id).count
+    # @recieve = []
+    # receive.each do|r|
+    #   @receive << [User.find(r[0]).full_name,r[1]]
+    # # end
     # @posts = Post.left_joins(:favorites).group('posts.id').order('COUNT(favorites.id) DESC')
   end
 end
