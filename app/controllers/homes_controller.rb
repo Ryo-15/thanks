@@ -8,4 +8,7 @@ class HomesController < ApplicationController
   def contact
   end
 
+  def howto
+  end
+
 end

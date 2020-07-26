@@ -86,6 +86,6 @@
   - CRUD処理
   - レイアウト（gem bootstrap 4.5, kaminari）
   - 画像編集（gem refile）
-  - デバッグ（gem pry-rails）
+  - デバッグ（gem pry-rails））
 
 

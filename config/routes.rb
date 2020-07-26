@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/" => "homes#top", as: "root"
   get "/about" => "homes#about"
   get "/contact" => "homes#contact"
+  get "/howto" => "homes#howto"
 
   resources :users, only: [:show, :edit, :update]
 
