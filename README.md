@@ -1,7 +1,7 @@
 # Thanks!
 
-## リンク
-- [Thanks!](https://thanks-app.work/)
+### サイトリンク
+[Thanks!](https://thanks-app.work/)
 
 ## サイト概要
 社員同士の感謝を伝え合う社内SNS
@@ -66,12 +66,12 @@
 - [googleスプレッドシート](https://docs.google.com/spreadsheets/d/11ske6SFWajgfFdTrv7dg0c_PyO68K0bY4ohnrQZiVaQ/edit?usp=sharing)<br>
 
 - 管理者機能<br>
-  - 投稿一覧テーブル（CSVエクスポート）（gem roo）
+  - 投稿一覧テーブル（CSVエクスポート）
   - CSV出力・入力（投稿・ユーザー・部署）
-  - チャート機能（gem chartkick）
-  - ユーザー管理（CSVインポート・エクスポート）（gem roo）
-  - 部署管理（CSVインポート・エクスポート）（gem roo）
-  - ユーザー検索（gem ransack）
+  - チャート機能
+  - ユーザー管理（CSVインポート・エクスポート）
+  - 部署管理（CSVインポート・エクスポート）
+  - ユーザー検索
   - ランキング
 
 - ユーザー機能
@@ -84,11 +84,11 @@
 
 - その他
   - コード解析（rubocop_airbnb）
-  - ユーザー認証機能（gem devise）
-    - 日本語化及びカスタマイズ（gem rails-i18n, gem devise-i18n）
+  - ユーザー認証機能
+    - 日本語化及びカスタマイズ
   - CRUD処理
-  - レイアウト（gem bootstrap 4.5, kaminari）
-  - 画像編集（gem refile）
-  - デバッグ（gem pry-rails）
+  - レイアウト（bootstrap 4.5, kaminari）
+  - デバッグ（pry-rails）
+  - AI機能（自然言語処理を実装予定）
 
 
