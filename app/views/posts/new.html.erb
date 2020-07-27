@@ -1,9 +1,9 @@
 <div class="container-fluid yield">
   <div class="row">
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2">
       <h3 class="text-center">Thanks!を送る</h3>
       <hr>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <small>* まずは送りたい相手を検索！（漢字orカナ）</small><br>
         <%= render 'search', search: @search %>
       </div>
@@ -20,7 +20,9 @@
         <% end %>
         <%# 非同期で自動選択を実装する %>
         <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を選択', class:"form-control")%>
-        <small>* 検索後プルダウンから相手を選択してください</small><br>
+        <div class="col-md-6">
+          <small>* 検索後プルダウンから相手を選択してください</small><br>
+        </div>
         <%= f.hidden_field :sender_id, :value => current_user.id %>
         <%= f.text_area :post, class:"form-control", rows:"10", placeholder:"ありがとうの気持ちをここに" %>
         <%= f.submit "送信", class:"btn btn-block btn-primary" %>
