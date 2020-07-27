@@ -10,5 +10,4 @@ class HomesController < ApplicationController
 
   def howto
   end
-
 end

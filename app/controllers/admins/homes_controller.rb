@@ -40,6 +40,7 @@ class Admins::HomesController < ApplicationController
               )
   end
 
+  # 作成中（試験運用中）
   def chart
     search_date = Date.today
     @receiver_ranks = User.find(

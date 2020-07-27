@@ -1,4 +1,4 @@
-<div class="container-fluid yield">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <h3 class="text-center">登録情報</h3>
@@ -8,7 +8,7 @@
           <table class="table customer_info">
             <tbody>
               <tr>
-                <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"200x200" %></td>
+                <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"200x200" %></td>
               </tr>
               <tr>
                 <td>氏名</td>

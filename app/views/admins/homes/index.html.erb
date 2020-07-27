@@ -5,13 +5,13 @@
       <hr>
       <table class="table table-sm table-hover" style="table-layout:fixed;width:100%;">
         <thead class="thead-light">
-          <th class="" style="width:10%">送信日時</th>
-          <th class="" style="width:10%">送った人</th>
-          <th class="" style="width:10%">所属部署</th>
-          <th class="" style="width:40%">投稿内容</th>
-          <th class="" style="width:10%">受け取った人</th>
-          <th class="" style="width:10">所属部署</th>
-          <th class="" style="width:10%">いいね数</th>
+          <th style="width:10%">送信日時</th>
+          <th style="width:10%">送った人</th>
+          <th style="width:10%">所属部署</th>
+          <th style="width:40%">投稿内容</th>
+          <th style="width:10%">受け取った人</th>
+          <th style="width:10">所属部署</th>
+          <th style="width:10%">いいね数</th>
         </thead>
         <tbody>
           <% @posts.each do |post| %>
@@ -23,7 +23,7 @@
                 <% end %>
               </td>
               <td><%= post.sender.department.name %></td>
-              <td  style="word-wrap:break-word;"><%= post.post %></td>
+              <td style="word-wrap:break-word;"><%= post.post %></td>
               <td>
                 <%= link_to admins_user_path(post.receiver.id) do %>
                   <%= post.receiver.full_name %>

@@ -1,7 +1,7 @@
-<div class="container yield">
+<div class="container-fulid">
   <div class="row">
-    <div class="col-6 offset-3">
-			<h3 class="text-center"><%= @user.full_name %> さんの個人情報編集</h3>
+    <div class="col-md-6 offset-md-3">
+			<h3 class="text-center"><%= @user.full_name %> さん<br>個人情報編集</h3>
       <hr>
 			<%= form_for(@user, url: admins_user_path(@user)) do |f| %>
 				<%= render 'layouts/error_messages', resource: @user %>

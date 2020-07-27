@@ -1,9 +1,9 @@
-<div class="container-fluid yield">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-8 offset-2">
+		<div class="col-md-8 offset-md-2">
 			<h3 class="text-center">所属部署管理</h3>
       <hr>
-				<div class="col-4">
+				<div class="col-md-4">
 					<h4 class="text-center">部署新規登録</h4>
 					<hr>
 					<%= render 'form', department: @department, url: admins_departments_path, submit: '登録' %>
@@ -25,8 +25,12 @@
 								<tr>
 									<td class="align-middle"><%= department.id %></td>
 									<td class="align-middle"><%= department.name %></td>
-									<td class="text-center"><%= link_to "編集", edit_admins_department_path(department), class: "btn btn-info far fa-edit" %></td>
-									<td class="text-center"><%= link_to "削除", admins_department_path(department), method: :delete, class: "btn btn-danger fas fa-trash-alt" %></td>
+									<td class="text-center">
+										<%= link_to "編集", edit_admins_department_path(department), class: "btn btn-info far fa-edit" %>
+									</td>
+									<td class="text-center">
+										<%= link_to "削除", admins_department_path(department), method: :delete, class: "btn btn-danger fas fa-trash-alt" %>
+									</td>
 								</tr>
 							<% end %>
 						</tbody>

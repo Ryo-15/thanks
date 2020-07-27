@@ -6,7 +6,7 @@
           <% @post_ranks.each.with_index(1) do |post, i| %>
           <tr>
             <td class="align-middle"><h5><%= post.favorites.count %>いいね</h5></td>
-            <td class="align-middle"><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+            <td class="align-middle"><%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %></td>
             <td class="align-middle">
               <%= link_to user_path(post.sender.id) do %>
                 <h6 class="card-title"><%= post.sender.full_name %></h6>
@@ -15,7 +15,7 @@
               <%= post.sender.department.name %></small>
             </td>
             <td class="align-middle"><%= post.post %></td>
-            <td class="align-middle"><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size:"60x60" %></td>
+            <td class="align-middle"><%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %></td>
             <td class="align-middle">
               <%= link_to user_path(post.receiver.id) do %>
                 <h6 class="card-title"><%= post.receiver.full_name %></h6>

@@ -12,7 +12,9 @@
 		<% users.each do |user| %>
 			<tr>
 				<td class="align-middle"><%= user.id %></td>
-				<td><%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "profile-img", fallback: "no_image.jpg", size: "60x60" %></td>
+				<td>
+					<%= attachment_image_tag user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "60x60" %>
+				</td>
 				<td class="align-middle">
 					<%= link_to admins_user_path(user) do %>
 						<%= user.full_name %>

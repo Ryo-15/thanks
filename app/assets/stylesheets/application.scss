@@ -30,10 +30,6 @@ body {
   // color: initial;
 }
 
-.yield {
-  // margin-top: auto;
-}
-
 .no-gutters {
   margin:0;
   padding:0;
@@ -77,8 +73,7 @@ body {
   font-size: 1rem;
 }
 
-.profile-img {
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+.rounded-circle {
   box-shadow: 0 2px 6px #c1ced7;
   margin: 20px 0 10px;
   object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
@@ -123,13 +118,11 @@ body {
 
 #mainNav .navbar-brand {
   padding: 0.5rem 0;
-  // color: rgba(255, 255, 255, 0.5);
 }
 
 #mainNav .nav-link {
   transition: none;
   padding: 2rem 1.5rem;
-  // color: rgba(255, 255, 255, 0.5);
 }
 
 #mainNav .nav-link:hover {
