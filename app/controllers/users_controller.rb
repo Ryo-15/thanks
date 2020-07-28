@@ -26,9 +26,9 @@ class UsersController < ApplicationController
 
   # 他の人が編集できないようにする、before_acttionに繋がる
   def correct_user
-    user = User.find(params[:id])
-    if current_user != user
-      redirect_to user_path(current_user.id)
+    unless params[:id].to_i == current_user.id
+      redirect_to user_path(current_user)
     end
   end
+
 end

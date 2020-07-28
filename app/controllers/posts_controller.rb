@@ -83,10 +83,11 @@ class PostsController < ApplicationController
   end
 
   # 他の人が編集できないようにする、before_acttionに繋がる
-  def correct_user
-    user = User.find(params[:id])
-    if current_user != user
-      redirect_to user_path(current_user.id)
-    end
+  def	correct_user
+		post = Post.find(params[:id])
+		if current_user != post.sender
+			redirect_to posts_path
+		end
   end
+
 end

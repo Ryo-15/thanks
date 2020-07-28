@@ -1,4 +1,6 @@
 class Admins::DepartmentsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @department = Department.new
     @departments = Department.page(params[:page]).per(10)
