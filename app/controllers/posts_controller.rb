@@ -54,26 +54,44 @@ class PostsController < ApplicationController
   def rank
     search_date = Date.today
     @receiver_ranks = User.find(
-      Post.where(created_at: search_date.in_time_zone.all_month)
-          .group(:receiver_id)
-          .order('count(receiver_id) desc')
-          .limit(3)
-          .pluck(:receiver_id)
-          )
+      Post.where(
+        created_at: search_date.in_time_zone.all_month
+      ).group(
+        :receiver_id
+      ).order(
+        'count(receiver_id) desc'
+      ).limit(
+        3
+      ).pluck(
+        :receiver_id
+      )
+    )
     @sender_ranks = User.find(
-      Post.where(created_at: search_date.in_time_zone.all_month)
-          .group(:sender_id)
-          .order('count(sender_id) desc')
-          .limit(3)
-          .pluck(:sender_id)
-          )
+      Post.where(
+        created_at: search_date.in_time_zone.all_month
+      ).group(
+        :sender_id
+      ).order(
+        'count(sender_id) desc'
+      ).limit(
+        3
+      ).pluck(
+        :sender_id
+      )
+    )
     @post_ranks = Post.find(
-      Favorite.where(created_at: search_date.in_time_zone.all_month)
-              .group(:post_id)
-              .order('count(post_id) desc')
-              .limit(3)
-              .pluck(:post_id)
-              )
+      Favorite.where(
+        created_at: search_date.in_time_zone.all_month
+      ).group(
+        :post_id
+      ).order(
+        'count(post_id) desc'
+      ).limit(
+        3
+      ).pluck(
+        :post_id
+      )
+    )
   end
 
   private
