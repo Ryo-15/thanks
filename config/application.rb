@@ -16,6 +16,8 @@ module Thanks
     config.i18n.default_locale = :ja
     # タイムゾーン日本
     config.time_zone = 'Asia/Tokyo'
+    # AI自然言語処理
+    config.paths.add 'lib', eager_load: true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
