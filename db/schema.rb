@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_072503) do
     t.integer "user_id"
     t.integer "post_id"
     t.text "comment", null: false
+    t.decimal "score", precision: 5, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_post_comments_on_post_id"
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_072503) do
     t.integer "sender_id", null: false
     t.integer "receiver_id", null: false
     t.text "post", null: false
+    t.decimal "score", precision: 5, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_posts_on_receiver_id"

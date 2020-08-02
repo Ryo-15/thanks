@@ -91,6 +91,7 @@
   - CRUD処理
   - レイアウト（bootstrap 4.5, kaminari）
   - デバッグ（pry-rails）
-  - AI機能（自然言語処理を実装予定）
+  - テストコード（Rspec）（予定）
+  - AI自然言語処理（Natural language API）
 
 

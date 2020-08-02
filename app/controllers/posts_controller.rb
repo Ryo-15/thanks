@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.score = Language.get_data(post_params[:post])
     if @post.save
       @post.create_notification_post!(current_user)
       redirect_to posts_finish_path, notice: 'ありがとうを投稿しました'

@@ -7,11 +7,12 @@
         <thead class="thead-light">
           <th style="width:10%">送信日時</th>
           <th style="width:10%">送った人</th>
-          <th style="width:10%">所属部署</th>
+          <th style="width:9%">所属部署</th>
           <th style="width:40%">投稿内容</th>
           <th style="width:10%">受け取った人</th>
-          <th style="width:10">所属部署</th>
-          <th style="width:10%">いいね数</th>
+          <th style="width:9%">所属部署</th>
+          <th style="width:6%">いいね数</th>
+          <th style="width:6%">スコア</th>
         </thead>
         <tbody>
           <% @posts.each do |post| %>
@@ -31,6 +32,7 @@
               </td>
               <td><%= post.receiver.department.name %></td>
               <td><%= post.favorites.count %></td>
+              <td><%= post.score %></td>
             </tr>
           <% end %>
         </tbody>

@@ -17,6 +17,7 @@
           <div class="comment-meta">
             <small class="text-muted"><%= post_comment.created_at.strftime("%Y/%m/%d %H:%M") %></small>
             <div class="float-right">
+            <small class="comment-score">スコア <%= post_comment&.score %>（試験運用中）</small>
               <% if post_comment.user == current_user %>
                 <%= link_to '削除', post_post_comment_path(post_comment.post, post_comment), class: 'btn-sm btn-danger fas fa-trash-alt', method: :delete, remote: true %>
               <% end %>

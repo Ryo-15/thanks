@@ -56,6 +56,19 @@ class Admins::HomesController < ApplicationController
         :post_id
       )
     )
+    @score_ranks = Post.find(
+      PostComment.where(
+        created_at: search_date.in_time_zone.all_month
+      ).group(
+        :post_id
+      ).order(
+        'sum(score) desc'
+      ).limit(
+        10
+      ).pluck(
+        :post_id
+      )
+    )
   end
 
   # 作成中（試験運用中）
