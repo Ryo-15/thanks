@@ -1,6 +1,8 @@
 require 'base64'
 require 'json'
 require 'net/https'
+require 'logger'
+
 module Language
   class << self
     def get_data(text)
@@ -21,6 +23,7 @@ module Language
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       # APIレスポンス出力
+      Rails.logger.info(response.body)
       JSON.parse(response.body)['documentSentiment']['score']
     end
   end
