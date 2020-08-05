@@ -35,12 +35,12 @@
             <li class="nav-item align-middle">
               <%= link_to 'ランキング', posts_rank_path, class: 'nav-link js-scroll-trigger' %>
             </li>
-            <% if unchecked_notifications.any? %>
-              <i class="fa fa-circle notification-circle" style="color: red;"></i>
-            <% end %>
             <li class="nav-item align-middle">
               <%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %>
             </li>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle" style="color: red;"></i>
+            <% end %>
             <li class="nav-item align-middle">
               <%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %>
             </li>
