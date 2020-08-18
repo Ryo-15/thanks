@@ -48,12 +48,7 @@
     - Puma<br>
   - Route53<br>
   - Certificate Manager<br>
-
-- デプロイ<br>
   - capistrano<br>
-
-- その他<br>
-  - https<br>
 
 ## 設計書
 - [Adminワイヤーフレーム](https://app.diagrams.net/#G1DngPQFpcCuxU0NKNSVKbqf2ePR2u7JUf)<br>
@@ -87,7 +82,6 @@
 - その他
   - コード解析（rubocop_airbnb）（解析修正中）
   - ユーザー認証機能
-    - 日本語化及びカスタマイズ
   - CRUD処理
   - レイアウト（bootstrap 4.5, kaminari）
   - デバッグ（pry-rails）
