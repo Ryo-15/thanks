@@ -3,6 +3,7 @@ class Admins::HomesController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).per(20).reverse_order
+    # @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
     respond_to do |format|
       format.html do
         # html用の処理を書く
