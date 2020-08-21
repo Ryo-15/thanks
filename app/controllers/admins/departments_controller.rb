@@ -11,7 +11,9 @@ class Admins::DepartmentsController < ApplicationController
       format.csv do
         # csv用の処理を書く
         @departments = Department.all
-        send_data render_to_string, filename: "department_index-#{Time.zone.now.strftime("%Y%m%d %H%M")}.csv", type: :csv
+        send_data render_to_string, filename: "department_index-#{
+          Time.zone.now.strftime("%Y%m%d %H%M")
+        }.csv", type: :csv
       end
     end
   end

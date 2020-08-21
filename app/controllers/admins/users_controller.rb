@@ -23,7 +23,9 @@ class Admins::UsersController < ApplicationController
       format.csv do
         # csv用の処理を書く
         @users = User.all
-        send_data render_to_string, filename: "user_index-#{Time.zone.now.strftime("%Y%m%d %H%M")}.csv", type: :csv
+        send_data render_to_string, filename: "user_index-#{
+          Time.zone.now.strftime("%Y%m%d %H%M")
+        }.csv", type: :csv
       end
     end
   end
@@ -45,6 +47,13 @@ class Admins::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to admins_user_path(@user.id)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:danger] = '投稿を削除しました。'
+    redirect_to admins_users_path
   end
 
   private

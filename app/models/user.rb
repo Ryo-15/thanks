@@ -35,11 +35,15 @@ class User < ApplicationRecord
   end
 
   ransacker :full_name do |parent|
-    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name], parent.table[:first_name])
+    Arel::Nodes::InfixOperation.new(
+      '||', parent.table[:last_name], parent.table[:first_name]
+    )
   end
 
   ransacker :full_name_kana do |parent|
-    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name_kana], parent.table[:first_name_kana])
+    Arel::Nodes::InfixOperation.new(
+      '||', parent.table[:last_name_kana], parent.table[:first_name_kana]
+    )
   end
 
   def self.import(file)
@@ -55,10 +59,26 @@ class User < ApplicationRecord
   end
 
   def self.updatable_attributes
-    ["id", "last_name", "first_name", "last_name_kana", "first_name_kana", "department_id"]
+    [
+      "id",
+      "last_name",
+      "first_name",
+      "last_name_kana",
+      "first_name_kana",
+      "department_id",
+    ]
   end
 
   def self.registable_attributes
-    ["id", "last_name", "first_name", "last_name_kana", "first_name_kana", "department_id", "email", "password"]
+    [
+      "id",
+      "last_name",
+      "first_name",
+      "last_name_kana",
+      "first_name_kana",
+      "department_id",
+      "email",
+      "password",
+    ]
   end
 end
