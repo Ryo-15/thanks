@@ -11,7 +11,7 @@ CSV.generate(bom) do |csv|
       post.receiver.full_name,
       post.receiver.department.name,
       post.favorites.count,
-      post.score
+      post.score,
     ]
   end
 end
