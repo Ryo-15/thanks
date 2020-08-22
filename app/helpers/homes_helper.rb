@@ -8,12 +8,10 @@ module HomesHelper
   end
 
   def sort_direction
-    # If params[:direction] is nil, set sort_direction to "desc" by default
     %W[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
   def sort_column
-    # If params[:column] is nil, set sort_column to "occurred_date" by default
-    Transaction.column_names.include?(params[:column]) ? params[:column] : "occurred_date"
+    Post.column_names.include?(params[:column]) ? params[:column] : "created_at"
   end
 end
