@@ -9,7 +9,7 @@ module Sortable
     Post.column_names.include?(params[:column]) ? params[:column] : "created_at"
   end
 
-  def sort_user
-    User.column_names.include?(params[:column]) ? params[:column] : "created_at"
-  end
+  # def sort_user
+  #   User.column_names.include?(params[:column]) ? params[:column] : "created_at"
+  # end
 end

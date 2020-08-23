@@ -3,7 +3,15 @@ class Admins::HomesController < ApplicationController
   include Sortable
 
   def index
-    @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
+    if params[:column] == "favorite"
+      # @posts = Post.find(Favorite.group(:post_id).pluck(:post_id))
+      # @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(20)
+      # @posts = Post.joins("left outer join favorites on posts.id = favorites.post_id").group(:post_id).order("count(posts.id) desc").page(params[:page]).per(20)
+      @posts = Post.left_outer_joins(:favorites).group(:post_id).order("count(posts.id) desc").page(params[:page]).per(20)
+      # @posts = @posts.page(params[:page]).per(20)
+    else
+      @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
+    end
     respond_to do |format|
       format.html do
         # html用の処理を書く

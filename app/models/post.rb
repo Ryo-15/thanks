@@ -13,8 +13,13 @@ class Post < ApplicationRecord
       order("created_at", direction)
     when "department"
       # Post モデルと関連する departments で sort の処理をする
-      
-    when ""
+      # order(department.name, direction)
+    when "receiver"
+
+    when "sender"
+
+    when "favorite"
+
     end
   end
 
