@@ -5,8 +5,8 @@
 		<th>氏名</th>
 		<th>フリガナ</th>
 		<th>所属部署名</th>
-		<th>もらったThanks!</th>
-		<th>送ったThanks!</th>
+		<th>もらったThanks!<%= sort_asc("receiver.count")%><%= sort_desc("receiver.count") %></th>
+		<th>送ったThanks!<%= sort_asc("sender.count")%><%= sort_desc("sender.count") %></th>
 	</thead>
 	<tbody>
 		<% users.each do |user| %>

@@ -6,13 +6,13 @@
       <table class="table table-sm table-hover" style="table-layout:fixed;width:100%;">
         <thead class="thead-light">
           <th style="width:10%">送信日時<%= sort_asc("created_at")%><%= sort_desc("created_at") %></th>
-          <th style="width:10%">送った人</th>
-          <th style="width:9%">所属部署</th>
-          <th style="width:40%">投稿内容</th>
-          <th style="width:10%">受け取った人</th>
-          <th style="width:9%">所属部署</th>
-          <th style="width:6%">いいね数</th>
-          <th style="width:6%">スコア</th>
+          <th style="width:10%">送った人<%= sort_asc("sender_id")%><%= sort_desc("sender_id") %></th>
+          <th style="width:9%">所属部署<%= sort_asc("department")%><%= sort_desc("department") %></th>
+          <th style="width:36%">投稿内容</th>
+          <th style="width:10%">受け取った人<%= sort_asc("receiver")%><%= sort_desc("receiver") %></th>
+          <th style="width:9%">所属部署<%= sort_asc("department")%><%= sort_desc("department") %></th>
+          <th style="width:9%">いいね数<%= sort_asc("favorite")%><%= sort_desc("favorite") %></th>
+          <th style="width:7%">スコア<%= sort_asc("score")%><%= sort_desc("score") %></th>
         </thead>
         <tbody>
           <% @posts.each do |post| %>

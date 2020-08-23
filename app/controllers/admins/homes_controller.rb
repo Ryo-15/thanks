@@ -1,9 +1,8 @@
 class Admins::HomesController < ApplicationController
   before_action :authenticate_admin!
-  helper_method :sort_column, :sort_direction
+  include Sortable
 
   def index
-    # @posts = Post.page(params[:page]).per(20).reverse_order
     @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
     respond_to do |format|
       format.html do
