@@ -99,6 +99,9 @@ gem 'chartkick'
 # Excel, CSV, OpenOffice, GoogleSpreadSheetを開くことが可能
 gem 'roo'
 
+# 論理削除
+gem 'paranoia'
+
 # 環境変数
 gem 'dotenv-rails'
 group :production do

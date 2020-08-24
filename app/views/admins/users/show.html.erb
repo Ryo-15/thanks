@@ -39,6 +39,16 @@
 								<td class="align-middle">送ったThanks!</td>
 								<td class="align-middle"><%= @user.sender.count %></td>
 							</tr>
+							<tr>
+								<td class="align-middle">ステータス</td>
+								<td class="align-middle">
+                  <% if @user.deleted_at == nil %>
+                    在籍
+                  <% else  %>
+                    退職
+                  <% end %>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -47,7 +57,6 @@
 			<%= link_to "ユーザー一覧に戻る", admins_users_path, class: "btn-sm btn-secondary fas fa-undo-alt" %>
 			<div class="float-right">
 				<%= link_to "編集", edit_admins_user_path(@user), class: "btn-sm btn-info far fa-edit" %>
-				<%= link_to "削除", admins_user_path(@user), method: :delete, class: "btn-sm btn-danger fas fa-trash-alt" %>
 			</div>
 		</div>
 	</div>

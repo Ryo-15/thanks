@@ -11,6 +11,8 @@ class Admins::HomesController < ApplicationController
       # @posts = @posts.page(params[:page]).per(20)
     else
       @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
+      # SQL要確認
+      select posts.sender_id, posts.receiver_id, posts.post, A.last_name, "->",  receiver.last_name from posts left join users as A on posts.sender_id = A.id left join users as receiver  on posts.receiver_id = receiver.id ;
     end
     respond_to do |format|
       format.html do

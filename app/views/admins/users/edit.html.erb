@@ -29,6 +29,11 @@
 						<%= f.label :department_id, "所属部署名" %>
 						<%= f.collection_select :department_id, Department.all, :id, :name, include_blank: '選択してください' %>
 					</div>
+					<div class="field">
+						<%= f.label :ステータス , class:"font" %>
+						<%= f.radio_button :deleted_at, :NULL %>在籍
+						<%= f.radio_button :deleted_at, :NOTNULL %>退職
+					</div>
 					<div class="actions">
 						<td><%= f.submit "更新", class: "btn btn-block btn-primary" %></td>
 					</div>

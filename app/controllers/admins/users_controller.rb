@@ -7,13 +7,13 @@ class Admins::UsersController < ApplicationController
     @users =
       if params[:department_id]
         @department = @departments.find(params[:department_id])
-        all_users = @department.users
+        all_users = @department.users.with_deleted
         all_users.page(params[:page]).per(10)
       elsif params[:q]
-        all_users = @search.result.page(params[:page]).per(10)
+        all_users = @search.with_deleted.result.page(params[:page]).per(10)
       else
-        all_users = User.all
-        User.page(params[:page]).per(10)
+        all_users = User.all.with_deleted
+        User.with_deleted.page(params[:page]).per(10)
       end
     @all_users_count = all_users.count
     respond_to do |format|
@@ -36,25 +36,24 @@ class Admins::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.with_deleted.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.with_deleted.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.with_deleted.find(params[:id])
+    if params[:user][:deleted_at] == "NOTNULL"
+      params[:user][:deleted_at] = Date.today
+    else
+      params[:user][:deleted_at] = nil
+    end
     @user.update(user_params)
     redirect_to admins_user_path(@user.id)
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    flash[:danger] = 'ユーザーを削除しました。'
-    redirect_to admins_users_path
-  end
 
   private
 
@@ -68,7 +67,8 @@ class Admins::UsersController < ApplicationController
     :email,
     :password,
     :profile_image,
-    :department_id
+    :department_id,
+    :deleted_at
   )
   end
 end
