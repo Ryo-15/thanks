@@ -19,18 +19,34 @@
             <tr>
               <td><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></td>
               <td>
-                <%= link_to admins_user_path(post.sender.id) do %>
-                  <%= post.sender.full_name %>
+                <% unless post.sender.nil? %>
+                  <%= link_to admins_user_path(post.sender.id) do %>
+                    <%= post.sender.full_name %>
+                  <% end %>
+                <% else %>
+                    退職者
                 <% end %>
               </td>
-              <td><%= post.sender.department.name %></td>
+              <td>
+                <% unless post.sender.nil? %>
+                  <%= post.sender.department.name %>
+                <% end %>
+              </td>
               <td style="word-wrap:break-word;"><%= post.post %></td>
               <td>
-                <%= link_to admins_user_path(post.receiver.id) do %>
-                  <%= post.receiver.full_name %>
+                <% unless post.receiver.nil? %>
+                  <%= link_to admins_user_path(post.receiver.id) do %>
+                    <%= post.receiver.full_name %>
+                  <% end %>
+                <% else %>
+                    退職者
                 <% end %>
               </td>
-              <td><%= post.receiver.department.name %></td>
+              <td>
+                <% unless post.receiver.nil? %>
+                  <%= post.receiver.department.name %>
+                <% end %>
+              </td>
               <td><%= post.favorites.count %></td>
               <td><%= post.score %></td>
             </tr>

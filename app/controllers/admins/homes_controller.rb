@@ -3,6 +3,7 @@ class Admins::HomesController < ApplicationController
   include Sortable
 
   def index
+    # ソート条件によってviewを分岐
     if params[:column] == "favorite"
       # @posts = Post.find(Favorite.group(:post_id).pluck(:post_id))
       # @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(20)
@@ -10,9 +11,9 @@ class Admins::HomesController < ApplicationController
       @posts = Post.left_outer_joins(:favorites).group(:post_id).order("count(posts.id) desc").page(params[:page]).per(20)
       # @posts = @posts.page(params[:page]).per(20)
     else
-      @posts = Post.page(params[:page]).per(20).order(sort_column + ' ' + sort_direction)
+      @posts = Post.with_deleted.order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
       # SQL要確認
-      select posts.sender_id, posts.receiver_id, posts.post, A.last_name, "->",  receiver.last_name from posts left join users as A on posts.sender_id = A.id left join users as receiver  on posts.receiver_id = receiver.id ;
+      # select posts.sender_id, posts.receiver_id, posts.post, A.last_name, "->",  receiver.last_name from posts left join users as A on posts.sender_id = A.id left join users as receiver on posts.receiver_id = receiver.id ;
     end
     respond_to do |format|
       format.html do
