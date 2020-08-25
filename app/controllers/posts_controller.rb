@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def index
-    @posts = Post.page(params[:page]).per(10).reverse_order
+    @posts = Post.with_deleted.page(params[:page]).per(10).reverse_order
   end
 
   def new
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def rank
     search_date = Date.today
-    @receiver_ranks = User.find(
+    @receiver_ranks = User.with_deleted.find(
       Post.where(
         created_at: search_date.in_time_zone.all_month
       ).group(
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
         :receiver_id
       )
     )
-    @sender_ranks = User.find(
+    @sender_ranks = User.with_deleted.find(
       Post.where(
         created_at: search_date.in_time_zone.all_month
       ).group(
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
         :sender_id
       )
     )
-    @post_ranks = Post.find(
+    @post_ranks = Post.with_deleted.find(
       Favorite.where(
         created_at: search_date.in_time_zone.all_month
       ).group(

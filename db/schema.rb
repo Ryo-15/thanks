@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_020245) do
+ActiveRecord::Schema.define(version: 2020_08_25_111408) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_020245) do
     t.decimal "score", precision: 5, scale: 3
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_posts_on_deleted_at"
     t.index ["receiver_id"], name: "index_posts_on_receiver_id"
     t.index ["sender_id"], name: "index_posts_on_sender_id"
   end
