@@ -68,6 +68,7 @@ class User < ApplicationRecord
       "last_name_kana",
       "first_name_kana",
       "department_id",
+      "deleted_at",
     ]
   end
 
