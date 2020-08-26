@@ -31,7 +31,7 @@ class Admins::HomesController < ApplicationController
 
   def rank
     search_date = Date.today
-    @receiver_ranks = User.find(
+    @receiver_ranks = User.with_deleted.find(
       Post.where(
         created_at: search_date.in_time_zone.all_month
       ).
@@ -48,7 +48,7 @@ class Admins::HomesController < ApplicationController
         :receiver_id
       )
     )
-    @sender_ranks = User.find(
+    @sender_ranks = User.with_deleted.find(
       Post.where(
         created_at: search_date.in_time_zone.all_month
       ).
@@ -65,7 +65,7 @@ class Admins::HomesController < ApplicationController
         :sender_id
       )
     )
-    @post_ranks = Post.find(
+    @post_ranks = Post.with_deleted.find(
       Favorite.where(
         created_at: search_date.in_time_zone.all_month
       ).
@@ -82,7 +82,7 @@ class Admins::HomesController < ApplicationController
         :post_id
       )
     )
-    @score_ranks = Post.find(
+    @score_ranks = Post.with_deleted.find(
       PostComment.where(
         created_at: search_date.in_time_zone.all_month
       ).
