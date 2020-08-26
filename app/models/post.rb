@@ -9,22 +9,6 @@ class Post < ApplicationRecord
 
   validates :post,         presence: true, length: { maximum: 300 }
 
-  def self.order_by(column, direction)
-    case column
-    when "created_at"
-      order("created_at", direction)
-    when "department"
-      # Post モデルと関連する departments で sort の処理をする
-      # order(department.name, direction)
-    when "receiver"
-
-    when "sender"
-
-    when "favorite"
-
-    end
-  end
-
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

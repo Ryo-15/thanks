@@ -10,7 +10,7 @@ class Admins::UsersController < ApplicationController
         all_users = @department.users.with_deleted
         all_users.page(params[:page]).per(10)
       elsif params[:q]
-        all_users = @search.with_deleted.result.page(params[:page]).per(10)
+        all_users = @search.result.with_deleted.page(params[:page]).per(10)
       else
         all_users = User.all.with_deleted
         User.with_deleted.page(params[:page]).per(10)
