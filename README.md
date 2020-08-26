@@ -30,10 +30,16 @@
 ユーザー：感謝を表現したいとき<br>
 企業：貢献している社員を正当に評価したいとき
 
-## 環境一覧
+## 環境/使用技術一覧
 - 使用言語/フレームワーク<br>
-  - ruby 2.6.3<br>
-  - Rails 5.2.4.2<br>
+  - フロントエンド<br>
+    - Bootstrap 4<br>
+    - JavaScript<br>
+    - jQuery<br>
+    - Ajax<br>
+  - バックエンド<br>
+    - ruby 2.6.3<br>
+    - Rails 5.2.4.2<br>
 
 - 開発環境<br>
   - Vagrant 2.2.6<br>
@@ -61,12 +67,12 @@
 - [googleスプレッドシート](https://docs.google.com/spreadsheets/d/11ske6SFWajgfFdTrv7dg0c_PyO68K0bY4ohnrQZiVaQ/edit?usp=sharing)<br>
 
 - 管理者機能<br>
-  - 投稿一覧テーブル（CSVエクスポート）
+  - 投稿一覧テーブル
   - CSV出力・入力（投稿・ユーザー・部署）
-  - チャート機能（試験運用中）
-  - ユーザー管理（CSVインポート・エクスポート）
+  - チャート機能
+  - ユーザー管理
   - ユーザー新規登録
-  - 部署管理（CSVインポート・エクスポート）
+  - 部署管理
   - 部署新規登録
   - ユーザー検索（氏名・カナ氏名）
   - 月間ランキング（投稿者・受信者・いいね数）
@@ -80,12 +86,12 @@
   - 新着通知（投稿・いいね・コメント）
 
 - その他
-  - コード解析（rubocop_airbnb）（解析修正中）
+  - コード解析（rubocop_airbnb）
   - ユーザー認証機能
   - CRUD処理
   - レイアウト（bootstrap 4.5, kaminari）
   - デバッグ（pry-rails）
-  - テストコード（Rspec）（予定）
+  - テストコード（Rspec）
   - AI自然言語処理（Natural language API）
 
 
