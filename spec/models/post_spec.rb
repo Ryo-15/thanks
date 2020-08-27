@@ -1,16 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
+  let(:post) { create(:post) }
   context "データが正しく保存される" do
-    before do
-      @post = Post.new
-      @post.sender_id = 1
-      @post.receiver_id = 2
-      @post.post = "テストです"
-      @post.save
-    end
     it "全て入力してあるので保存される" do
-      expect(@post).to be_valid
+      expect(post).to be_valid
     end
   end
 
@@ -28,8 +22,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe 'バリデーションのテスト' do
-    let(:user) { create(:user) }
-    let!(:post) { build(:post, user_id: user.id) }
+    let(:post) { build(:post) }
 
     context 'postカラム' do
       it '空欄でないこと' do
@@ -37,7 +30,7 @@ RSpec.describe Post, type: :model do
         expect(post.valid?).to eq false;
       end
       it '300文字以下であること' do
-        book.body = Faker::Lorem.characters(number:301)
+        post.post = Faker::Lorem.characters(number:301)
         expect(post.valid?).to eq false;
       end
     end
@@ -46,12 +39,13 @@ RSpec.describe Post, type: :model do
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
-        expect(Post.reflect_on_association(:user).macro).to eq :belongs_to
+        expect(Post.reflect_on_association(:sender).macro).to eq :belongs_to
+        expect(Post.reflect_on_association(:receiver).macro).to eq :belongs_to
       end
     end
     context 'PostCommentモデルとの関係' do
       it '1:Nとなっている' do
-        expect(Post.reflect_on_association(:post_comment).macro).to eq :has_many
+        expect(Post.reflect_on_association(:post_comments).macro).to eq :has_many
       end
     end
   end
