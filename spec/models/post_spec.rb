@@ -34,11 +34,11 @@ RSpec.describe Post, type: :model do
     context 'postカラム' do
       it '空欄でないこと' do
         post.post = ''
-        expect(book.valid?).to eq false;
+        expect(post.valid?).to eq false;
       end
       it '300文字以下であること' do
         book.body = Faker::Lorem.characters(number:301)
-        expect(book.valid?).to eq false;
+        expect(post.valid?).to eq false;
       end
     end
   end

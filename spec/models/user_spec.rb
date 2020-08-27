@@ -1,26 +1,61 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "姓、名、メール、パスワード、部署名がある場合、有効である" do
-    # userのそれぞれのカラムに対して値を入れてオブジェクト化する
-    user = User.new(
-    email: "test@example.com",
-    password: "password",
-    last_name: "テスト",
-    first_name: "太郎",
-    last_name_kana: "テスト",
-    first_name_kana: "タロウ",
-    department_id: 1,
-    created_at: 2020-8-25,
-    updated_at: 2020-8-25,
-    )
-    # オブジェクトをexpectに渡した時に、有効である(be valid)という意味になります
-    expect(user).to be_valid
-  end
+  describe 'バリデーションのテスト' do
+    subject { test_user.valid? }
 
-  it "名がない場合、無効である"
-  it "姓がない場合、無効である"
-  it "メールアドレスがない場合、無効である"
-  it "重複したメールアドレスの場合、無効である"
-  it "パスワードがない場合、無効である"
+    let(:user) { FactoryBot.create(:user) }
+
+    context 'first_nameカラム' do
+      let(:test_user) { user }
+
+      it '空欄でないこと' do
+        test_user.first_name = ''
+        is_expected.to eq false
+      end
+    end
+
+    context 'last_nameカラム' do
+      let(:test_user) { user }
+
+      it '空欄でないこと' do
+        test_user.last_name = ''
+        is_expected.to eq false
+      end
+    end
+
+    context 'first_name_kanaカラム' do
+      let(:test_user) { user }
+
+      it '空欄でないこと' do
+        test_user.first_name_kana = ''
+        is_expected.to eq false
+      end
+      it 'カタカナであること' do
+        test_user.first_name_kana = 'てすと'
+        is_expected.to eq false
+      end
+    end
+
+    context 'last_name_kanaカラム' do
+      let(:test_user) { user }
+
+      it '空欄でないこと' do
+        test_user.first_name_kana = ''
+        is_expected.to eq false
+      end
+      it 'カタカナであること' do
+        test_user.last_name_kana = 'すぺっく'
+        is_expected.to eq false
+      end
+    end
+
+    describe 'アソシエーションのテスト' do
+      context 'Postモデルとの関係' do
+        it '1:Nとなっている' do
+          expect(User.reflect_on_association(:post).macro).to eq :belongs_to
+        end
+      end
+    end
+  end
 end

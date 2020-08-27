@@ -13,16 +13,20 @@ RSpec.describe PostComment, type: :model do
       expect(@post_comment).to be_valid
     end
   end
-  context "データが正しく保存されない" do
-    before do
-      @post_comment = PostComment.new
-      @post_comment.user_id = 1
-      @post_comment.post_id = 1
-      @post_comment.comment = ""
-      @post_comment.save
-    end
-    it "commentが入力されていないので保存されない" do
-      expect(@post_comment).to be_invalid
+
+  describe 'バリデーションのテスト' do
+    let(:user) { create(:user) }
+    let!(:post_comment) { build(:post_comment, user_id: user.id) }
+
+    context 'commentカラム' do
+      it '空欄でないこと' do
+        post_comment.comment = ''
+        expect(post_comment.valid?).to eq false;
+      end
+      it '200文字以下であること' do
+        post_comment.comment = Faker::Lorem.characters(number:201)
+        expect(post_comment.valid?).to eq false;
+      end
     end
   end
 end
