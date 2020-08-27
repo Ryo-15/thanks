@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe PostComment, type: :model do
-  let(:post_comment) { create(:post_comment) }
-  context "データが正しく保存される" do
-    it "全て入力してあるので保存される" do
-      expect(post_comment).to be_valid
+  describe 'バリデーションのテスト' do
+    let(:post_comment) { create(:post_comment) }
+
+    context "データが正しく保存される" do
+      it "全て入力してあるので保存される" do
+        expect(post_comment).to be_valid
+      end
     end
   end
 
