@@ -41,6 +41,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # RSpec
   gem 'rspec-rails'
+  # テストに使用するデータ生成
+  gem 'factory_bot_rails'
+  # ダミーデータ自動生成
+  gem 'faker'
   # 静的解析ツール
   gem 'rubocop-airbnb'
   # デプロイを自動化
