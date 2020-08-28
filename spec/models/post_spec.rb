@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe '正しく保存されるかテスト' do
     let(:post) { create(:post) }
-
     context "データが正しく保存される" do
       it "全て入力してあるので保存される" do
         expect(post).to be_valid
@@ -13,7 +12,6 @@ RSpec.describe Post, type: :model do
 
   describe 'バリデーションのテスト' do
     let(:post) { build(:post) }
-
     context 'postカラム' do
       it '空欄でないこと' do
         post.post = ''
