@@ -54,7 +54,6 @@ class Admins::UsersController < ApplicationController
     redirect_to admins_user_path(@user.id)
   end
 
-
   private
 
   def user_params

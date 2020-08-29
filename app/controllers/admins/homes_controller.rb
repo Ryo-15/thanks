@@ -3,7 +3,7 @@ class Admins::HomesController < ApplicationController
   include Sortable
 
   def index
-      @posts = Post.with_deleted.order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
+    @posts = Post.with_deleted.order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
     respond_to do |format|
       format.html do
         # html用の処理を書く

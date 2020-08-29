@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Department, type: :model do
   describe 'バリデーションのテスト' do
     let(:department) { build(:department) }
+
     context 'nameカラム' do
       it '空欄でないこと' do
         department.name = ''

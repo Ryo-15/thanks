@@ -5,30 +5,46 @@ class ApplicationController < ActionController::Base
 
   # sign_up時の登録情報追加
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :department_id, :profile_image])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :department_id,
+      :profile_image
+      ]
+    )
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :department_id, :profile_image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :department_id,
+      :profile_image
+      ]
+    )
   end
 
   # sign in後のredirect先変更
   def after_sign_in_path_for(resource)
     case resource
-      when Admin
-        admins_index_path
-      when User
-        posts_path
+    when Admin
+      admins_index_path
+    when User
+      posts_path
     end
   end
 
   # sign up後のredirect先変更
   def after_sign_up_path_for(resource)
     case resource
-      when Admin
-        admins_top_path
-      when User
-        admins_users_path
+    when Admin
+      admins_top_path
+    when User
+      admins_users_path
     end
   end
 

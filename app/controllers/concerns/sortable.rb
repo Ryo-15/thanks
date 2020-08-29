@@ -8,5 +8,4 @@ module Sortable
   def sort_column
     Post.column_names.include?(params[:column]) ? params[:column] : "created_at"
   end
-
 end
