@@ -11,9 +11,6 @@ class PostsController < ApplicationController
     @post = Post.new
     @search = User.ransack(params[:q])
     @users = @search.result(distinct: true)
-    
-    binding.pry
-    
   end
 
   def create

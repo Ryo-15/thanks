@@ -53,13 +53,17 @@ class User < ApplicationRecord
     " [" + department.name + "] " + last_name + " " + first_name
   end
 
-  ransacker :full_name do |parent|
-    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name], parent.table[:first_name])
-  end
+  # ransacker :active do |parent|
+  #   Arel.sql("users.delete_at is null")
+  # end
 
-  ransacker :full_name_kana do |parent|
-    Arel::Nodes::InfixOperation.new('||', parent.table[:last_name_kana], parent.table[:first_name_kana])
-  end
+  # ransacker :full_name do |parent|
+  #   Arel::Nodes::InfixOperation.new('||', parent.table[:last_name], parent.table[:first_name])
+  # end
+
+  # ransacker :full_name_kana do |parent|
+  #   Arel::Nodes::InfixOperation.new('||', parent.table[:last_name_kana], parent.table[:first_name_kana])
+  # end
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
