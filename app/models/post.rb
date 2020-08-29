@@ -56,5 +56,4 @@ class Post < ApplicationRecord
     )
     notification.save
   end
-
 end

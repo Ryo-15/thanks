@@ -13,3 +13,16 @@ AllCops:
     - 'lib/tasks/*'
     - 'vendor/**/*'
     - 'path/ruby'
+  TargetRubyVersion: 2.5
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Airbnb/RiskyActiverecordInvocation:
+  Enabled: false
+
+Airbnb/DefaultScope:
+  Enabled: false

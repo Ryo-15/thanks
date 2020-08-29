@@ -2,7 +2,7 @@ module Sortable
   extend ActiveSupport::Concern
 
   def sort_direction
-    %W[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    %W(asc desc).include?(params[:direction]) ? params[:direction] : "desc"
   end
 
   def sort_column

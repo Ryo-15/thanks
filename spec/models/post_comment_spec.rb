@@ -18,11 +18,11 @@ RSpec.describe PostComment, type: :model do
     context 'commentカラム' do
       it '空欄でないこと' do
         post_comment.comment = ''
-        expect(post_comment.valid?).to eq false;
+        expect(post_comment.valid?).to eq false
       end
       it '200文字以下であること' do
         post_comment.comment = Faker::Lorem.characters(number: 201)
-        expect(post_comment.valid?).to eq false;
+        expect(post_comment.valid?).to eq false
       end
     end
   end

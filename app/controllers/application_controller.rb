@@ -11,9 +11,8 @@ class ApplicationController < ActionController::Base
       :last_name_kana,
       :first_name_kana,
       :department_id,
-      :profile_image
-      ]
-    )
+      :profile_image,
+    ])
   end
 
   def configure_account_update_params
@@ -23,9 +22,8 @@ class ApplicationController < ActionController::Base
       :last_name_kana,
       :first_name_kana,
       :department_id,
-      :profile_image
-      ]
-    )
+      :profile_image,
+    ])
   end
 
   # sign in後のredirect先変更

@@ -7,7 +7,7 @@ RSpec.describe Department, type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         department.name = ''
-        expect(department.valid?).to eq false;
+        expect(department.valid?).to eq false
       end
     end
   end

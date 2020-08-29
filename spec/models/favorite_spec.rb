@@ -13,6 +13,5 @@ RSpec.describe Favorite, type: :model do
         expect(Favorite.reflect_on_association(:post).macro).to eq :belongs_to
       end
     end
-
   end
 end
