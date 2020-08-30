@@ -3,14 +3,14 @@ class Admins::HomesController < ApplicationController
   include Sortable
 
   def index
-    @posts = Post.with_deleted.order(sort_column + ' ' + sort_direction).page(params[:page]).per(20)
+    @posts = Post.with_deleted.order(sort_column + " " + sort_direction).page(params[:page]).per(20)
     respond_to do |format|
       format.html do
         # html用の処理を書く
       end
       format.csv do
         # csv用の処理を書く
-        @posts = Post.left_joins(:favorites).group('posts.id')
+        @posts = Post.left_joins(:favorites).group("posts.id")
         send_data render_to_string, filename: "post_index-#{
           Time.zone.now.strftime("%Y%m%d %H%M")
         }.csv", type: :csv
@@ -28,7 +28,7 @@ class Admins::HomesController < ApplicationController
         :receiver_id
       ).
       order(
-        'count(receiver_id) desc'
+        "count(receiver_id) desc"
       ).
       limit(
         10
@@ -45,7 +45,7 @@ class Admins::HomesController < ApplicationController
         :sender_id
       ).
       order(
-        'count(sender_id) desc'
+        "count(sender_id) desc"
       ).
       limit(
         10
@@ -62,7 +62,7 @@ class Admins::HomesController < ApplicationController
         :post_id
       ).
       order(
-        'count(post_id) desc'
+        "count(post_id) desc"
       ).
       limit(
         10
@@ -79,7 +79,7 @@ class Admins::HomesController < ApplicationController
         :post_id
       ).
       order(
-        'sum(score) desc'
+        "sum(score) desc"
       ).
       limit(
         10
@@ -98,7 +98,7 @@ class Admins::HomesController < ApplicationController
       ).group(
         :receiver_id
       ).order(
-        'count(receiver_id) desc'
+        "count(receiver_id) desc"
       ).limit(
         20
       ).pluck(
@@ -111,7 +111,7 @@ class Admins::HomesController < ApplicationController
       ).group(
         :sender_id
       ).order(
-        'count(sender_id) desc'
+        "count(sender_id) desc"
       ).limit(
         20
       ).pluck(
@@ -124,7 +124,7 @@ class Admins::HomesController < ApplicationController
       ).group(
         :user_id
       ).order(
-        'count(user_id) desc'
+        "count(user_id) desc"
       ).limit(
         20
       ).pluck(

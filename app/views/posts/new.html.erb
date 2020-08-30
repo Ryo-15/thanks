@@ -4,8 +4,8 @@
       <h3 class="text-center">Thanks!を送る</h3>
       <hr>
       <div class="col-md-6">
-        <small>* まずは送りたい相手を検索！（漢字orカナ）</small><br>
-        <%= render 'search', search: @search %>
+        <small>* まずは送りたい相手を検索！（漢字（姓or名）orカナ（セイorメイ））</small><br>
+        <%= render "search", search: @search %>
       </div>
       <%= form_with(model:@post, url: posts_path, local: true) do |f| %>
         <% if @post.errors.any? %>
@@ -18,7 +18,7 @@
             </ul>
           </div>
         <% end %>
-        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: '送る相手を選択', class:"form-control")%>
+        <%= f.collection_select(:receiver_id, @users, :id, :personal_info, include_blank: "送る相手を選択", class:"form-control")%>
         <div class="col-md-6">
           <small>* 検索後プルダウンから相手を選択してください</small><br>
         </div>

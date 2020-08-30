@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   acts_as_paranoid
 
-  belongs_to :sender,      class_name: 'User'
-  belongs_to :receiver,    class_name: 'User'
+  belongs_to :sender,      class_name: "User"
+  belongs_to :receiver,    class_name: "User"
   has_many :post_comments, dependent: :destroy
   has_many :favorites,     dependent: :destroy
   has_many :notifications, dependent: :destroy
@@ -38,7 +38,7 @@ class Post < ApplicationRecord
         passive_user_id: post_user.id,
         post_id: id,
         post_comment_id: post_comment_id,
-        action: 'post_comment'
+        action: "post_comment"
       )
       # 自分の投稿に対するコメントの場合は、通知済みとする
       if notification.action_user_id == notification.passive_user_id
@@ -52,7 +52,7 @@ class Post < ApplicationRecord
     notification = user.active_notifications.new(
       passive_user_id: receiver_id,
       post_id: id,
-      action: 'post'
+      action: "post"
     )
     notification.save
   end

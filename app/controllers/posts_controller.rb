@@ -18,9 +18,9 @@ class PostsController < ApplicationController
     @post.score = Language.get_data(post_params[:post])
     if @post.save
       @post.create_notification_post!(current_user)
-      redirect_to posts_finish_path, notice: 'ありがとうを投稿しました'
+      redirect_to posts_finish_path, notice: "ありがとうを投稿しました"
     else
-      flash.now[:alert] = 'メッセージを入力してください。'
+      flash.now[:alert] = "メッセージを入力してください。"
       redirect_back(fallback_location: posts_path)
     end
   end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:success] = '投稿を更新しました。'
+      flash[:success] = "投稿を更新しました。"
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:danger] = '投稿を削除しました。'
+    flash[:danger] = "投稿を削除しました。"
     redirect_to posts_path
   end
 
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
       ).group(
         :receiver_id
       ).order(
-        'count(receiver_id) desc'
+        "count(receiver_id) desc"
       ).limit(
         3
       ).pluck(
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
       ).group(
         :sender_id
       ).order(
-        'count(sender_id) desc'
+        "count(sender_id) desc"
       ).limit(
         3
       ).pluck(
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
       ).group(
         :post_id
       ).order(
-        'count(post_id) desc'
+        "count(post_id) desc"
       ).limit(
         3
       ).pluck(

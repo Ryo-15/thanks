@@ -8,7 +8,7 @@
           <table class="table customer_info">
             <tbody>
               <tr>
-                <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"200x200" %></td>
+                <td><%= attachment_image_tag @user, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size:"200x200" %></td>
               </tr>
               <tr>
                 <td>氏名</td>
@@ -44,12 +44,12 @@
           <hr>
           <h3 class="text-center">もらったThanks!</h3>
           <hr>
-          <%= render 'posts/index', posts: @posts %>
+          <%= render "posts/index", posts: @posts %>
           <div class="d-flex justify-content-center">
             <%= paginate @posts, class: "pagination" %>
           </div>
-        <% elsif @user =! current_user %>
-          <%# <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
+        <% elsif @user != current_user %>
+          <%= link_to "このユーザーにThanks!を送る", new_post_path(recreiver_id: @user.id), class: "btn btn-primary" %>
         <% end %>
     </div>
   </div>

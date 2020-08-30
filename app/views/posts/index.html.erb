@@ -3,7 +3,7 @@
     <div class="col-12">
       <h3 class="text-center">みんなのThanks!</h3>
       <hr>
-      <%= render 'posts/index', posts: @posts %>
+      <%= render "posts/index", posts: @posts %>
       <div class="d-flex justify-content-center">
         <%= paginate @posts, class: "pagination" %>
       </div>

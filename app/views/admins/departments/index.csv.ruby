@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 bom = "\uFEFF"
 CSV.generate(bom) do |csv|
   csv_column_names = %w(id name)

@@ -4,7 +4,7 @@
 			<h3 class="text-center"><%= @user.full_name %> さん<br>個人情報編集</h3>
       <hr>
 			<%= form_for(@user, url: admins_user_path(@user)) do |f| %>
-				<%= render 'layouts/error_messages', resource: @user %>
+				<%= render "layouts/error_messages", resource: @user %>
 					<div class="field">
 						<%= f.label :profile_image, "プロフィール画像" %>
 						<%= f.attachment_field :profile_image, class: "user_image" %>
@@ -27,7 +27,7 @@
 					</div>
 					<div class="field">
 						<%= f.label :department_id, "所属部署名" %>
-						<%= f.collection_select :department_id, Department.all, :id, :name, include_blank: '選択してください' %>
+						<%= f.collection_select :department_id, Department.all, :id, :name, include_blank: "選択してください" %>
 					</div>
 					<div class="field">
 						<%= f.label :ステータス , class:"font" %>

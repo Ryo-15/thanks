@@ -27,13 +27,13 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-item align-middle">
-              <%= link_to 'Thanks!一覧', posts_path, class: 'nav-link' %>
+              <%= link_to "Thanks!一覧", posts_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'Thanks!を送る', new_post_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "Thanks!を送る", new_post_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ランキング', posts_rank_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ランキング", posts_rank_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
               <%= link_to "お知らせ", notifications_path, class: "nav-link js-scroll-trigger" %>
@@ -42,54 +42,54 @@
               <i class="fa fa-circle notification-circle" style="color: red;"></i>
             <% end %>
             <li class="nav-item align-middle">
-              <%= link_to 'マイページ', user_path(current_user), class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "マイページ", user_path(current_user), class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
             </li>
           <% elsif admin_signed_in? %>
             <li class="nav-item align-middle">
-              <%= link_to '投稿一覧', admins_index_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "投稿一覧", admins_index_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'チャート', admins_chart_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "チャート", admins_chart_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ランキング', admins_rank_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ランキング", admins_rank_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ユーザー一覧', admins_users_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ユーザー一覧", admins_users_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ユーザー新規登録', new_user_registration_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ユーザー新規登録", new_user_registration_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to '部署一覧/作成', admins_departments_path, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "部署一覧/作成", admins_departments_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to '管理者情報変更', edit_admin_registration_path(current_admin), class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "管理者情報変更", edit_admin_registration_path(current_admin), class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link js-scroll-trigger' %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
             </li>
           <% else %>
             <li class="nav-item align-middle">
-              <%= link_to "トップ", root_path, class: 'nav-link' %>
+              <%= link_to "トップ", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to "Thanks!について", about_path, class: 'nav-link' %>
+              <%= link_to "Thanks!について", about_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to "Thanks!の使い方", howto_path, class: 'nav-link' %>
+              <%= link_to "Thanks!の使い方", howto_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to "ユーザーログイン", new_user_session_path, class: 'nav-link' %>
+              <%= link_to "ユーザーログイン", new_user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link' %>
+              <%= link_to "管理者ログイン", new_admin_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item align-middle">
-              <%= link_to "お問い合わせ", contact_path, class: 'nav-link' %>
+              <%= link_to "お問い合わせ", contact_path, class: "nav-link" %>
             </li>
           <% end %>
         </ul>

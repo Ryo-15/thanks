@@ -18,7 +18,7 @@
   <div class="card-body d-flex flex-column">
     <div class="row">
       <div class="col-md-3 text-center">
-          <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "120x120" %>
+          <%= attachment_image_tag post.sender, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size: "120x120" %>
         <% unless post.sender.nil? %>
           <%= link_to user_path(post.sender.id) do %>
             <h5 class="card-title">
@@ -36,7 +36,7 @@
         <%= post.post %>
       </div>
       <div class="col-md-3 text-center">
-          <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "120x120" %>
+          <%= attachment_image_tag post.receiver, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size: "120x120" %>
         <% unless post.receiver.nil? %>
           <%= link_to user_path(post.receiver.id) do %>
             <h5 class="card-title">

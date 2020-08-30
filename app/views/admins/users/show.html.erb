@@ -13,7 +13,9 @@
 							</tr>
 							<tr>
 								<td class="align-middle">プロフィール画像</td>
-								<td class="align-middle"><%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %></td>
+								<td class="align-middle">
+									<%= attachment_image_tag @user, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %>
+								</td>
 							</tr>
 							<tr>
 								<td class="align-middle">氏名</td>

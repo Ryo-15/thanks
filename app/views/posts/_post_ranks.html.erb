@@ -9,7 +9,7 @@
               <h5><%= post.favorites.count %>いいね</h5>
             </td>
             <td class="align-middle">
-              <%= attachment_image_tag post.sender, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %>
+              <%= attachment_image_tag post.sender, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %>
             </td>
             <td class="align-middle">
               <% unless post.sender.nil? %>
@@ -27,7 +27,7 @@
               <%= post.post %>
             </td>
             <td class="align-middle">
-              <%= attachment_image_tag post.receiver, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %>
+              <%= attachment_image_tag post.receiver, :profile_image, format: "jpeg", class: "rounded-circle", fallback: "no_image.jpg", size:"60x60" %>
             </td>
             <td class="align-middle">
               <% unless post.receiver.nil? %>
